@@ -1,0 +1,20 @@
+---
+# Registry spiders defined here are designed specifically for scraping newbuilds
+# and have no additional functionality.
+
+global_tags:
+  - 'category:registry'
+
+
+global_settings:
+  DOTSCRAPY_ENABLED: True
+
+
+jobs:
+  - spider: NewBuildsRegistry
+    description: 'New builds from Clarksons not matched in our db, integrated with VesselFinder'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    settings:
+      CRAWLERA_ENABLED: True
+      NOTIFY_SOMEONE: 'hkargar@kpler.com; iniklyaev@kpler.com'

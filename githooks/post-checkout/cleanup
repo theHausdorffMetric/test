@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+repo=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
+
+# Delete pyc files because python does not well detect which one to delete/recerate properly
+echo "[ $repo ] Cleaning python garbage"
+
+# Start from the repository root.
+cd ./$(git rev-parse --show-cdup)
+
+# Delete .pyc files and empty directories.
+rm -rf *.egg-info dist build
+find . -name '__pycache__' -exec rm -rf {} +
+find . -name '*.pyc' -exec rm -f {} +
+find . -name '*.pyo' -exec rm -f {} +
+find . -name '*~' -exec rm -f {} +

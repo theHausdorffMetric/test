@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:getMyVesselsResponse xmlns:ns2="http://webservice.vesseltracker.com/">
+      <return timeCreated="2015-06-10T18:46:19.425+02:00">
+        <vessel mmsi="605106030">
+          <masterData callsign="7TJC"
+                      dimA="224" dimB="50" dimC="11" dimD="31"
+                      imo="7400704" name="MOURAD DIDOUCHE" shipType="tankships"
+                      timeUpdated="2015-06-04T22:59:08.568+02:00"/>
+          <positionData course="206.0" datasource="SAT" lat="36.26815"
+                        lon="0.03751666666666666"
+                        timeReceived="2015-06-10T03:54:40.778+02:00"/>
+        </vessel>
+      </return>
+    </ns2:getMyVesselsResponse>
+  </S:Body>
+</S:Envelope>

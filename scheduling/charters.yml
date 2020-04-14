@@ -1,0 +1,784 @@
+---
+default_crons:
+  - '*, *, *, *, {minute}'
+
+global_tags:
+  - 'category:charter'
+
+jobs:
+  # the items for dry bulk affinity operate through timecharter type which we dont have yet
+  - spider: AF_Fixtures_Dry
+    disabled: true
+    description: 'Charters from Affinity for COAL'
+    crons:
+      # email report is received every day at 0800 UTC sharp
+      - '*, *, *, 8, 5'
+    args:
+      folder: 'Reports/Affinity'
+      query: '(SUBJECT "Dry") (UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: AF_Fixtures_Tanker
+    description: 'Charters from Affinity for OIL/CPP'
+    crons:
+      # email report is received every day at 0800 UTC sharp
+      - '*, *, *, 8, 5'
+    args:
+      folder: 'Reports/Affinity'
+      query: '(SUBJECT "Tanker") (UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'sahmed@kpler.com; yeu@kpler.com'
+
+  - spider: AT_Fixtures
+    description: 'alliance scraper for panamax and mr panamax'
+    args:
+      folder: 'Kpler/Hanxi/alliance_afra_pan_mr'
+      query: '(UNSEEN)'
+      limit: '3'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com'
+
+  - spider: BNC_Petcoke_Grades
+    description: 'biel co petcoke grades and player'
+    args:
+      folder: 'Reports/biel co'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: BC_Fixtures_OIL
+    description: 'OIL fixtures from Banchero'
+    args:
+      folder: 'Kpler/Quentin/Banchero Costa'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: BCR_Fixtures
+    description: 'OIL/DPP/CPP fixtures from Banchero'
+    args:
+      folder: 'Reports/Banchero Costa/bc clean and dirty'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com'
+
+  - spider: BCR_Fixtures_VLCC
+    description: 'OIL/DPP vlcc fixtures from Banchero'
+    args:
+      folder: 'Reports/Banchero Costa/vlcc suezmax'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com'
+
+  - spider: BG_Fixtures_CPP
+    description: 'Fixtures from Bloomberg for CPP'
+    args:
+      folder: 'Reports/Bloomberg Clean Jack'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+     NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: BMS_Charters_Clean
+    description: 'Charters from BMS for CPP'
+    crons:
+      - '*, *, *, 15, 30'
+    args:
+      folder: 'Reports/Ocean Brokers/BMS Ocean'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'zliu@kpler.com; yrtan@kpler.com'
+
+  - spider: BMS_Charters_Crude
+    disabled: true
+    description: 'Charters from BMS for OIL'
+    crons:
+      - '*, *, *, 18, 20'
+    args:
+      folder: 'Kpler/Quentin/BMS Quentin'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: DB_Colombia_Charters
+    description: 'Charters from DeepBlue Agency'
+    crons:
+      - '*, *, *, 8, 0'
+    args:
+      folder: 'Reports/deep blue colombia'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: ppater@kpler.com
+
+  - spider: BR_Fixtures_LPG
+    description: 'Daily lpg fixtures from Bergé'
+    args:
+      folder: 'Reports/Berge LPG'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'iniklyaev@kpler.com'
+
+  - spider: BT_DailyFixtures_Crude
+    description: 'Daily crude fixtures from bravo tankers'
+    args:
+      folder: 'Kpler/Quentin/daily crude fixtures'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: DA_Fixtures
+    description: 'Fixtures report from Dietze & Associates LLC'
+    args:
+      folder: 'Kpler/Quentin/Dietze'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'sahmed@kpler.com'
+
+  - spider: Encore_Fixtures
+    description: 'Encore Shipping daily report.'
+    args:
+      folder: 'Kpler/Quentin/Encore Shipping'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'sahmed@kpler.com'
+
+  - spider: Fearntank
+    description: 'Fearntank CPP EAST OF SUEZ FIXTURE.'
+    args:
+      folder: 'Kpler/Quentin/Fearntank CPP'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: FG_Fixtures_LPG
+    description: 'Fearngas LPG'
+    args:
+      folder: 'Reports/Fearngas'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'iniklyaev@kpler.com; nleconte@kpler.com'
+
+  - spider: FL_Fixtures_Clean
+    description: 'Firstlink charters cpp'
+    args:
+      folder: 'Kpler/Hanxi/firstlink clean'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: Galbraith_Clean_West
+    description: 'Charters (CPP) from Galbraith'
+    args:
+      folder: 'Kpler/Quentin/Galbraith Clean West'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'epowell@kpler.com'
+
+  - spider: GB_EA_Fixtures_LPG
+    description: 'Gibson Lpg'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    args:
+      folder: 'Reports/EA Gibson Gas/LPG MARKET REPORT'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'iniklyaev@kpler.com; nleconte@kpler.com'
+
+  - spider: GB_COBFixtures_DPP
+    description: 'Gibson DPP'
+    crons:
+      - '*, *, *, *, 55'
+    args:
+      folder: 'Reports/Gibson/DPP COB'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: GDrive_Fixture_COAL
+    description: 'coal fixtures by Analysts'
+    crons:
+      - '*, *, *, *, 0'
+      - '*, *, *, *, 30'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/COAL/spot_charters'
+
+  - spider: GDrive_Fixture_Liquids
+    description: 'liquid(cpp, dpp, oil) fixtures by Analysts'
+    crons:
+      - '*, *, *, *, 7'
+      - '*, *, *, *, 37'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/Liquids/spot_charters'
+
+  - spider: GDrive_Fixture_LNG
+    description: 'lng fixtures by Analysts'
+    crons:
+      - '*, *, *, *, 14'
+      - '*, *, *, *, 44'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/LNG/spot_charters'
+
+  - spider: GDrive_Fixture_LPG
+    description: 'lpg fixtures by Analysts'
+    crons:
+      - '*, *, *, *, 21'
+      - '*, *, *, *, 52'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/LPG/spot_charters'
+
+  - spider: Gibson_Aframax_Fixtures
+    description: 'Charters (Oil) for Aframax from Gibson'
+    args:
+      folder: 'Reports/Gibson/Aframax'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: Gibson_VLCC_Fixtures
+    description: 'Charters (Oil) from Gibson VLCC'
+    args:
+      folder: 'Reports/Gibson/Gibson VLCC'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: GP_LNG_Fixtures
+    description: 'Fixtures for Ethane'
+    crons:
+      - '*, *, *, 20, 7'
+    args:
+      folder: 'Reports/Graypen LNG'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'iniklyaev@kpler.com'
+
+  - spider: GP_MongstadSture_Fixtures
+    description: 'Fixtures for Mongstad/Sture ports on OIL by Graypen'
+    crons:
+      - '*, *, *, *, 7'
+    args:
+      folder: 'Reports/Graypen MS'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; jjuay-ext@kpler.com'
+
+  - spider: GP_UKFixtures
+    description: 'Weekly UK charter fixtures by Graypen'
+    crons:
+      - '*, *, 1, 14, 15'
+    args:
+      folder: 'Reports/Graypen'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com; iniklyaev@kpler.com; nleconte@kpler.com'
+
+  - spider: HR_Daily_CPP_OIL
+    description: 'Liquids Fixtures from howe rob'
+    args:
+      folder: 'Kpler/Hanxi/daily howe rob'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com'
+
+  - spider: IDT_PTDry_Fixtures
+    description: 'Coal fixtures from Platts'
+    crons:
+      - '*, *, *, 0, 21'
+    args:
+      folder: 'Reports/IDT Coal and Dry'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: IC_BrazilLiquids_Fixtures
+    description: 'Liquid Fixtures for Beazil'
+    crons:
+      - '*, *, *, 8, 0'
+    args:
+      folder: 'Kpler/Marshall/Inchcape Brazil'
+      query: '(SUBJECT "Tanker")(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: Interocean_Fixtures_OIL
+    description: 'OIL fixtures from Interocean'
+    args:
+      folder: 'Kpler/Quentin/Interocean AP'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: JF_Libya_Charters
+    description: 'Libya spot charters by Jurfmar'
+    crons:
+      - '*, *, *, 19, 5'
+    args:
+      folder: 'Reports/Jurfmar'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; iniklyaev@kpler.com; nleconte@kpler.com; yrtan@kpler.com'
+
+  - spider: KN_AbuDhabi_Charters
+    description: 'Spot charter reports from Kanoo Shipping, AbuDhabi'
+    crons:
+      - '*, *, *, 21, 30'
+    args:
+      folder: 'Reports/Shipping/uae daily tanker'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: KN_Crude
+    description: 'Spot charters (OIL) from Kanoo Shipping'
+    # report is vague in how voyages are structured, disabled for now whilst analysts confirm
+    disabled: true
+    args:
+      folder: 'Kpler/Quentin/Kanoo Grades'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: KN_DryBulk_Charters
+    description: 'Spot charters (COAL) from Kanoo Dry Bulk Shipping'
+    crons:
+      - '*, *, *, 22, 0'
+    args:
+      folder: 'Reports/Shipping/INDIA DRY BULKS'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: KN_Regional_Charters
+    description: 'Spot charter reports from Kanoo Shipping, Regional'
+    crons:
+      - '*, *, *, 8, 45'
+    args:
+      folder: 'Kpler/Quentin/Kanoo Regional All'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com'
+
+  - spider: LloydsAPI
+    description: 'Spot charters fixtures by Lloyds'
+    # the website no longer returns any data
+    disabled: true
+    crons:
+      - '*, *, *, 5, {minute}'
+      - '*, *, *, 17, {minute}'
+
+  - spider: MB_SingFuel_Fixtures_DPP
+    description: 'Spot charters fixtures by Maven'
+    args:
+      folder: 'Kpler/Quentin/Maven Sing Fuel Oil'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: MB_Arb
+    description: 'Maven Brokers Arb report crude'
+    args:
+      folder: 'Kpler/Quentin/ARB REPORT CRUDE'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: MB_BashairFixtures_OIL
+    description: 'Maven Brokers Bashayer report crude'
+    args:
+      folder: 'Kpler/Quentin/MAVEN BROKERS - BASHAYER REPORT'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: MB_EastOfSuez_Fixtures_DPP
+    description: 'Maven Brokers East of Suez DPP'
+    crons:
+      - '*, *, *, *, 19'
+    args:
+      folder: 'Kpler/Quentin/Maven Fuel East of Suez'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: MB_NorthAsia_DPP
+    description: 'Maven Brokers North Asia report DPP'
+    crons:
+      - '*, *, *, *, 13'
+    args:
+      folder: 'Kpler/Quentin/Maven North Asia Fuel'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: MB_DailyFixtures_DPP
+    description: 'Maven Brokers DPP Daily Fixtures'
+    crons:
+      - '*, *, *, *, 5'
+    args:
+      folder: 'Kpler/Quentin/Maven DPP Daily'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com'
+
+  - spider: MC_KoreaDry_Fixtures
+    disabled: true
+    description: 'Fixture Info from MEIC Korea'
+    crons:
+      - '*, *, *, 10, {minute}'
+    args:
+      username: 'QBOUCLY75'
+    dynamic_args:
+      password: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQF1AtG7SxKnO6IdIbBHdywiAAAAaDBmBgkqhkiG9w0BBwagWTBXAgEAMFIGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMOEpPmfX8Y+Rlm0f4AgEQgCURJljVv1LBaZ11iLiQsawIj2gOjI4RsPAJCuFShxYeoS4Dlvh3")'
+    settings:
+      NOTIFY_SOMEONE: 'mtrivedi@kpler.com'
+
+  - spider: MCD_Charter
+    description: 'Sportcharter reports from medco'
+    args:
+      folder: 'Reports/medco fixtures'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: Monson_Fixtures_COAL
+    disabled: true
+    description: 'Australian Coal'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: MQ_Fixtures_Dirty
+    description: 'McQuiling Fixtures report'
+    args:
+      folder: 'Kpler/Quentin/McQuilling Dirty Fixture'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: MRI_Fixtures
+    description: 'Spot charters from MRI'
+    crons:
+      - '*, *, *, 18, 0'
+    args:
+      folder: 'Kpler/Quentin/mri'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'zliu@kpler.com; ppater@kpler.com; yrtan@kpler.com'
+
+  - spider: NT_SGDPP_Fixtures
+    description: 'Charters for dpp from N2 Tankers'
+    args:
+      folder: 'Kpler/Quentin/singapore 1mb'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com'
+
+  - spider: NC_Fixtures
+    description: 'Charters for Kozmino port from Maven Brokers'
+    args:
+      folder: 'Kpler/Quentin/NHC Kozmino'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: NT_TankersEast_Fixtures
+    description: 'Charters for tankers dirty eastfrom n2 tankers'
+    args:
+      folder: 'Kpler/Quentin/Tankers Dirty East'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com'
+
+  - spider: O_Fixtures
+    description: 'Spot charters (dry & liquid) from the source that shall not be named'
+    crons:
+      # scheduled randomly to minimise risk of provider noticing a distinct pattern
+      - '*, 2, *, 13, 5'
+      - '*, 13, *, 12, 43'
+      - '*, 17, *, 14, 18'
+    args:
+      batch_size: '1000'
+    dynamic_args:
+      vessel_type: '["tanker", "dry bulk"]'
+    settings:
+      CRAWLERA_ENABLED: true
+      KP_DRIVE_ENABLED: 'True'
+      NOTIFY_ENABLED: 'True'
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: OBZ_Fixtures
+    description: 'ocean bz fixtures'
+    args:
+      folder: 'Kpler/david/ocean bz'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: OS_Atlantic_Fixtures
+    description: 'Spot charters for Atlantic from Ocean Shipbrokers'
+    args:
+      folder: 'Reports/Ocean Brokers/ATLANTIC'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: OT_Fixtures
+    description: 'Spot charters from optima tankers'
+    args:
+      folder: 'Kpler/Hanxi/optima dpp'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com'
+
+  - spider: Pareto
+    description: 'Shipbroking services in the Offshore, Renewables and Telecoms markets, servicing a wide range of Shipowners, Charterers, Shipyards and Operators worldwide'
+    # The page no longer exists, service shutdown probably
+    disabled: true
+    crons:
+      - '*, *, *, 6, *'
+
+  - spider: PF_Gdansk_Charters
+    description: 'Charter Information from Gdansk reports'
+    crons:
+      - '*, *, *, 8, 0'
+    args:
+      folder: 'Reports/EA Gibson Research/Tankers calling Gdansk'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: PI_Venezuela_Charters
+    description: 'Venezuela Spot charters fixtures by PI'
+    crons:
+      - '*, *, *, 19, 0'
+    args:
+      folder: 'Kpler/Quentin/PI Venezuela'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com; sahmed@kpler.com'
+
+  - spider: RN_DPP
+    description: 'Spot charters fixtures by Howe Rob'
+    crons:
+      - '*, *, *, *, {minute}'
+    args:
+      folder: 'Kpler/Quentin/RN-DPP_fix'
+      query: '(OR (SUBJECT "HOWE" SUBJECT "DIRTY")) (UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; yeu@kpler.com'
+
+  - spider: RN_DPP_Freight
+    description: 'Spot charters fixtures by SeaChar'
+    crons:
+      - '*, *, *, *, {minute}'
+    args:
+      folder: 'Kpler/Quentin/RN-DPP_fix'
+      query: '(SUBJECT "Freight") (UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: RN_Fixtures
+    description: 'Spot charters fixtures by Galbraith'
+    crons:
+      - '*, *, *, *, {minute}'
+    args:
+      folder: 'Kpler/Quentin/Reported Fixtures'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: RS_CleanTankers
+    description: 'Spot charters (CPP) from Reuters'
+    args:
+      folder: 'Reports/Thomson Reuters/Clean Tankers'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: RS_DirtyTankers
+    description: 'Spot charters (DPP) from Reuters'
+    args:
+      folder: 'Reports/Thomson Reuters/Dirty Tankers'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  # scheduled at 7 SGP time, 11 UTC time.
+  - spider: RS_Factiva_Fixtures
+    description: 'Dirty Tanker Fixtures from Reuters'
+    crons:
+      - '*, *, *, 11, {minute}'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: RS_WAF
+    description: 'Spot charters from Reuters for WAF'
+    args:
+      folder: 'Reports/Thomson Reuters/WAF'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'sahmed@kpler.com'
+
+  - spider: SEL_Fixtures
+    description: 'seoul line fixtures'
+    crons:
+      - '*, *, *, 8, 0'
+    args:
+      folder: 'Reports/seoul line korea'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: SL_Fixtures_Dirty
+    description: 'Daily Fixture Dirty Report from Shiplinks'
+    args:
+      folder: 'Kpler/Quentin/Shiplinks EOS'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: SMI_Fixtures_Clean
+    description: 'Daily Clean Fixture Report from SMI'
+    args:
+      folder: 'Kpler/Hanxi/smi clean'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: SMI_Fixtures_Dirty
+    description: 'Daily Fixture Report from SMI'
+    args:
+      folder: 'Kpler/Quentin/Southport Martitime Dirty'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: SSY_Clean_West
+    description: 'Spot charters from Simpson Spence Young'
+    args:
+      folder: 'Kpler/Quentin/Simpson Spence Clean'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'hkargar@kpler.com'
+
+  - spider: SSY_EOS_LR1LR2
+    description: 'Spot charters for Suez from Simpson Spence Young'
+    args:
+      folder: 'Kpler/Quentin/Spence Young'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'hkargar@kpler.com'
+
+  - spider: SS_Charters_OIL
+    description: 'Spot charter for oil from strait'
+    args:
+      folder: 'Kpler/Quentin/strait dirty'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: STM_LibyaFixtures_OIL
+    description: 'stream ship libya'
+    crons:
+      - '*, *, *, 22, 10'
+    args:
+      folder: 'Reports/Stream Ship/Libya'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: TN_Fixtures
+    description: 'Spot charters from TrueNorth'
+    args:
+      folder: 'Kpler/Quentin/TNC'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: UN_KlaipedaButinge_Fixtures
+    description: 'Spot charters for Butinge from Unitek'
+    crons:
+      - '*, *, *, 12, 10'
+    args:
+      folder: 'Reports/Ocean Brokers/Klaipeda and Butinge'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com'
+
+  - spider: VLCCFixtures
+    description: 'Spot charters fixtures by Tankers International'
+    crons:
+      - '*, *, *, 6, {minute}'
+      - '*, *, *, 18, {minute}'
+
+  - spider: JMD
+    description: 'Charter from Japan Maritime Daily'
+    crons:
+      - '*, *, *, 6, {minute}'
+      - '*, *, *, 18, {minute}'

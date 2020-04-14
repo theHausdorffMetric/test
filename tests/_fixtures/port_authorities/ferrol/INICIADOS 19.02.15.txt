@@ -1,0 +1,5 @@
+                                                                                                          INICIADOS 19.02.15
+
+
+Atra. Esc. Subp.   Atra. Esc. AñoAtra. Esc. NúmAtra. Esc. Buque Nombre BuqueT. Oper. Cód.    Merc.   Cant. Mov.    Atra. Real Alin. Desc. Atra. Real Noray Ini.Atra. Real Noray Fin.Atra. Real Fec. Ini.Atra. Esc. País Ant. Desc.Atra. Esc. País Post. Desc.
+        S                2015          00042              AFRICABORG              E       ALUMINA SGA 13000,00 SAN CIPRIAN MUELLE PRINCIPAL       0,00                 0,00          18-02-2015 20:30           BAHAMAS                  PAISES BAJOS

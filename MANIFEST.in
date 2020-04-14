@@ -1,0 +1,4 @@
+include LICENCE
+include README.md
+include kp_scrapers/meta.json
+recursive-include kp_scrapers *.sql

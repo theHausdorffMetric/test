@@ -1,0 +1,43 @@
+# This file contains packages required for production usage ONLY
+# For packages related to development, see `dev-requirements.txt`
+
+airtable==0.3.1
+boto3==1.9.91
+click==6.7
+datadog==0.19.0
+dateutils==0.6.6
+emoji==0.5.1
+furl==1.2.1
+google-api-python-client==1.6.2
+googletrans==2.4.0
+lxml==4.5.0
+msoffcrypto-tool==4.10.0
+pandas==0.25.2
+pillow==6.2.2
+psycopg2==2.7.3.2
+pyarrow==0.15.0  # NOTE doesn't support py3.8 yet, see https://github.com/apache/arrow/issues/5987#issuecomment-574923452
+pysimplesoap==1.10
+pytesseract==0.2.4
+python-levenshtein==0.12.0
+pytz==2017.2
+pyyaml==5.3
+rarfile==3.1
+requests==2.22.0
+s3fs==0.3.5
+schematics==2.1.0
+scrapinghub==2.0.3
+scrapy==1.8.0
+scrapy-crawlera==1.6.0
+scrapy-datadog==0.2.8
+scrapy-dotpersistence==0.3.0
+scrapy-history==0.10.7
+scrapy-job-parameters==0.1.10
+scrapy-magicfields==1.1.0
+scrapy-splash==0.7.2
+semver==2.7.9
+sentry-sdk==0.13.0
+slackclient==1.2.1
+sqlalchemy-redshift==0.7.7
+tqdm==4.19.1
+watchdog==0.8.3  # TODO used only once in a deprecated cli file, check if required
+xlrd==1.1.0

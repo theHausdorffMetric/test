@@ -1,0 +1,15 @@
+{"paging":{
+    "since": "SINCE TOKEN",
+    "limit": "1"
+ },
+ "data":[{"mmsi":205194000,
+          "nmea": "SOME NMEA STRING",
+          "msg_type": 1,
+          "longitude":5.342667,
+          "latitude":43.332330,
+          "sog":0.1,
+          "heading":511,
+          "imo":7357452
+          }
+         ]
+}

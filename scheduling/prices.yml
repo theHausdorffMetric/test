@@ -1,0 +1,51 @@
+---
+default_crons:
+  - '*, *, *, 0, 30'
+
+global_tags:
+  - 'category:price'
+
+jobs:
+  - spider: BrentIce
+
+  - spider: BunkerFuelCost
+    crons:
+      - '*, *, *, 7, 0'
+
+  - spider: ExchangeRate
+    crons:
+      - '*, *, *, 23, {minute}'
+
+  - spider: Ino
+
+  - spider: NLIce
+
+  - spider: OilParity
+    crons:
+      - '*, *, *, *, {minute}'
+
+  - spider: PAJ
+
+  - spider: RIM
+    description: RIM intelligence
+    crons:
+      - '*, *, *, 19, {minute}'
+    args:
+      folder: 'Price/LNG/RIM LNG'
+      query: '(UNSEEN)'
+      limit: 1
+    tags:
+      - 'commodity:lng'
+
+  - spider: SLING
+    description: Spider for SLING DKI, North Asia ans Singapore stock exchange index
+    crons:
+      - '*, *, *, 13, {minute}'
+    args:
+        folder: 'Price/LNG/EMC_Sling'
+        query: '(UNSEEN)'
+        limit: 1
+    tags:
+      - 'commodity:lng'
+
+  - spider: UKIce

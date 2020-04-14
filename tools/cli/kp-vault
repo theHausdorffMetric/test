@@ -1,0 +1,119 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Transparent encryption support tailored for team.
+
+The strategy relies on AWS KMS to authentify users that need to read encrypted
+text. This allow a fine grained and consistent control over access control.
+
+Original credit:
+
+        https://github.com/Kpler/kp-admin/blob/master/jira_to_spreadsheet/shared/config.py
+
+NOTE 1: no use of `kp_scrapers.cli` or other helpers is done. Indeed we want the
+script to be as self-contained as possible. Since it is expected to be used to
+decrypt requirements, it should work PRIOR to install dependencies.
+
+
+NOTE 2 (related): `encrypt` and `decrypt` functions below are copy/pasted from
+`kp_scrapers.vault`
+
+"""
+
+import argparse
+from glob import glob
+import logging
+
+from kp_scrapers import vault
+
+
+logger = logging.getLogger(__name__)
+logging.getLogger('boto').setLevel(logging.CRITICAL)
+
+KPLER_AWS_REGION = 'eu-west-1'
+# be gentle with KMS requests
+DECRYPTED_VALUE_CACHE = {}
+KMS_KEY_ID = '20063843-83d9-4211-8795-70bf3b2749d9'
+DEFAULT_DECRYPT_PATTERN = '*.crypt'
+
+
+def decrypt_file(from_file, to_file=None):
+    to_file = to_file or from_file.replace('.crypt', '')
+
+    with open(from_file, 'r') as ff:
+        crypt_content = ff.read()
+
+        with open(to_file, 'w') as ft:
+            ft.write(vault.decrypt(crypt_content).decode("utf-8"))
+
+
+def encrypt_file(from_file, to_file=None):
+    to_file = to_file or '{}.crypt'.format(from_file)
+
+    with open(from_file, 'r') as ff:
+        plain_content = ff.read()
+
+        with open(to_file, 'w') as ft:
+            ft.write(vault.encrypt(KMS_KEY_ID, plain_content).decode("utf-8"))
+
+
+def decrypt_pattern(pattern):
+    for crypt_file in glob(pattern):
+        print('decrypting `{}`'.format(crypt_file))
+        decrypt_file(crypt_file)
+
+
+def parse_args():
+    parent_parser = argparse.ArgumentParser()
+    parent_parser.add_argument(
+        "-t", "--type", default="file", help="input type to decrypt [file|str]"
+    )
+
+    subparsers = parent_parser.add_subparsers(dest="command")
+
+    encrypt_parser = subparsers.add_parser("encrypt")
+    encrypt_parser.add_argument("cryptic", type=str, nargs='*', help="content to encrypt")
+
+    decrypt_parser = subparsers.add_parser("decrypt")
+    # default will search and decrypt all files with `.crypt` extension
+    decrypt_parser.add_argument("cryptic", type=str, nargs='*', help="content to encrypt")
+    decrypt_parser.add_argument("-p", "--pattern", default=None, help="pattern to match files")
+
+    args = parent_parser.parse_args()
+
+    # validate input early
+    if args.type not in ['str', 'file']:
+        raise NotImplementedError("'{}' input type is not supported".format(args.type))
+
+    return args
+
+
+def encrypt_command(args):
+    for plain_input in args.cryptic:
+        print('encrypting `{}`'.format(plain_input))
+        if args.type == 'file':
+            encrypt_file(plain_input)
+        elif args.type == 'str':
+            print(vault.encrypt(KMS_KEY_ID, plain_input).decode("utf-8"))
+
+
+def decrypt_command(args):
+    if args.cryptic:
+        for cryptic_input in args.cryptic:
+            if args.type == 'file':
+                print('decrypting `{}`'.format(cryptic_input))
+                decrypt_file(cryptic_input)
+            elif args.type == 'str':
+                print(vault.decrypt(cryptic_input).decode("utf-8"))
+    else:
+        decrypt_pattern(args.pattern or DEFAULT_DECRYPT_PATTERN)
+
+
+if __name__ == '__main__':
+    args = parse_args()
+
+    # dispatch logic given user commands
+    if args.command == 'encrypt':
+        encrypt_command(args)
+    elif args.command == 'decrypt':
+        decrypt_command(args)

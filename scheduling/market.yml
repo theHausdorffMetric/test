@@ -1,0 +1,68 @@
+---
+global_tags:
+  - 'category:market'
+
+jobs:
+  - spider: Jodi
+    description: 'Backtest: Primary market figures -> Crude Oil → Imports/Exports (kilobarrels)'
+    crons:
+      # Run every Monday to have update as soon as possible
+      - '*, *, 1, {hour}, {minute}'
+    args:
+      report_type: 0
+      unit: 1
+    dynamic_args:
+      product: '[0]'
+      balance: '[2,3]'
+
+  - spider: Jodi
+    description: 'Backtest: Secondary market figures → Liquefied Petroleum Gas Imports/Exports (ktons)'
+    crons:
+      # Run every Monday to have update as soon as possible
+      - '*, *, 1, {hour}, {minute}'
+    args:
+      report_type: 1
+      unit: 4
+    dynamic_args:
+      product: '[0]'
+      balance: '[2,3]'
+
+  - spider: Jodi
+    description: 'Backtest: Secondary market figures → Naphtha, Motor and Aviation, Kerosenes, of which kerosene is jet, gas/diesel oil, fuel oil → Imports/Exports (kilobarrels)'
+    crons:
+      # Run every Monday to have update as soon as possible
+      - '*, *, 1, {hour}, {minute}'
+    args:
+      report_type: 1
+      unit: 1
+    dynamic_args:
+      product: '[1,2,3,4,5,6]'
+      balance: '[2,3]'
+
+  - spider: Jodi
+    description: 'Storage: Primary market figures -> Crude Oil → Production/Direct use/Stock change/Refinery intake (kilobarrels)'
+    crons:
+      - '*, *, 1, {hour}, {minute}'
+    args:
+      report_type: 0
+      unit: 1
+    dynamic_args:
+      product: '[0]'
+      balance: '[0,5,6,8]'
+
+  - spider: EIA_Market_Figures
+    description: 'Storage: Primary market figures -> Crude Oil → Production/Direct use/Stock change/Refinery intake (kilobarrels)'
+    crons:
+      - '*, *, *, *, {minute}'
+    dynamic_args:
+      token: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQE2gV5oHDhtyIaPLzvFm30eAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIDel+OyxzyDfkeLeAgEQgDs0FWUt9YoihDKJ7hotiJ5CzLEQo5jK7HqN69dRpLQ9Zbeu1SPW1o5VbOtqz3pwCKWOAeReSgjsxG9QTA==")'
+
+  - spider: AlaskaInventories
+    description: 'Storage: Primary market figures -> Crude Oil → Production/Direct use/Stock change/Refinery intake (barrels)'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+
+  - spider: PAJMarketFigure
+    description: 'Storage: Primary market figures -> Crude Oil → Ending stock/Refinery intake (kiloliter)'
+    crons:
+      - '*, *, *, {hour}, {minute}'

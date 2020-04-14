@@ -1,0 +1,21 @@
+---
+global_tags:
+  - 'category:weather'
+
+jobs:
+  - spider: NHC
+    description: 'Extract active hurricanes in the Atlantic'
+    crons:
+      - '*, *, *, *, {minute}'
+    tags:
+      - 'warning:hurricane'
+      - 'localisation:atlantic'
+
+   # can be ran with `-a past_days=7` to retrieve older alerts. Untested though
+  - spider: JTWC
+    description: 'Joint Typhoon Warning Center'
+    crons:
+      - '*, *, *, *, {minute}'
+    tags:
+      - 'warning:cyclone'
+      - 'localisation:world'

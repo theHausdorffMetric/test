@@ -1,0 +1,616 @@
+---
+default_crons:
+  - '*, *, *, *, {minute}'
+
+global_tags:
+  - 'category:port-authority'
+
+# TODO better descriptions
+# List of spider jobs are alphabetical, lets keep it that way
+jobs:
+  - spider: Abidjan
+    # url changed and spider needs to be fixed
+    disabled: true
+    tags:
+      - 'country:Ivory-Coast'
+
+  - spider: Algiers
+    tags:
+      - 'country:Algeria'
+
+  - spider: Altamira
+    tags:
+      - 'country:Mexico'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Arzew
+    tags:
+      - 'country:Algeria'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: BahiaBlanca
+    crons:
+      - '*, *, *, 5, {minute}'
+    tags:
+      - 'country:Argentina'
+
+  - spider: Barcelona
+    tags:
+      - 'country:Spain'
+
+  - spider: Bejaia
+    tags:
+      - 'country:Algeria'
+
+  - spider: Bilbao
+    tags:
+      - 'country:Spain'
+    crons:
+      # source updates once daily at 0700 UTC
+      - '*, *, *, 7, {minute}'
+
+  - spider: BilbaoWeb
+    tags:
+      - 'country:Spain'
+    args:
+      table_name: 'Scheduled Calls'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Bordeaux
+    tags:
+      - 'country:France'
+
+  - spider: Botany
+    tags:
+      - 'country:Australia'
+
+  - spider: Beira
+    tags:
+      - 'country:Mozambique'
+
+  - spider: Callao
+    tags:
+      - 'country:Peru'
+
+  - spider: Cartagena
+    crons:
+      - '*, *, *, *, */30'
+    tags:
+      - 'country:Colombia'
+
+  # weekly spider
+  - spider: Ceyhan
+    tags:
+      - 'country:Turkey'
+    crons:
+      - '*, *, 1, {hour}, {minute}'
+
+  - spider: Chittagong
+    tags:
+      - 'country:Bangladesh'
+
+  - spider: ChileanPorts
+    tags:
+      - 'country:Chile'
+    crons:
+      - '*, *, *, *, {minute}'
+    dynamic_args:
+      port_name: '["Quintero", "Mejillones"]'
+
+  - spider: Colombia
+    tags:
+      - 'country:Colombia'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+
+  - spider: CorpusChristi
+    tags:
+      - 'country:USA'
+    args:
+      username: kpler
+      SHIP_CATEGORY: cargo_vessel
+      ACTIVITY: eta
+    dynamic_args:
+      password: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQHuAb/TcnMlHo/gOotF6lMaAAAAZzBlBgkqhkiG9w0BBwagWDBWAgEAMFEGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM3vsqAIKrr0gq0oP7AgEQgCRZboWjIYf12sLoe6vLuTrEQcZcC+6MZWl/nxeRXsKKrdp9kLU=")'
+      DOCK: '["CH1", "TD1"]'  # corresponds to LNG and LPG installations
+
+  - spider: Dahej
+    tags:
+      - 'country:India'
+
+  - spider: Dakar
+    tags:
+      - 'country:Senegal'
+
+  - spider: Damietta
+    tags:
+      - 'country:Egypt'
+
+  - spider: Dampier
+    description: 'Critical source of portcalls for LNG'
+    tags:
+      - 'country:Australia'
+
+  # no longer provide cargo information
+  # new url: https://ports.go.tz/index.php/en/shippinglist
+  # TODO discuss with analysts on criticality of source
+  - spider: DarEsSalam
+    disabled: true
+    tags:
+      - 'country:Tanzania'
+
+  - spider: Darwin
+    tags:
+      - 'country:Australia'
+
+  - spider: Djibouti
+    tags:
+      - 'country:Djibouti'
+
+  - spider: Donges
+    tags:
+      - 'country:France'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Dunkerque
+    tags:
+      - 'country:France'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: ElSalvador
+    tags:
+     - 'country:El Salvador'
+
+  - spider: Ennore
+    tags:
+     - 'country:India'
+
+  - spider: Everglades
+    tags:
+      - 'country:USA'
+
+  - spider: Ferrol
+    # FIXME fail to login
+    disabled: true
+    tags:
+      - 'country:Spain'
+
+  - spider: Genoa
+    tags:
+      - 'country:Italy'
+
+  - spider: Gladstone
+    # Gladstone_GPCL will use this spider as reference
+    disabled: true
+    tags:
+      - 'country:Australia'
+
+  - spider: Gladstone_GPCL
+    tags:
+      - 'country:Australia'
+
+  - spider: Guaymas
+    tags:
+      - 'country:Mexico'
+    crons:
+      # Source provides irregular updates, sometimes weeks on end
+      - '*, *, *, {hour}, {minute}'
+
+  - spider: Gwangyang
+    # link is broken
+    disabled: true
+    tags:
+      - 'country:SouthKorea'
+
+  - spider: Haldia
+    tags:
+      - 'country:India'
+    crons:
+      - '*, *, *, *, {minute}'
+
+  - spider: Hastings
+    # url changed
+    disabled: true
+    tags:
+      - 'country:Australia'
+    crons:
+      - '*, *, *, 7, {minute}'
+
+  - spider: Incheon
+    # link is broken
+    disabled: true
+    tags:
+      - 'country:SouthKorea'
+
+  - spider: ISA
+    tags:
+      - 'country:Argentina'
+
+  - spider: IseBay
+    tags:
+      - 'country:Japan'
+
+  - spider: Itaqui
+    tags:
+      - 'country:Brazil'
+
+  - spider: JebelAli
+    tags:
+      - 'country:UAE'
+    args:
+      movement: 'E'  # E = expected vessels
+    crons:
+      - '*, *, *, *, */30'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Jordan
+    tags:
+      - 'country:Jordan'
+
+  - spider: Karachi
+    tags:
+      - 'country:Pakistan'
+
+  - spider: Klaipeda
+    tags:
+      - 'country:Lithuania'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Kochi
+    tags:
+      - 'country:India'
+
+  - spider: Kuantan
+    tags:
+      - 'country:Malaysia'
+
+  - spider: Nigeria
+    tags:
+      - 'country:Nigeria'
+
+  - spider: Livorno
+    # site is working, information not available
+    disabled: true
+    tags:
+      - 'country:Italy'
+
+  - spider: Mailiao
+    tags:
+      - 'country:Taiwan'
+
+  - spider: Mangalore
+    tags:
+      - 'country:India'
+
+  - spider: Manzanillo
+    tags:
+      - 'country:Mexico'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Marseille
+    description: 'Marseille portcalls for gas tankers'
+    tags:
+      - 'country:France'
+      - 'commodity:gas'
+    crons:
+      - '*, *, *, *, {minute}'
+    args:
+      vessel_type: 'GAZ LIQUEFIES'
+    dynamic_args:
+      status: '["PREVUE", "PROGRAMMEE"]'
+
+  - spider: Marseille
+    description: 'Marseille portcalls for liquid tankers'
+    tags:
+      - 'country:France'
+      - 'commodity:oil'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    args:
+      vessel_type: 'PETROLIER'
+    dynamic_args:
+      status: '["PREVUE", "PROGRAMMEE"]'
+
+  - spider: Marseille
+    description: 'Marseille portcalls for bulk carriers'
+    tags:
+      - 'country:France'
+      - 'commodity:bulk'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    dynamic_args:
+      vessel_type: '["MINERALIER", "PETROL/MINERALIER", "VRAQUIER SOLIDE"]'
+      status: '["PREVUE", "PROGRAMMEE"]'
+
+  - spider: Mazatlan
+    tags:
+      - 'country:Mexico'
+
+  - spider: MenCar
+    tags:
+      - 'country:Spain'
+    crons:
+      # Source is updated daily at 0800 UTC typically
+      - '*, *, *, 9, {minute}'
+
+  - spider: Milford
+    crons:
+      - '*, *, *, *, */10'
+    tags:
+      - 'country:UK'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: MilfordVTS
+    crons:
+      # keep a low profile since we are scrapping this source via a loophole
+      - '*, *, *, {hour}, {minute}'
+    tags:
+      - 'country:UK'
+    settings:
+      # try and limit to one IP address, so it doesn't seem suspiciously like a botnet
+      HTTP_PROXY_ENABLED: "true"
+
+  - spider: Mombasa
+    descrpition: 'Mombasa Port Authority in Kenya'
+    tags:
+      - 'country:Kenya'
+    crons:
+      - '*, *, *, 11, {minute}'
+
+  - spider: Mundra
+    tags:
+      - 'country:India'
+
+  - spider: Nagoya
+    crons:
+      - '*, *, *, *, */30'
+    tags:
+     - 'country:Japan'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: OsakaBay
+    tags:
+      - 'country:Japan'
+
+  # - spider: Pajaritos
+  #   tags:
+  #     - 'country:Mexico'
+  #   crons:
+  #     # Source updates weekly
+  #     - '*, *, *, {hour}, {minute}'
+  #   settings:
+  #     HISTORY_STORE_IF: 'history.logic.StoreNever'
+
+  - spider: PajaritosPDF
+    tags:
+      - 'country:Mexico'
+    crons:
+      # Source updates weekly
+      - '*, *, *, {hour}, {minute}'
+
+  - spider: Paranagua
+    tags:
+      - 'country:Brazil'
+
+  - spider: PampaMelchorita
+    tags:
+      - 'country:Peru'
+    crons:
+      - '*, *, *, 2, {minute}'
+      - '*, *, *, 8, {minute}'
+      - '*, *, *, 14, {minute}'
+      - '*, *, *, 20, {minute}'
+    settings:
+      SPLITVARIANTS_ENABLED: 'true'
+
+  - spider: Pascagoula
+    description: 'port at the center of mexico gulf, emitting a daily line up'
+    crons:
+      - '*, *, *, 10, {minute}'
+    tags:
+      - 'country:Mexico'
+
+  - spider: Pecem
+    tags:
+      - 'country:Brazil'
+
+  - spider: Peru
+    description: 'Peru Customs BOLs'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    tags:
+      - 'country:Peru'
+
+  - spider: PuertoMoin
+    tags:
+      - 'country:CostaRica'
+
+  - spider: PrinceRupert
+    tags:
+      - 'country:Canada'
+
+  - spider: PyeongTaek
+    # Same source as Incheon, link is broken
+    disabled: true
+    tags:
+      - 'country:SouthKorea'
+
+  - spider: Qasim
+    tags:
+      - 'country:Pakistan'
+
+  - spider: Quebec
+    tags:
+      - 'country:Canada'
+
+  - spider: Rio
+    disabled: true
+    # spider deactivated due to inaccurate information
+    tags:
+      - 'country:Brazil'
+    settings:
+      HISTORY_STORE_IF: 'history.logic.StoreNever'
+
+  - spider: RichardsBayMPT
+    tags:
+      - 'country:South Africa'
+
+  - spider: Rotterdam
+    crons:
+      - '*, *, *, *, */10'
+    tags:
+      - 'country:Netherlands'
+    args:
+      event: 'Expected'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Sagunto
+    # site is working, most likely updated to a different format
+    disabled: true
+    tags:
+      - 'country:Spain'
+
+  - spider: SaintJohn
+    tags:
+      - 'country:Canada'
+    crons:
+      - '*, *, *, *, */30'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Santos
+    tags:
+      - 'country:Brazil'
+    crons:
+      - '*, *, *, *, {minute}'
+
+  - spider: Sines
+    tags:
+      - 'country:Portugal'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Skikda
+    tags:
+      - 'country:Algeria'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Sohar
+    tags:
+      - 'country:Oman'
+
+  - spider: SouthKorea
+    tags:
+      - 'country:South Korea'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    dynamic_args:
+      # mapping of port codes to names: https://bit.ly/2JXbu3E
+      port_code: '["020", "030", "031", "300", "620", "621", "820"]'
+
+  - spider: Suape
+    tags:
+      - 'country:Brazil'
+
+  - spider: Swinoujscie
+    tags:
+      - 'country:Poland'
+    crons:
+      - '*, *, *, *, */10'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Taichung
+    tags:
+      - 'country:Taiwan'
+    crons:
+      - '*, *, *, *, */30'
+    settings:
+      CRAWLERA_ENABLED: true
+
+  - spider: Tampico
+    tags:
+      - 'country:Mexico'
+
+  - spider: Tarragona
+    tags:
+      - 'country:Spain'
+
+  - spider: Teesside
+    tags:
+      - 'country:UK'
+
+  - spider: Tema
+    tags:
+      - 'country:Ghana'
+
+  - spider: TokyoBay
+    tags:
+      - 'country:Japan'
+
+  - spider: Topolobampo
+    tags:
+      - 'country:Mexico'
+
+  - spider: Tuticorin
+    tags:
+      - 'country:India'
+
+  - spider: Tuxpan
+    tags:
+      - 'country:Mexico'
+
+  - spider: Vopak
+    crons:
+      - '*, *, *, *, */15'
+    tags:
+      - 'country:Netherlands'
+
+  - spider: Yanbu
+    description: 'covers 9 port schedules in Saudi'
+    # connection time out
+    disabled: true
+    tags:
+      - 'country:UAE'
+
+  - spider: Yokkaichi
+    # site is working, most likely updated to a different format
+    disabled: true
+    tags:
+      - 'country:Japan'
+
+  - spider: Zeebrugge
+    crons:
+      - '*, *, *, *, */10'
+    tags:
+      - 'country:Belgium'
+    settings:
+      CRAWLERA_ENABLED: true

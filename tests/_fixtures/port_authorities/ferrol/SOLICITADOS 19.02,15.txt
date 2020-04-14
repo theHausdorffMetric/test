@@ -1,0 +1,12 @@
+                                                                                  SOLICITADOS 19.02.15
+
+
+Atra. Esc. Subp.   Atra. Esc. AñoAtra. Esc. Núm
+                                              Atra. Esc. Buque Nombre Buque
+                                                                          T. Oper. Cód.          Merc.        Cant. Mov.   Atra. Sol. Alin. Desc. Atra. Sol. Noray Ini.
+                                                                                                                                                                     Atra. Sol. Noray Fin.Atra. Sol. Fec. Ini.
+        S                2015          00047         STOLT SHEARWATER          D            SOSA CAUSTICA      5000,00 SAN CIPRIAN MUELLE PRINCIPAL                                        19-02-2015 13:00
+        F                2015          00115             ALSTERDIEP             E        TRONCOS DE EUCALIPTO 3000,00          NUEVO MUELLE                                                21-02-2015 08:00
+        F                2015          00113       ALESSANDRA LEHMANN           E       ROLLO Y MALLA DE ACERO 1200,00 FERNANDEZ LADREDA (19 - 31)        19,00              23,00         20-02-2015 08:00
+        F                2015          00110              NORDERAU             D             CHATARRA 1/2      3000,00 FERNANDEZ LADREDA (1 - 18)          1,00               1,00         22-02-2015 20:01
+        F                2015          00105           BBC LANGELAND            E      COMPONENTES DE EOLICOS 2000,00       CERRAMIENTO NORTE                                              19-02-2015 20:01

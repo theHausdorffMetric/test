@@ -1,0 +1,2043 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="author" content="Equasis">
+
+
+		<title>Equasis - ShipInfo
+		</title>
+
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Expires" content="0">
+
+		<link href="./vessel_page_files/input.css" rel="stylesheet">
+		<link href="./vessel_page_files/bootstrap.min.css" rel="stylesheet">
+		<link href="./vessel_page_files/font-awesome.min.css" rel="stylesheet">
+		<link href="./vessel_page_files/main.css" rel="stylesheet">
+		<link href="./vessel_page_files/dropdown.css" rel="stylesheet">
+		<link href="./vessel_page_files/table.css" rel="stylesheet">
+		<link href="./vessel_page_files/radios.css" rel="stylesheet">
+
+		<link rel="icon" type="image/x-icon" href="http://www.equasis.org/EquasisWeb/Static/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="http://www.equasis.org/EquasisWeb/Static/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-57-precomposed.png">
+
+
+		<script src="./vessel_page_files/equasis.js"></script>
+
+		<script type="text/javascript" src="./vessel_page_files/memberaccess.js"></script>
+
+
+
+
+		  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="../Static/js/html5shiv.min.js"></script>
+      <script src="../Static/js/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<body onload="initOnglet()">
+	<a style="display:none" data-toggle="collapse" href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#collapse1" aria-expanded="false" id="boutonInitOnglet">
+	</a>
+	<div id="body">
+	<header class="banner">
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse white" role="navigation">
+			<div class="separator bleu-equasis"></div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-2 no-padding">
+
+						<!-- LOGO -->
+						<div class="navbar-header full-width">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#equasis-menu-collapse" id="menu" onclick="toggleMenu();">
+								<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+
+							<button type="button" class="navbar-toggle user" data-toggle="collapse" data-target="#equasis-user-collapse" id="user" onclick="toggleUser();">
+								<span class="sr-only">Toggle navigation</span> <span class="icon-user"></span></button>
+
+
+
+						<a class="navbar-brand" href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=ShipInfo"><img class="img-responsive" src="./vessel_page_files/logo_equasis_prod.gif" alt="logo"></a>
+					</div>
+					<!-- /LOGO -->
+
+
+
+							<!-- SEARCH XS-->
+							<div class="navbar-header full-width hidden-lg hidden-md hidden-sm no-padding">
+								<div class="bleu-equasis no-padding">
+									<div style="padding-left: 6px; padding-right: 6px;">
+										<form class="navbar-form navbar-input-group" id="RechercheEnteteS" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=ShipInfo" name="formSearchEnteteS" onsubmit="document.formSearchEnteteS.P_ENTREE_ENTETE_HIDDEN.value=document.formSearchEnteteS.P_ENTREE_ENTETE_S.value;" method="post">
+											<input type="hidden" id="P_ENTREE_ENTETE_HIDDEN" value="" name="P_ENTREE_ENTETE_HIDDEN"> <input type="hidden" name="P_PAGE" value="1"> <input type="hidden" name="P_PAGE_COMP" value="1"> <input type="hidden" name="P_PAGE_SHIP" value="1">
+											<div class="input-group equasis-input-group">
+												<input type="text" class="form-control" autocomplete="off" placeholder="IMO, Name, Company" name="P_ENTREE_ENTETE_S" id="P_ENTREE_ENTETE_S"> <span class="input-group-btn">
+
+
+													<button class="btn btn-default" type="submit">
+														<i class="icon-search icon-sm"></i>
+													</button>
+												</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<!-- /SEARCH XS-->
+
+
+				</div>
+				<div class="hidden-lg hidden-md hidden-sm">
+					<div class="collapse navbar-collapse hidden-lg hidden-md hidden-sm" id="equasis-user-collapse">
+
+
+							<div class="navbar-right hidden-lg hidden-md hidden-sm">
+								<!-- USER INFO XS -->
+								<div class="access-body">
+									<h3>
+										Welcome
+									</h3>
+									<div class="clearfix"></div>
+									<form name="formInfoUser" method="post" action="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=ShipInfo" onsubmit="window.location.reload()">
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<h3 class="bleu-equasis">Mr
+													Yacine Badiss</h3>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="clearfix h15"></div>
+												<h3 class="bleu-equasis">
+													You can :
+												</h3>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<ul class="no-margin">
+													<li><a href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=ShipInfo&amp;P_ACTION=NEW_CONNECTION">
+															Logout <i class="icon-arrow-right icon-sm"></i>
+													</a></li>
+												</ul>
+											</div>
+										</div>
+
+											<div class="row">
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+													<a href="http://www.equasis.org/EquasisWeb/restricted/Registration?fs=ShipInfo"> Update your profile <i class="icon-arrow-right icon-sm"></i></a>
+												</div>
+											</div>
+
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<ul>
+													<li><a href="http://www.equasis.org/EquasisWeb/restricted/ReportAnError?fs=ShipInfo&amp;P_ACTION=NEW_QUERY">
+															Report an Issue
+															<i class="icon-arrow-right icon-sm"></i>
+													</a></li>
+													<li><a href="http://www.equasis.org/EquasisWeb/restricted/Feedback?fs=ShipInfo"> Give your opinion <i class="icon-arrow-right icon-sm"></i></a></li>
+												</ul>
+											</div>
+										</div>
+
+									</form>
+									<div class="clearfix h15 hidden-lg hidden-md"></div>
+								</div>
+								<!-- /USER INFO XS -->
+							</div>
+
+					</div>
+				</div>
+				<div class="collapse navbar-collapse" id="equasis-menu-collapse">
+
+
+
+
+						<div class="col-sm-4 col-lg-3 navbar-right hidden-xs">
+
+							<div class="table-cell cell-full text-right">
+
+									<!-- SEARCH -->
+									<form style="margin-top: -15px;" class="navbar-form navbar-input-group" id="RechercheEntete" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=ShipInfo" name="formSearchEntete" onsubmit="document.formSearchEntete.P_ENTREE_ENTETE_HIDDEN.value=document.formSearchEntete.P_ENTREE_ENTETE.value;" method="post">
+										<input type="hidden" name="P_PAGE" value="1"> <input type="hidden" name="P_PAGE_COMP" value="1"> <input type="hidden" name="P_PAGE_SHIP" value="1">
+										<div class="input-group equasis-input-group">
+											<input type="text" class="form-control" autocomplete="off" placeholder="IMO, Name, Company" name="P_ENTREE_ENTETE" id="P_ENTREE_ENTETE"> <span class="input-group-btn"> <input type="hidden" id="P_ENTREE_ENTETE_HIDDEN" value="" name="P_ENTREE_ENTETE_HIDDEN">
+												<button class="btn btn-default" type="submit">
+													<i class="icon-search icon-sm"></i>
+												</button>
+											</span>
+										</div>
+									</form>
+									<!-- /SEARCH -->
+
+							</div>
+
+
+							<div class="table-cell">
+								<ul class="nav" style="margin-top: -10px;">
+
+									<li class="dropdown dropdown-arrow" id="user_menu_container">
+										<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#" class="dropdown-toggle text-overflow text-left" data-toggle="dropdown"> <span><i class="icon-user icon-md"></i></span>
+									</a>
+										<ul class="dropdown-menu user-menu panel panel-success no-border no-padding no-radius noclose">
+											<li class="panel-body" id="guest-register">
+												<!-- USER INFO -->
+												<form class="text-left" role="form">
+													<div class="pull-left">
+														<i class="icon-unlock icon-md"></i>
+													</div>
+													<div class="access-body">
+														<h3>
+															Welcome
+														</h3>
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<h3 class="bleu-equasis">Mr
+																	Yacine
+																	Badiss</h3>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<div class="clearfix h20"></div>
+																<h3 class="bleu-equasis">
+																	You can :
+																</h3>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<ul class="no-margin">
+																	<li><a href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=ShipInfo&amp;P_ACTION=NEW_CONNECTION">
+																			Logout <i class="icon-arrow-right icon-sm"></i>
+																	</a></li>
+																</ul>
+															</div>
+														</div>
+
+															<div class="row">
+																<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+																	<a href="http://www.equasis.org/EquasisWeb/restricted/Registration?fs=ShipInfo"> Update your profile <i class="icon-arrow-right icon-sm"></i></a>
+																</div>
+															</div>
+
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<ul>
+																	<li><a href="http://www.equasis.org/EquasisWeb/restricted/ReportAnError?fs=ShipInfo&amp;P_ACTION=NEW_QUERY">
+																			Report an Issue <i class="icon-arrow-right icon-sm"></i>
+																	</a></li>
+
+																	<li><a href="http://www.equasis.org/EquasisWeb/restricted/Feedback?fs=ShipInfo"> Give your opinion <i class="icon-arrow-right icon-sm"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</form> <!-- USER INFO -->
+											</li>
+
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+					<div class="col-sm-6 col-lg-7 navbar-center">
+						<ul class="nav navbar-nav text-left" style="visibility: visible;">
+							<!-- Home -->
+
+
+								<li>
+
+							<a href="http://www.equasis.org/EquasisWeb/public/HomePage?fs=ShipInfo"> Home <i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm">
+							</i>
+							</a>
+
+							</li>
+							<!-- /Home -->
+
+							<!-- ADMINISTRATION -->
+
+							<!-- /ADMINISTRATION -->
+
+							<!-- MY EQUASIS -->
+
+
+
+									<li>
+
+														 		<a href="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=ShipInfo" id="dropdownMenuMyEquasis" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										My Equasis&nbsp;<i class="icon-chevron-down icon-sm hidden-xs"></i>
+									 <i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm"></i>
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuMyEquasis">
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=ShipInfo"><i class="icon-caret-right"></i>&nbsp;Ship sign up
+									</a></li>
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/CompanySubcription?fs=ShipInfo"><i class="icon-caret-right"></i>&nbsp;Company sign up
+									</a></li>
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/SurveyList?fs=ShipInfo"><i class="icon-caret-right"></i>&nbsp;Survey
+									</a></li>
+
+								</ul>
+
+							<!-- /MY EQUASIS -->
+
+
+							<!-- ABOUT -->
+
+
+								</li><li>
+
+							<a href="http://www.equasis.org/EquasisWeb/restricted/About?fs=ShipInfo" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								About Equasis &nbsp;<i class="icon-chevron-down icon-sm hidden-xs"></i><i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=ShipInfo&amp;P_ABOUT=MainConcern.html">
+										<i class="icon-caret-right"></i>&nbsp;Overview
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=ShipInfo&amp;P_ABOUT=MoUText.html">
+										<i class="icon-caret-right"></i>&nbsp;MOU text
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=ShipInfo&amp;P_ABOUT=Org.html">
+										<i class="icon-caret-right"></i>&nbsp;Organisation
+								</a></li>
+
+								<li><a href="http://www.equasis.org/EquasisWeb/public/DataUpdatePublic?fs=ShipInfo&amp;P_PAGE=1">
+										<i class="icon-caret-right"></i>&nbsp;Data update
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=ShipInfo&amp;P_ABOUT=Providers.html">
+										<i class="icon-caret-right"></i>&nbsp;Data-Providers
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=ShipInfo&amp;P_ABOUT=Events.html">
+										<i class="icon-caret-right"></i>&nbsp;Events
+								</a></li>
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/FlagPerf?fs=ShipInfo">
+										<i class="icon-caret-right"></i>&nbsp;Flag Perf.
+									</a></li>
+
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/ROPerf?fs=ShipInfo">
+										<i class="icon-caret-right"></i>&nbsp;RO Perf.
+									</a></li>
+
+								<li><a href="http://www.equasis.org/EquasisWeb/public/RatConv?fs=ShipInfo"> <i class="icon-caret-right"></i>&nbsp;IMO conventions
+								</a></li>
+							</ul>
+							<!-- /ABOUT -->
+
+							<!-- STATISTICS -->
+
+
+								</li><li>
+
+
+
+								<a href="http://www.equasis.org/EquasisWeb/restricted/PublicStatistic?fs=ShipInfo">Statistics <i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm"></i></a>
+								</li>
+
+
+							<!-- /STATISTICS -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+<noscript>
+	&lt;div class="remove-spaces-alert"&gt;
+		&lt;div class="alert alert-warning text-left browser-outdated" style="margin: 0px auto;"&gt;
+			&lt;div class="table-cell align-top"&gt;
+				&lt;span class="fa-stack font-200" style="margin-right: 10px"&gt;
+					&lt;i class="fa fa-square fa-stack-2x"&gt;&lt;/i&gt;
+					&lt;i style="color: #CDE7F4" class="fa fa-exclamation-triangle fa-stack-1x"&gt;&lt;/i&gt;
+				&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="table-cell align-top full-width center-block"&gt;
+				&lt;p style="text-align:justify;" class="no-margin"&gt;&lt;strong class="font-120 center-block"&gt;You don't have javascript enabled in your browser.&lt;br /&gt;The Equasis Website use Javascript as a part of its core functionality, and if you browse this website without JavaScript enabled then you won't have the full experience that you normally would.&lt;br /&gt;This website may not work properly.&lt;/strong&gt;&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+</noscript>
+<div id="cookiesDisabled" class="remove-spaces-alert" style="display:none;">
+	<div class="alert alert-danger text-left browser-outdated" style="margin: 0px auto;">
+		<div class="table-cell align-top">
+			<span class="fa-stack font-200" style="margin-right: 10px">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i style="color: #CDE7F4" class="fa fa-exclamation-triangle fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="table-cell align-top full-width center-block">
+			<p style="text-align:justify;" class="no-margin"><strong class="font-120 center-block">You don't have Cookies enabled in your browser.<br>Cookies help us deliver our services. By using our services, you agree to our use of Cookies.
+			<br>The Equasis Website use Cookies as a part of its core functionality, and if you browse this website without Cookies enabled then you won't have the full experience that you normally would.<br>This website may not work properly.</strong></p>
+		</div>
+	</div>
+</div>
+<div id="browser" class="remove-spaces-alert" style="display:none;">
+	<div class="alert alert-danger text-left browser-outdated" style="margin: 0px auto;">
+		<div class="table-cell align-top">
+			<span class="fa-stack font-200" style="margin-right: 10px">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i style="color: #CDE7F4" class="fa fa-exclamation-triangle fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="table-cell align-top full-width center-block">
+			<p style="text-align:justify;" class="no-margin"><strong class="font-120 center-block">Your browser is not supported by Equasis Website.
+		</strong></p>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- Breadcrumb -->
+
+
+
+	<div id="breadcrumb" class="hidden-xs">
+		<ul id="breadcrumb">
+
+
+
+							<li><a id="first" href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=ShipInfo"><i class="icon-home"></i></a></li>
+
+
+
+
+
+
+
+
+
+
+
+							<li><a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search&amp;lienFooter=true">Search</a></li>
+
+
+
+
+
+
+							<li id="current">Ship info</li>
+
+
+
+
+
+		</ul>
+	</div>
+
+		<section id="title" class="hidden-lg  hidden-sm hidden-md">
+			<div class="container-fluid no-padding">
+				<div class="row-fluid">
+					<div>
+							<p>
+								<a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search&amp;lienFooter=true" class="social"><i class="icon-arrow-left icon-md"></i></a>&nbsp;Back to <span><a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search&amp;lienFooter=true" class="social">Search</a></span>
+							</p>
+						</div>
+					</div>
+				</div>
+		</section>
+
+
+
+
+
+<script src="./vessel_page_files/enteteMenuUser.js"></script>
+
+
+
+
+
+<!-- Message error -->
+
+
+
+
+
+
+
+
+<!-- ShipInfo-->
+
+
+
+
+
+
+
+<section class="navbar-details">
+		<div class="container-fluid font-size-sm">
+			<div class="row gris-bleu-traffic">
+				<!-- Go To MyEquasis -->
+				<div class="col-lg-4 col-lg-push-8 col-md-4 col-md-push-8 col-sm-12 col-xs-12 no-padding">
+					<form action="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=ShipInfo">
+						<button type="submit" class="btn btn-default btn-normal bleu-equasis btn-results">
+							Go to My Equasis
+							<i class="icon-arrow-right icon-sm pull"></i>
+						</button>
+					</form>
+				</div>
+
+				<div class="col-lg-8 col-lg-pull-4 col-md-8  col-md-pull-4 col-sm-12 col-xs-12 no-padding">
+					<!-- titre -->
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<h3>Ship info </h3>
+					</div>
+
+
+					<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<div class="pull-right">
+							<p>
+
+
+								<!-- delete ship -->
+
+
+
+									<!-- add ship -->
+
+										<a class="hiddem-sm hidden-xs" style="cursor:pointer" onclick="document.formOngletShip.action =&#39;ShipInfo?fs=ShipInfo&#39;; document.formOngletShip.event.value=&#39;AddShip&#39;;document.formOngletShip.submit();">
+											Add this ship to my favorites list
+										</a>
+										<a onclick="document.formOngletShip.action =&#39;ShipInfo?fs=ShipInfo&#39;; document.formOngletShip.event.value=&#39;AddShip&#39;;document.formOngletShip.submit();">
+											<i class="icon-star-empty icon-sm" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add this ship to my favorites list"></i>
+										</a>
+
+
+
+									<a style="cursor:pointer" onclick="javascript:window.open(&#39;../restricted/ShipFop?fs=ShipInfo&amp;IMO=9745263&#39;)">
+										<i class="icon-download-alt icon-sm"></i>
+									</a>
+									<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#" class="hiddem-sm hidden-xs" onclick="imprimerPage()">
+										<i class="icon-print icon-sm"></i>
+									</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row orange-equasis">
+				<div class="separator orange-equasis"></div>
+
+			</div>
+
+		</div>
+	</section>
+
+
+	<!-- Last update  -->
+	<section class="grey_white_boxes">
+		<div class="container-fluid font-size-sm info-details no-padding">
+			<div class="row-fluid">
+				<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12  hidden-sm hidden-xs">
+					<div class="access-item access-box white">
+						<div class="access-body">
+							<p class="badge gris-bleu-copyright badge-notification">
+								Last update
+								28/03/2017
+							</p>
+
+							<ul class="list-group borderless">
+
+
+
+							</ul>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- infoship -->
+				<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+					<div class="row white">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+							<!-- imo n° -->
+							<h4 class="color-gris-bleu-copyright">
+
+									<b>AEGEAN FIGHTER</b>
+
+
+
+									&nbsp;-&nbsp; IMO n° &nbsp;<b>9745263</b>
+
+							</h4>
+
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 hidden-lg hidden-md ">
+					<div class="access-item access-box white">
+						<div class="access-body">
+							<p class="badge gris-bleu-copyright badge-notification">
+								Last update
+								28/03/2017
+							</p>
+
+							<ul class="list-group borderless">
+
+
+
+							</ul>
+						</div>
+					</div>
+				</div>
+					</div>
+					<div class="row white">
+						<div class="col-sm-12 col-xs-12 hidden-lg hidden-md no-padding">
+							<div class="separator orange-equasis"></div>
+							<div class="clearfix h15"></div>
+
+						</div>
+
+						<div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+							<div class="access-item">
+								<div class="access-body">
+									<div class="row">
+
+										<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+										<p>
+											</p><div class="row">
+
+
+														<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														<b>Flag  </b>
+														</div>
+
+														<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+
+																	&nbsp;<img class="img-responsive pull-left" src="./vessel_page_files/GRC.png" style="height: 25px;" data-toggle="tooltip" data-placement="top" data-original-title="" title="">
+
+															</div>
+															<div class="col-sm-6 col-xs-6 hidden-lg hidden-md"></div>
+
+																<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+																	(Greece)
+																</div>
+
+
+
+
+											</div>
+
+
+												<div class="row">
+
+														<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+																<b>Call Sign </b>
+													</div>
+
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														 SVCO6
+													</div>
+												</div>
+
+
+												<div class="row">
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+															<b>MMSI  </b>
+													</div>
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														241492000
+													</div>
+												</div>
+
+
+												<div class="row">
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 ">
+															<b>Gross tonnage </b>
+													</div>
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														81349
+													</div>
+
+													<div class="col-sm-6 col-xs-6 hidden-lg hidden-md"></div>
+
+														<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														(since 01/06/2017)
+														</div>
+
+												</div>
+
+
+												<div class="row">
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+															<b>DWT </b>
+													</div>
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+													158871
+													</div>
+												</div>
+
+
+												<div class="row">
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+															<b>Type of ship  </b>
+													</div>
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														Crude Oil Tanker
+													</div>
+													<div class="col-sm-6 col-xs-6 hidden-lg hidden-md"></div>
+
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														(since 01/06/2017)
+													</div>
+
+												</div>
+
+
+												<div class="row">
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+															<b>Year of build  </b>
+													</div>
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														2017
+													</div>
+													<div class="col-sm-6 col-xs-6 hidden-lg hidden-md"></div>
+												</div>
+
+
+												<div class="row">
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+															<b>Status </b>
+													</div>
+													<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+														Launched
+													</div>
+													<div class="col-sm-6 col-xs-6 hidden-lg hidden-md"></div>
+
+														<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+
+															(since 31/12/2016)
+														</div>
+
+												</div>
+
+											<p></p>
+										</div>
+										<div class="clearfix h15 hidden-lg hidden-md"></div>
+									</div>
+								</div>
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<!-- /ship info -->
+
+			</div>
+		</div>
+	</section>
+	<div class="clearfix h25"></div>
+
+
+
+	<section class="grey_white_boxes">
+		<div class="container-fluid no-padding">
+
+			<div class="row-fluid">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="access-item">
+						<div class="access-body">
+							<div class="row">
+								<form name="formOngletShip" method="post">
+									<input type="hidden" name="P_IMO" value="9745263">
+									<input type="hidden" name="P_COMP">
+									<input type="hidden" name="event" value="">
+									<input type="hidden" name="P_INSP" value="">
+								</form>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 padding-right-ship">
+
+										<button type="button" class="btn btn-default btn-normal btn-results padding-right-ship btn-inactive">
+											Ship info
+										</button>
+
+
+
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 padding-right-ship padding-left-company">
+
+
+
+										<button type="button" class="btn btn-default btn-normal orange-equasis btn-results active padding-right-ship padding-left-company" onclick="document.formOngletShip.action =&#39;ShipInspection?fs=ShipInfo&#39;;document.formOngletShip.submit();">
+											Inspections (0)
+										</button>
+
+
+
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 padding-left-company">
+
+
+
+										<button type="button" class="btn btn-default btn-normal orange-equasis btn-results active padding-right-ship padding-left-company" onclick="document.formOngletShip.action =&#39;ShipHistory?fs=ShipInfo&#39;;document.formOngletShip.submit();">
+											Ship History
+										</button>
+
+								</div>
+
+							</div>
+							<div class="clearfix h10"></div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<!-- Ship banned -->
+
+<!-- /Ship banned -->
+
+<!-- tableau des indicateurs -->
+
+<!-- /Overview -->
+
+
+<!-- MGT DET -->
+
+<div class="container-fluid">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="cadre col-xs-12">
+						<div class="formulaire row">
+						<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1 " style="margin-top: 18px">
+							<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#modal-help" type="button" data-toggle="modal" onclick="helpModal(&#39;Ship Information : Management&#39;,&#39;../Static/MOA/Help/ShipInfo_Management.html&#39;);"><i class="glyphicon glyphicon-question-sign" style="font-size:16px"></i></a>
+						</div>
+						<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
+							<a class="boutonCollapse collapsed" data-toggle="collapse" href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#collapse3" aria-expanded="false">
+											<div class="padding-15">
+												<div class="row">
+													<div class="vcenter col-xs-10 col-sm-11">
+														<div class="row">
+															<div class="cadre2">
+																<div class="vcenter col-xs-12 col-sm-7">
+																	<div class="row">
+																		<div class="vcenter col-xs-12 col-sm-6">
+																			<div class="row">
+																				<h3>Management detail</h3>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div><!-- alignement vertical
+					 --><div class="vcenter col-xs-2 col-sm-1">
+														<div class="row">
+															<img class="pull-right flecheCollapse" src="./vessel_page_files/arrow_bottom.png" alt="afficher">
+														</div>
+													</div>
+												</div>
+											</div>
+										</a></div>
+							<div class="collapse" id="collapse3">
+
+								<br>
+								<div class="container-fluid font-size-sm no-padding">
+		<div class="row-fluid">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+				<div class="row">
+					<div class=" cadre col-sm-12 col-xs-12">
+
+						<div class="formulaire row hidden-xs hidden-sm">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-sub-row-md">
+								<div class="clearfix visible-xs-block visible-sm-block"></div>
+								<div class="row">
+							</div>
+								<div class="row">
+									<div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+										<div class="row">
+										<form name="formShipToComp">
+											<input type="hidden" name="P_COMP">
+											<input type="hidden" name="P_IMO" value="9745263">
+											<table class="tableLS table table-striped table-responsive">
+												<thead>
+													<tr>
+														<th data-field="IMO number">
+															IMO number
+														</th>
+														<th data-field="Role">
+															Role
+														</th>
+														<th data-field="Name of company">
+															Name of company
+														</th>
+														<th data-field="Address">
+															Address
+														</th>
+														<th data-field="Date of effect">
+															Date of effect
+														</th>
+														<th data-field="Details">
+															Details
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+
+
+														<tr>
+															<td>
+
+																<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;5804808&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																	5804808
+																</a>
+
+
+															</td>
+															<td>
+
+																Registered owner
+
+															</td>
+															<td>
+
+																OLYMPIA HARMONY CO
+
+															</td>
+															<td>
+
+																Care of Arcadia Shipmanagement Co Ltd , 8, Dragatsaniou Street, 105 59 Athens, Greece.
+
+															</td>
+															<td>
+
+																since 01/06/2017
+
+															</td>
+															<td class="icon">
+
+
+
+																	<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;5804808&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																		<i class="icon-arrow-right icon-sm"></i>
+																	</a>
+
+
+															</td>
+														</tr>
+
+
+
+
+														<tr>
+															<td>
+
+																<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;1671312&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																	1671312
+																</a>
+
+
+															</td>
+															<td>
+
+																Ship manager/Commercial manager
+
+															</td>
+															<td>
+
+																ARCADIA SHIPMANAGEMENT CO LTD
+
+															</td>
+															<td>
+
+																8, Dragatsaniou Street, 105 59 Athens, Greece.
+
+															</td>
+															<td>
+
+																since 01/06/2017
+
+															</td>
+															<td class="icon">
+
+
+
+																	<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;1671312&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																		<i class="icon-arrow-right icon-sm"></i>
+																	</a>
+
+
+															</td>
+														</tr>
+
+
+
+												</tbody>
+											</table>
+												</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-xs hidden-sm col-sm-12">
+								<div class="row">
+									<br>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 hidden-md hidden-lg">
+								<div class="row">
+
+
+										<div class="blocLSMobile col-xs-12 col-sm-12">
+											<div class="col-xs-12 col-sm-12">
+												<div class="enteteBlocLSMobile row">
+													<div class="col-xs-12 col-sm-12">
+														<div class="row">
+															<h3>
+																<strong>OLYMPIA HARMONY CO</strong>
+
+
+
+																	<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;5804808&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																		<i class="icon-arrow-right icon-sm"></i>
+																	</a>
+
+
+															</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														IMO number
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+
+																<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;5804808&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																	5804808
+																</a>
+
+
+
+
+													</div>
+												</div>
+
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Role
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														Registered owner
+													</div>
+												</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Address
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														Care of Arcadia Shipmanagement Co Ltd , 8, Dragatsaniou Street, 105 59 Athens, Greece.
+													</div>
+												</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Date of effect
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														since 01/06/2017
+													</div>
+												</div>
+
+
+										</div>
+
+
+
+
+
+										<div class="blocLSMobile col-xs-12 col-sm-12">
+											<div class="col-xs-12 col-sm-12">
+												<div class="enteteBlocLSMobile row">
+													<div class="col-xs-12 col-sm-12">
+														<div class="row">
+															<h3>
+																<strong>ARCADIA SHIPMANAGEMENT CO LTD</strong>
+
+
+
+																	<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;1671312&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																		<i class="icon-arrow-right icon-sm"></i>
+																	</a>
+
+
+															</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														IMO number
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+
+																<a style="cursor:pointer" onclick="document.formShipToComp.P_COMP.value=&#39;1671312&#39;;document.formShipToComp.action=&#39;CompanyInfo?fs=ShipInfo&#39;;document.formShipToComp.submit();">
+																	1671312
+																</a>
+
+
+
+
+													</div>
+												</div>
+
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Role
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														Ship manager/Commercial manager
+													</div>
+												</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Address
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														8, Dragatsaniou Street, 105 59 Athens, Greece.
+													</div>
+												</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Date of effect
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														since 01/06/2017
+													</div>
+												</div>
+
+
+										</div>
+
+
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- /MGT DET -->
+
+<!-- Classification -->
+
+<!-- /Classification -->
+
+<!-- MGT CERTIF -->
+
+<!-- /MGT CERTIF -->
+
+
+<!-- PI -->
+
+<!-- /PI -->
+
+
+<!-- Geo -->
+
+<div class="container-fluid">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="cadre col-xs-12">
+						<div class="formulaire row">
+						<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1 " style="margin-top: 18px">
+							<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#modal-help" type="button" data-toggle="modal" onclick="helpModal(&#39;Geographical Information&#39;,&#39;../Static/MOA/Help/Geographical_Information.html&#39;);"><i class="glyphicon glyphicon-question-sign" style="font-size:16px"></i></a>
+						</div>
+						<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
+							<a class="boutonCollapse collapsed" data-toggle="collapse" href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#collapse7" aria-expanded="false">
+											<div class="padding-15">
+												<div class="row">
+													<div class="vcenter col-xs-10 col-sm-11">
+														<div class="row">
+															<div class="cadre2">
+																<div class="vcenter col-xs-12 col-sm-7">
+																	<div class="row">
+																		<div class="vcenter col-xs-12 col-sm-7">
+																			<div class="row">
+																				<h3>Geographical Information</h3>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div><!-- alignement vertical
+					 --><div class="vcenter col-xs-2 col-sm-1">
+														<div class="row">
+															<img class="pull-right flecheCollapse" src="./vessel_page_files/arrow_bottom.png" alt="afficher">
+														</div>
+													</div>
+												</div>
+											</div>
+										</a></div>
+							<div class="collapse" id="collapse7">
+								<br>
+								<div class="container-fluid font-size-sm no-padding">
+		<div class="row-fluid">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+				<div class="row">
+					<div class=" cadre col-sm-12 col-xs-12">
+
+						<div class="formulaire row hidden-xs hidden-sm">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-sub-row-md">
+								<div class="clearfix visible-xs-block visible-sm-block"></div>
+								<div class="row">
+							</div>
+								<div class="row">
+									<div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+										<div class="row">
+											<table class="tableLS table table-striped table-responsive">
+												<thead>
+													<tr>
+														<th data-field="Date of record">
+															Date of record
+														</th>
+														<th data-field="Area where the ship was seen">
+															Area where the ship was seen
+														</th>
+														<th data-field="Source">
+															Source
+														</th>
+													</tr>
+												</thead>
+												<tbody>
+
+														<tr>
+														<td>
+
+															May 2017
+														</td>
+														<td>
+															South East Asia
+														</td>
+														<td>
+															MarineTraffic
+														</td>
+
+														</tr>
+
+														<tr>
+														<td>
+
+															April 2017
+														</td>
+														<td>
+															East Asia, South East Asia
+														</td>
+														<td>
+															MarineTraffic
+														</td>
+
+														</tr>
+
+														<tr>
+														<td>
+
+															March 2017
+														</td>
+														<td>
+															South East Asia
+														</td>
+														<td>
+															MarineTraffic
+														</td>
+
+														</tr>
+
+														<tr>
+														<td>
+
+															January 2017
+														</td>
+														<td>
+															East Asia
+														</td>
+														<td>
+															VesselTracker
+														</td>
+
+														</tr>
+
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="hidden-xs hidden-sm col-sm-12">
+								<div class="row">
+									<br>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 hidden-md hidden-lg">
+								<div class="row">
+
+
+										<div class="blocLSMobile col-xs-12 col-sm-12">
+											<div class="col-xs-12 col-sm-12">
+												<div class="enteteBlocLSMobile row">
+													<div class="col-xs-12 col-sm-12">
+														<div class="row">
+															<h3>
+																<strong>May 2017</strong>
+															</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Where
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														South East Asia
+													</div>
+												</div>
+
+
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Source
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														MarineTraffic
+													</div>
+												</div>
+
+
+
+
+										</div>
+
+
+										<div class="blocLSMobile col-xs-12 col-sm-12">
+											<div class="col-xs-12 col-sm-12">
+												<div class="enteteBlocLSMobile row">
+													<div class="col-xs-12 col-sm-12">
+														<div class="row">
+															<h3>
+																<strong>April 2017</strong>
+															</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Where
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														East Asia, South East Asia
+													</div>
+												</div>
+
+
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Source
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														MarineTraffic
+													</div>
+												</div>
+
+
+
+
+										</div>
+
+
+										<div class="blocLSMobile col-xs-12 col-sm-12">
+											<div class="col-xs-12 col-sm-12">
+												<div class="enteteBlocLSMobile row">
+													<div class="col-xs-12 col-sm-12">
+														<div class="row">
+															<h3>
+																<strong>March 2017</strong>
+															</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Where
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														South East Asia
+													</div>
+												</div>
+
+
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Source
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														MarineTraffic
+													</div>
+												</div>
+
+
+
+
+										</div>
+
+
+										<div class="blocLSMobile col-xs-12 col-sm-12">
+											<div class="col-xs-12 col-sm-12">
+												<div class="enteteBlocLSMobile row">
+													<div class="col-xs-12 col-sm-12">
+														<div class="row">
+															<h3>
+																<strong>January 2017</strong>
+															</h3>
+														</div>
+													</div>
+												</div>
+											</div>
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Where
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														East Asia
+													</div>
+												</div>
+
+
+
+
+												<div class="donnee col-xs-4 col-sm-4">
+													<div class="row">
+														Source
+													</div>
+												</div>
+												<div class="valeur col-xs-8 col-sm-8">
+													<div class="row">
+														VesselTracker
+													</div>
+												</div>
+
+
+
+
+										</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- /Geo -->
+
+<!-- Conv Asso & Manning -->
+<div class="container-fluid">
+	<div class="col-xs-12">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="cadre col-xs-12">
+						<div class="formulaire row">
+						<div class="col-lg-1 col-md-1 col-xs-1 col-sm-1 " style="margin-top: 18px">
+						</div>
+						<div class="col-lg-11 col-md-11 col-xs-11 col-sm-11">
+							<a class="boutonCollapse collapsed" data-toggle="collapse" href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#collapse8" aria-expanded="false">
+											<div class="padding-15">
+												<div class="row">
+													<div class="vcenter col-xs-10 col-sm-11">
+														<div class="row">
+															<div class="cadre2">
+																<div class="vcenter col-xs-12 col-sm-7">
+																	<div class="row">
+																		<div class="vcenter col-xs-12 col-sm-7">
+																			<div class="row">
+																				<h3>Convention, Association and Manning</h3>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div><!-- alignement vertical
+					 --><div class="vcenter col-xs-2 col-sm-1">
+														<div class="row">
+															<img class="pull-right flecheCollapse" src="./vessel_page_files/arrow_bottom.png" alt="afficher">
+														</div>
+													</div>
+												</div>
+											</div>
+										</a></div>
+							<div class="collapse" id="collapse8">
+
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white padding-sub-row no-padding">
+							<div class="access-item">
+								<div class="access-body">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding">
+										<table class="table borderless table-valign-middle">
+											<tbody>
+												<tr>
+													<td class="col-lg-2 col-md-2 col-sm-4 col-xs-4 table-centered">
+														<img class="img-responsive external-link" src="./vessel_page_files/IMO.gif" alt="">
+													</td>
+
+													<td class="col-lg-10 col-md-10 col-sm-8 col-xs-8"><p>
+															<i class="icon-arrow-right external-link icon-sm">
+															</i>
+															<b>
+																<a style="cursor:pointer" onclick="document.formOngletShip.action =&#39;ShipCertification?fs=ShipInfo&#39;;document.formOngletShip.submit();">
+																IMO Conventions signed by the state
+																</a>
+															</b>
+														</p></td>
+												</tr>
+
+
+												<tr>
+													<td class="col-lg-2 col-md-2 col-sm-4 col-xs-4 table-centered">
+														<img class="img-responsive external-link" src="./vessel_page_files/logo_ilo.gif" alt="">
+													</td>
+
+													<td class="col-lg-10 col-md-10 col-sm-8 col-xs-8"><p>
+															<i class="icon-external-link external-link icon-sm"></i>
+															<a href="http://www.ilo.org/dyn/normlex/en/f?p=1000:80021:0::NO:80021:P80021_ISO_CODE:GRC" target="_blank">
+																International Labour Organization
+															</a>
+															<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#modal-help" type="button" data-toggle="modal" onclick="helpModal(&#39;Ship Inspection : ILO&#39;,&#39;../Static/MOA/Help/ShipInsp_ILO.html&#39;);"><i class="glyphicon glyphicon-question-sign" style="font-size:16px"></i></a>
+														</p></td>
+												</tr>
+
+
+
+												<tr>
+													<td class="col-lg-2 col-md-2 col-sm-4 col-xs-4 table-centered">
+														<img class="img-responsive external-link" src="./vessel_page_files/logo_wcca.gif" alt="">
+													</td>
+
+													<td class="col-lg-10 col-md-10 col-sm-8 col-xs-8"><p>
+															<i class="icon-external-link external-link icon-sm"></i>
+															<a href="http://seafarersequasis.oxfordwebapps.com/?imo=9745263" target="_blank">
+																International Transport Worker's Federation
+															</a>
+															<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#modal-help" type="button" data-toggle="modal" onclick="helpModal(&#39;Ship Inspection : ITF&#39;,&#39;../Static/MOA/Help/ShipInsp_ITF.html&#39;);"><i class="glyphicon glyphicon-question-sign" style="font-size:16px"></i></a>
+														</p></td>
+												</tr>
+
+
+
+
+
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- / Con Asso & Manning -->
+
+
+
+
+
+
+
+
+
+
+	<!--#page-wrap -->
+	<div class="footer" style="position: static;">
+	<section id="news-separator" class="separator orange-equasis"></section>
+	<section id="contributors" class="white">
+		<div class="container-fluid col-centered">
+			<div class="row-fluid">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="access-item">
+						<div class="access-body">
+							<h3>Equasis's contributors</h3>
+							<div class="col-md-offset-1">
+								<div class="row">
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.mar.mil.br/" target="_blank" class="social"><img class="img-responsive" title="Brasil" alt="Brasil" src="./vessel_page_files/brasil_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.tc.gc.ca/eng/marinesafety/oep-inspection-menu-770.htm" target="_blank" class="social"><img class="img-responsive" title="Canada" alt="Canada" src="./vessel_page_files/Canada_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.emsa.europa.eu/" target="_blank" class="social"><img class="img-responsive" title="EMSA" alt="EMSA" src="./vessel_page_files/EMSA_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.developpement-durable.gouv.fr/-Mer-et-littoral,2045-.html" target="_blank" class="social"><img class="img-responsive" title="France" alt="France" src="./vessel_page_files/France_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.mofa.go.jp/" target="_blank" class="social"><img class="img-responsive" title="Japan" alt="Japan" src="./vessel_page_files/Japan_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.korea.net/" target="_blank" class="social"><img class="img-responsive" title="Korea (Republic of )" alt="Korea (Republic of )" src="./vessel_page_files/South_Korea_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.norway.no/" target="_blank" class="social"><img class="img-responsive" title="Norway" alt="Norway" src="./vessel_page_files/Norway_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.la-moncloa.es/index.htm" target="_blank" class="social"><img class="img-responsive" title="Spain" alt="Spain" src="./vessel_page_files/Spain_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.mcga.gov.uk/c4mca/mcga07-home" target="_blank" class="social"><img class="img-responsive" title="United Kingdom" alt="United Kingdom" src="./vessel_page_files/UK_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.uscg.mil/top/missions/MaritimeSafety.asp" target="_blank" class="social"><img class="img-responsive" title="United States of America" alt="United States of America" src="./vessel_page_files/USA_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--/.col-md-12-->
+			</div>
+		</div>
+	</section>
+	<!--/#contributors-->
+
+	<!--  -->
+	<section id="sitemap" class="gris-bleu-traffic">
+		<div class="container-fluid no-padding">
+			<div class="row-fluid">
+			<!-- join us xs-->
+				<div class="hidden-lg hidden-md  col-sm-12 col-xs-12 social-group ">
+					<div class="sitemap-item">
+						<div class="sitemap-body">
+							<div class="col-sm-6 col-xs-6 hidden-lg hidden-md">
+								<div class="row">
+									<p>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=ShipInfo&amp;P_MOA=contact" class="social">
+											<i class="icon-envelope icon-md"></i>
+											&nbsp;Contact us
+										</a>
+									</p>
+								</div>
+								<div class="row">
+									<p>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=ShipInfo&amp;P_MOA=help" class="social">
+											<i class="icon-info icon-md"></i>
+											&nbsp;Help
+										</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-6 col-xs-6">
+								<div class="row">
+									<p class="pull-right">
+										Join us on&nbsp;
+										<a href="http://www.facebook.com/equasis.news" target="_blank" class="social">
+											<i class="icon-facebook icon-md"></i>
+										</a>&nbsp;
+										<a href="http://twitter.com/equasis_news" target="_blank" class="social">
+											<i class="icon-twitter icon-md"></i>
+										</a>
+									</p>
+								</div>
+								<div class="row hidden-lg hidden-md">
+									<p class="pull-right">
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=ShipInfo&amp;P_MOA=faq" class="social">
+											<i class="icon-question icon-md"></i>
+											&nbsp;FAQ
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /join us -->
+			<!-- site map -->
+			<div class="col-lg-6  col-md-6  col-sm-12 col-xs-12">
+					<div class="sitemap-item">
+						<div class="sitemap-body">
+							<h3>Site map</h3>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+								<ul>
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/public/HomePage?fs=ShipInfo">
+											Home
+										</a>
+									</li>
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/public/About?fs=ShipInfo">
+											About Equasis
+										</a>
+									</li>
+									<li>
+											<form name="lienSearchFooter" method="post" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=ShipInfo">
+												<input type="hidden" name="lienFooter" value="true">
+											</form>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#" onclick="document.lienSearchFooter.submit();">
+											Search
+										</a>
+									</li>
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/About?fs=ShipInfo&amp;P_ABOUT=Providers.html">
+											Data providers
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+								<ul>
+
+
+
+										<li>
+											<a href="http://www.equasis.org/EquasisWeb/restricted/PublicStatistic?fs=ShipInfo">
+												Statistics
+											</a>
+										</li>
+
+
+
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/public/HomePage?fs=ShipInfo">
+											News
+										</a>
+									</li>
+
+
+
+
+										<li>
+											<a href="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=ShipInfo">
+												My Equasis
+											</a>
+										</li>
+
+
+
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /site map -->
+				<!-- join us lg-->
+				<div class="col-lg-6 col-md-6 hidden-sm hidden-xs social-group ">
+					<div class="sitemap-item">
+						<div class="sitemap-body">
+							<div class="clearfix h30 hidden-sm hidden-xs"></div>
+
+							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+								<div class="row">
+									<p class="pull-right">
+										Join us on&nbsp;
+										<a href="http://www.facebook.com/equasis.news" target="_blank" class="social">
+											<i class="icon-facebook icon-md"></i>
+										</a>&nbsp;
+										<a href="http://twitter.com/equasis_news" target="_blank" class="social">
+											<i class="icon-twitter icon-md"></i>
+										</a>
+										<span class="no-style hidden-sm hidden-xs">
+											&nbsp;or contact us&nbsp;
+											<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=ShipInfo&amp;P_MOA=contact" class="social">
+												<i class="icon-envelope icon-md"></i>
+											</a>
+										</span>
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /join us -->
+			</div>
+		</div>
+	</section>
+	<!--/#sitemap-->
+	<footer id="footer" class="gris-bleu-copyright">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<p>© Copyright 2000-2016; Version : Prod v3.0.5; Developed and hosted by French Ministry for Transport -DAM/SI-Saint-Malo</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+					<ul class="pull-right">
+						<li>
+							<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=ShipInfo&amp;P_MOA=help">
+								Help
+							</a>
+						</li>
+
+
+						<li>
+							<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=ShipInfo&amp;P_MOA=faq">
+								FAQ
+							</a>
+						</li>
+
+
+							<li>
+								<a href="http://www.equasis.org/EquasisWeb/restricted/ReportAnError?fs=ShipInfo&amp;P_ACTION=NEW_QUERY">
+									Report an Issue
+								</a>
+							</li>
+							<li>
+								<a href="http://www.equasis.org/EquasisWeb/restricted/Feedback?fs=ShipInfo">
+									Give your opinion
+								</a>
+							</li>
+
+						<li><a id="gototop" class="gototop" href="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search#"><i class="icon-chevron-up"></i></a></li>
+						<!--#gototop-->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/#footer-->
+</div>
+
+
+	<!-- Help Modal -->
+<div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bleu-equasis">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="icon-remove-sign"></i>
+				</button>
+				<h1>
+					<i class="icon-info-sign"></i> <span id="modal-title-help">&nbsp;</span>
+				</h1>
+			</div>
+			<div class="modal-body" id="modal-body-help"></div>
+			<div class="modal-footer">
+				<button style="padding-right: 11px;" type="button" class="btn btn-md gris-bleu-copyright pull-left" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+		<script src="./vessel_page_files/jquery.js"></script>
+		<script src="./vessel_page_files/AdvancedSearch.js"></script>
+		<script src="./vessel_page_files/bootstrap.min.js"></script>
+		<script src="./vessel_page_files/modernizr-2.0.6-min.js"></script>
+		<script src="./vessel_page_files/dropdown.js"></script>
+		<script src="./vessel_page_files/modal.js"> </script>
+		<script src="./vessel_page_files/SearchHandler.js"></script>
+		<script src="./vessel_page_files/jquery.placeholder.js"></script>
+		<script src="./vessel_page_files/footer.js"></script>
+		<script src="./vessel_page_files/home.js"></script>
+
+		<!-- #body -->
+	</div>
+
+
+
+<script>
+
+
+</script></body></html>

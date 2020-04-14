@@ -1,0 +1,30 @@
+# Edit this file to introduce tasks to be run by cron.
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# m h  dom mon dow   command
+
+# //////////////////////////////////////////    AIS    ///////////////////////////////////////////
+
+# ////////// VESSEL FINDER
+*/10 * * * * /home/kpler/run.sh VesselFinderApi -a "apikey=WS-5A66BD96-00000E" -a "max_age=12"
+
+# ////////// MARINE TRAFFIC
+*/5 * * * * /home/kpler/run.sh MarineTrafficAIS2 -a "timespan=6" -a "fleet_name=MT_API_5000" -a "poskey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+*/4 * * * * /home/kpler/run.sh MarineTrafficAIS2 -a "timespan=5" -a "fleet_name=MT_API" -a "poskey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+*/4 * * * * /home/kpler/run.sh MarineTrafficAIS2 -a "timespan=5" -a "fleet_name=MT_API_SMALL" -a "poskey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# ////////// EXACT AIS
+*/9 * * * * /home/kpler/run.sh ExactAIS -a "window=10" -a "limit=9000" -a "gc=true" -a "apikey=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# ////////// SPIRE
+# FIXME Dot persistence doesn't work
+# */10 * * * * /home/kpler/run.sh SpireStream -a "token=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" -a "slice_size=3000" -a "query_by=imo" -a "batch=50" -a "api=vessels"
+
+
+# ///////////////////////////////////////////    PC    ////////////////////////////////////////////
+# TODO

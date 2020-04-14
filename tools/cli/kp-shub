@@ -1,0 +1,43 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+
+import click
+
+# make the module available when dynamiquely evaluating confs
+from kp_scrapers.cli.commands import (
+    batch_retire,
+    batch_schedule,
+    browse,
+    check,
+    create,
+    delete,
+    export,
+    manage_tags,
+    schedule,
+    scrape,
+)
+
+
+click.disable_unicode_literals_warning = True
+
+
+@click.group()
+def cli():
+    """Scrapinghub interaction wrapper for common Kpler usage."""
+    pass
+
+
+if __name__ == '__main__':
+    cli.add_command(batch_schedule)
+    cli.add_command(batch_retire)
+    cli.add_command(create)
+    cli.add_command(delete)
+    cli.add_command(export)
+    cli.add_command(manage_tags)
+    cli.add_command(schedule)
+    cli.add_command(scrape)
+    cli.add_command(browse)
+    cli.add_command(check)
+
+    cli()

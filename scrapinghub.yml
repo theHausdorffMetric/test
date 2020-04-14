@@ -1,0 +1,6 @@
+image: 447157256452.dkr.ecr.eu-west-1.amazonaws.com/kp-scrapers-pdf-prod
+projects:
+  default: 6932  # default to staging, require confirmation to deploy on production
+  production: 321191
+  production-legacy: 434
+  staging: 6932

@@ -1,0 +1,96 @@
+---
+default_crons:
+  - '*, *, *, 10, {minute}'
+
+global_tags:
+  - 'category:customs'
+
+# NOTE Many of the Customs have been broken for a long time without a fix,
+# we leave them as disabled: true for now.
+
+jobs:
+  - spider: EurostatCustoms
+    disabled: true
+    description: ''
+    args:
+      months_look_back: '2'
+
+  - spider: EurostatCustoms
+    disabled: true
+    description: 'EuroStatCustoms for oil and lpg'
+    dynamic_args:
+      commodity: '["oil", "lpg"]'
+
+  - spider: JapanCustoms
+    disabled: true
+    description: ''
+    args:
+      months_look_back: '2'
+
+  - spider: JapanCustoms
+    disabled: true
+    description: 'JapanCustoms for oil and lpg'
+    dynamic_args:
+      commodity: '["oil", "lpg"]'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '1'
+
+  - spider: JapanCustomsPorts
+    disabled: true
+    description: 'JapanCustoms for lng'
+
+  - spider: KoreaCustoms
+    description: 'KoreaCustoms historical scraping'
+    args:
+      months_look_back: '2'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '6'
+
+  - spider: KoreaCustoms
+    description: ''
+    dynamic_args:
+      commodity: '["oil", "lpg"]'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '6'
+
+  - spider: NorwayCustoms
+    disabled: true
+    description: ''
+    args:
+      months_look_back: '2'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '6'
+
+  - spider: NorwayCustoms
+    disabled: true
+    description: ''
+    dynamic_args:
+      commodity: '["oil", "lpg"]'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '6'
+
+  - spider: TaiwanCustoms
+    description: ''
+    args:
+      months_look_back: '2'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '6'
+
+  - spider: TaiwanCustoms
+    description: ''
+    dynamic_args:
+      commodity: '["oil", "lpg"]'
+    settings:
+      MONTH_LOOK_BACK_CUSTOMS_SPIDERS: '6'
+
+  - spider: USCustoms
+    description: ''
+    # scheduled running times:
+    # - Every 15 minutes on Friday and Monday
+    # - Once everyday at 10am
+    crons:
+      - '*, *, 5, *, 15'
+      - '*, *, 1, *, 15'
+      - '*, *, *, 10, 0'
+    settings:
+      CRAWLERA_ENABLED: True

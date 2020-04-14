@@ -1,0 +1,101 @@
+---
+# nest config under `jobs` key to keep room for other meta datas or controls.
+# Good practice anyway to avoid exposing directly an array of indifinite depth
+#
+# VesselFinder vessel_type:
+#   - 4: General / Dry Cargo
+#   - 402: Bulk Carrier
+#   - 401: Container / Reefer
+#   - 6: Tanker
+#   - 601: LNG / LPG / CO2 Tanker
+#   - 602: Chemical Tanker
+#   - 603: Oil Tanker
+#
+
+
+global_tags:
+  - 'category:registry'
+  - 'commodity:dry-bulk'
+
+global_settings:
+  DOTSCRAPY_ENABLED: True
+
+
+jobs:
+
+  ##
+  #  bulk carriers
+  ##
+
+  - spider: VesselFinderRegistry
+    description: 'Older bulk carriers from VesselFinder'
+    crons:
+      - '*, *, 3, {hour}, {minute}'
+    args:
+      min_year: '2000'
+      max_year: '2017'
+      vessel_type: '402'
+    settings:
+      CRAWLERA_ENABLED: True
+    tags:
+      - drybulk
+
+  - spider: VesselFinderRegistry
+    description: 'Newbuild bulk carriers from VesselFinder'
+    crons:
+      - '*, *, 1, {hour}, {minute}'
+      - '*, *, 5, {hour}, {minute}'
+    args:
+      min_year: '2018'
+      vessel_type: '402'
+    settings:
+      CRAWLERA_ENABLED: True
+    tags:
+      - drybulk
+      - newbuild
+
+  ##
+  #  gas/liquid tankers
+  ##
+
+  - spider: VesselFinderRegistry
+    description: 'Older tankers from VesselFinder'
+    crons:
+      - '*, *, 2, {hour}, {minute}'
+      - '*, *, 4, {hour}, {minute}'
+    args:
+      min_year: '2000'
+      max_year: '2017'
+    dynamic_args:
+      vessel_type: '[601, 602, 603]'
+    settings:
+      CRAWLERA_ENABLED: True
+    tag:
+      - tanker
+
+  - spider: VesselFinderRegistry
+    description: 'Older tankers from VesselFinder'
+    crons:
+      - '*, *, 7, {hour}, {minute}'
+    args:
+      min_year: '2000'
+      max_year: '2017'
+      vessel_type: '6'
+    settings:
+      CRAWLERA_ENABLED: True
+    tag:
+      - tanker
+
+  - spider: VesselFinderRegistry
+    description: 'Newbuild tankers from VesselFinder'
+    crons:
+      - '*, *, 1, {hour}, {minute}'
+      - '*, *, 5, {hour}, {minute}'
+    args:
+      min_year: '2018'
+      vessel_type: '6'
+    settings:
+      CRAWLERA_ENABLED: True
+    tag:
+      - tanker
+      - newbuild

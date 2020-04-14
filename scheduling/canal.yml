@@ -1,0 +1,10 @@
+---
+global_tags:
+  - 'category:canal'
+
+jobs:
+  - spider: PanamaSlot
+    description: 'Panama canal slots'
+    crons:
+      # Run every hour to have update as soon as possible
+      - '*, *, *, *, {minute}'

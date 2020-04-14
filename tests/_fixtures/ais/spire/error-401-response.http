@@ -1,0 +1,13 @@
+HTTP/1.1 401 UNAUTHORIZED
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET,PUT,POST,DELETE
+Access-Control-Allow-Origin: *
+Content-Type: application/json
+Date: Sun, 18 Dec 2016 21:30:46 GMT
+Server: nginx
+X-Powered-By: Spire Satellites
+X-Sentry-ID: 7a1b7d9d811b48f08f86173ed363d733
+Content-Length: 115
+Connection: keep-alive
+
+{"code":"7a1b7d9d811b48f08f86173ed363d733","description":"Authorization token is invalid.","title":"Invalid token"}

@@ -1,0 +1,9 @@
+                                                                                                               INICIADOS 24.02.15
+
+
+Atra. Esc. Subp.   Atra. Esc. AñoAtra. Esc. NúmAtra. Esc. Buque Nombre BuqueT. Oper. Cód.          Merc.        Cant. Mov.    Atra. Real Alin. Desc. Atra. Real Noray Ini.Atra. Real Noray Fin.Atra. Real Fec. Ini.Atra. Esc. País Ant. Desc.Atra. Esc. País Post. Desc.
+        S                2015         00049                 LAMBAY                D               BAUXITA        59001,00 SAN CIPRIAN MUELLE PRINCIPAL       1,00                  3,00         23-02-2015 19:15             GUINEA                  A ORDENES
+        F                2015         00120                BBC BELEM              E        COMPONENTES EOLICOS    1500,00     CERRAMIENTO NORTE              3,00                 10,00         21-02-2015 14:45          REINO UNIDO                 POLONIA
+        F                2015         00116                 SIMANO                E               REBARS          4997,00 FERNANDEZ LADREDA (1 - 18)         1,00                  8,00         21-02-2015 16:15             ESPAÑA                   ARGELIA
+        F                2015         00113          ALESSANDRA LEHMANN           E       ROLLO Y MALLA DE ACERO 1200,00 FERNANDEZ LADREDA (19 - 31)         24,00                28,00         21-02-2015 13:25           PORTUGAL                 REINO UNIDO
+        F                2015        000117               BERINGDIEP       ESCALA TECNICA                                         FONDEO ARES                                                   24.02.2015 00:50             ESPAÑA                  PORTUGAL

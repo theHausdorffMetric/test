@@ -1,0 +1,8 @@
+                                                                                             FINALIZADOS 19.02.15
+
+
+Atra. Esc. Subp.   Atra. Esc. AñoAtra. Esc. NúmAtra. Esc. Buque Nombre BuqueT. Oper. Cód.     T. Merc. Desc.   Cant. Mov.    Atra. Real Alin. Desc. Atra. Real Noray Ini.Atra. Real Noray Fin.Atra. Real Fec. Ini.Atra. Real Fec. Fin.
+        S                2015          00043                 ESKY                 E        RESTO DE MERCANCIAS   3250,00 SAN CIPRIAN MUELLE AUXILIAR         4,00                 6,00         17-02-2015 18:45 18-02-2015 09:15
+        S                2015          00037                HAKUTA                D          OTROS MINERALES    63201,00 SAN CIPRIAN MUELLE PRINCIPAL        1,00                 3,00         14-02-2015 11:10 18-02-2015 19:10
+        F                2015          00111                HESTIA                E        RESTO DE MERCANCIAS   300,00 FERNANDEZ LADREDA (19 - 31)         26,00                30,00         18-02-2015 11:55 18-02-2015 23:35
+        F                2015          00104               NORWAVE                E      PRODUCTOS SIDERURGICOS 3000,00 FERNANDEZ LADREDA (1 - 18)          13,00                18,00         17-02-2015 22:55 18-02-2015 20:05

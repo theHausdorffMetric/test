@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:exactAIS="https://services.exactearth.com/gws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" numberOfFeatures="1" timeStamp="2019-06-10T03:48:32.599Z" xsi:schemaLocation="https://services.exactearth.com/gws https://services.exactearth.com/gws/wfs?service=WFS&amp;version=1.1.0&amp;request=DescribeFeatureType&amp;typeName=exactAIS%3ALVI http://www.opengis.net/wfs https://services.exactearth.com/gws/schemas/wfs/1.1.0/wfs.xsd">
+  <gml:featureMembers>
+    <exactAIS:LVI gml:id="8745889673782066855">
+      <exactAIS:mmsi>311000743</exactAIS:mmsi>
+      <exactAIS:imo>9834454</exactAIS:imo>
+      <exactAIS:vessel_name>LONDON VOYAGER</exactAIS:vessel_name>
+      <exactAIS:callsign>C6DP6</exactAIS:callsign>
+      <exactAIS:vessel_type>Tanker</exactAIS:vessel_type>
+      <exactAIS:vessel_type_code>80</exactAIS:vessel_type_code>
+      <exactAIS:vessel_type_cargo/>
+      <exactAIS:vessel_class>A</exactAIS:vessel_class>
+      <exactAIS:length>336</exactAIS:length>
+      <exactAIS:width>60</exactAIS:width>
+      <exactAIS:flag_country>Bahamas</exactAIS:flag_country>
+      <exactAIS:flag_code>311</exactAIS:flag_code>
+      <exactAIS:destination>SINGAPORE</exactAIS:destination>
+      <exactAIS:eta>06170200</exactAIS:eta>
+      <exactAIS:draught>11.3</exactAIS:draught>
+      <exactAIS:position>
+          <gml:Point srsName="urn:x-ogc:def:crs:EPSG:4326" srsDimension="2">
+              <gml:pos>29.67849833 126.184325</gml:pos>
+          </gml:Point>
+      </exactAIS:position>
+      <exactAIS:longitude>126.184325</exactAIS:longitude>
+      <exactAIS:latitude>29.678498333333334</exactAIS:latitude>
+      <exactAIS:sog>15.0</exactAIS:sog>
+      <exactAIS:cog>207.4</exactAIS:cog>
+      <exactAIS:rot>0.0</exactAIS:rot>
+      <exactAIS:heading>206.0</exactAIS:heading>
+      <exactAIS:nav_status>Under Way Using Engine</exactAIS:nav_status>
+      <exactAIS:nav_status_code>0</exactAIS:nav_status_code>
+      <exactAIS:source>T-AIS</exactAIS:source>
+      <exactAIS:ts_pos_utc>20190610034404</exactAIS:ts_pos_utc>
+      <exactAIS:ts_static_utc>20190610012116</exactAIS:ts_static_utc>
+      <exactAIS:ts_insert_utc>20190610034412</exactAIS:ts_insert_utc>
+      <exactAIS:dt_pos_utc>2019-06-10 03:44:04</exactAIS:dt_pos_utc>
+      <exactAIS:dt_static_utc>2019-06-10 01:21:16</exactAIS:dt_static_utc>
+      <exactAIS:dt_insert_utc>2019-06-10 03:44:12</exactAIS:dt_insert_utc>
+      <exactAIS:message_type>1</exactAIS:message_type>
+      <exactAIS:eeid>8745889673782066855</exactAIS:eeid>
+    </exactAIS:LVI>
+  </gml:featureMembers>
+</wfs:FeatureCollection>

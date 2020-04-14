@@ -1,0 +1,186 @@
+#! /usr/bin/env python
+
+"""Command-line-tool for manual insertion of AIS signals into ETL pipeline.
+
+Usage
+~~~~~
+
+    $ inject-ais \
+        --commodity lng \
+        --longitude -62.289476 \
+        --latitude -38.786957 \
+        --received-time 2019-02-06T09:00:00 \
+        --draught 3.4 \
+        --course 120 \
+        --speed 0 \
+        --destination "TANGO FLNG" \
+        --eta 2019-02-06T09:00:00 \
+        9699945
+
+"""
+import datetime as dt
+from pprint import pprint
+import random
+from uuid import uuid4
+
+import click
+import dateutil.parser
+
+from kp_scrapers import __version__
+from kp_scrapers.cli.ui import info, success
+from kp_scrapers.lib.date import create_str_from_time
+from kp_scrapers.lib.services import s3
+from kp_scrapers.lib.static_data import vessels
+
+
+FAKE_AIS_TYPE = 'T-AIS'
+PRODUCTION_ENV_ID = 321191
+BUCKET = 'kp-data-warehouse'
+# as copied from production env 321191
+SPIDER_NAME = 'MarineTrafficAIS2'
+SPIDER_PROVIDER = 'MT_API'
+SPIDER_SHUB_ID = 121
+
+
+def _shub_metas(received_time, lag=10):
+    # make job ID a bit random without much specs
+    job_id = random.randrange(1000, 100000)
+
+    return {
+        'sh_job_id': f'{PRODUCTION_ENV_ID}/{SPIDER_SHUB_ID}/{job_id}',
+        'sh_spider_name': SPIDER_NAME,
+        'sh_item_time': (received_time + dt.timedelta(minutes=lag)).isoformat(),
+        # `sh_job_time` has almost identical format to ISO8601
+        # it does not have the `T` literal
+        'sh_job_time': create_str_from_time(received_time + dt.timedelta(minutes=lag)),
+    }
+
+
+def _kp_metas():
+    return {
+        'provider_id': SPIDER_PROVIDER,
+        'kp_package_version': __version__,
+        'kp_uuid': str(uuid4()),
+    }
+
+
+def upload_to_s3(bucket, folder, position):
+    msg_dt = position['position_timeReceived'].replace(':', '_')
+    item_dt = position['sh_job_time'].replace(':', '_')
+    filename = f'{msg_dt}Z--{item_dt}Z--0--{SPIDER_NAME}-ais.js'
+
+    key = '{folder}/{filename}'.format(folder=folder, filename=filename)
+    info(f'uploading AIS signal to s3://{bucket}:{key}')
+    return s3.upload_blob(bucket, key, position)
+
+
+def build_position(vessel_imo, vessel_info, use_cache):
+    # get cached vessels so we can fill in vessel static data
+    vessel = vessels(disable_cache=(not use_cache)).get(vessel_imo)
+
+    # forge AIS signal
+    fake_received_time = dateutil.parser.parse(vessel_info['received_time'])
+    position = {
+        # fake stuff forced
+        'position_aisType': FAKE_AIS_TYPE,
+        'aisType': FAKE_AIS_TYPE,
+        # static data
+        'master_callsign': vessel['call_sign'],
+        'master_mmsi': vessel['mmsi'],
+        'master_imo': vessel_imo,
+        'master_name': vessel['name'],
+        # mandatory data
+        'position_timeReceived': fake_received_time.isoformat(),
+        'position_lat': vessel_info['latitude'],
+        'position_lon': vessel_info['longitude'],
+        # nice to have knowledge
+        'position_speed': vessel_info.get('speed'),
+        'position_course': vessel_info.get('course'),
+        'position_draught': vessel_info.get('draught'),
+        'position_navState': vessel_info.get('state'),
+        # not relevant for position only insertion ?
+        'nextDestination_eta': vessel_info.get('eta'),
+        'nextDestination_destination': vessel_info.get('destination'),
+        'nextDestination_aisType': FAKE_AIS_TYPE if vessel_info.get('eta') else None,
+    }
+
+    # include meta info
+    position.update(_shub_metas(fake_received_time))
+    position.update(_kp_metas())
+
+    return position
+
+
+@click.command()
+@click.option(
+    '-e',
+    '--env',
+    default='production',
+    help='Environment to inject AIS signal in. Defaults to `production`.',
+)
+@click.option(
+    '-c',
+    '--commodity',
+    required=True,
+    type=click.Choice(('lng', 'lpg', 'oil', 'cpp', 'coal')),
+    help='Platform on which to insert AIS signal.',
+)
+@click.option(
+    '--longitude',
+    required=True,
+    help='Vessel longitude (in degrees) at time of AIS signal emission.',
+)
+@click.option(
+    '--latitude', required=True, help='Vessel latitude (in degrees) at time of AIS signal emission.'
+)
+@click.option(
+    '--received-time', required=True, help='Time (in ISO-8601) at which AIS signal was emitted.'
+)
+@click.option(
+    '--draught', required=True, help='Vessel draught (in metres) at time of AIS signal emission.'
+)
+@click.option(
+    '--course', required=True, help='Vessel course (in degrees) at time of AIS signal emission.'
+)
+@click.option(
+    '--speed', required=True, help='Vessel speed (in knots) at time of AIS signal emission.'
+)
+@click.option('--destination', required=True, help='Next destination of vessel.')
+@click.option(
+    '--eta', required=True, help='Estimated time of arrival (in ISO-8601) at next destination.'
+)
+@click.option('--state', help='Vessel navigation state.')
+@click.option(
+    '--dry-run',
+    is_flag=True,
+    default=False,
+    help='Output forged AIS signal on stdout. Defaults to False.',
+)
+@click.option(
+    '--cache/--no-cache',
+    is_flag=True,
+    default=False,
+    help='Use/ignore local fleet cache. Defaults to False.',
+)
+@click.argument('vessel_imo')
+def run(vessel_imo, commodity, env, dry_run, cache, **vessel_info):
+    """Insert a forged AIS signal onto a specified platform.
+    """
+    info('forging AIS signal')
+    if dry_run:
+        info('dry run enabled, signal will not be uploaded for ETL consumption')
+
+    position = build_position(vessel_imo, vessel_info, cache)
+
+    if dry_run:
+        info('printing forged signal ...')
+        pprint(position)
+        return
+
+    s3_folder = f'{env}/{commodity}/ais/not_loaded'
+    upload_to_s3(BUCKET, s3_folder, position)
+    success('AIS signal will be consumed soon by the ETL')
+
+
+if __name__ == '__main__':
+    run()

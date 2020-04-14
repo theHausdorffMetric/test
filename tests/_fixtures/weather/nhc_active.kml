@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <NetworkLinkControl>
+    <minRefreshPeriod>120</minRefreshPeriod>
+    <expires>Wed Jun 21 09:37:51 UTC 2017</expires>
+  </NetworkLinkControl>
+  <Document id="active">
+    <name>Active Tropical Cyclones</name>
+    <description>
+      <![CDATA[<TABLE>
+      <TR><TD><B>Last Update:</B> Wed Jun 21 07:37:51 UTC 2017</TD></TR>
+      <TR><TD><B>Created By:</B> NOAA/NWS National Hurricane Center</TD></TR>
+      <TR><TD><B>Disclaimer:</B> The NHC Active KML format is an experimental product.</TD></TR>
+      <TR><TD><B>For More Information: </B><a href="http://www.nhc.noaa.gov">http://www.nhc.noaa.gov</a></TD></TR></TABLE>]]>
+    </description>
+    <ScreenOverlay id="activeLegend">
+      <name>Legend</name>
+      <drawOrder>100</drawOrder>
+      <Icon>
+        <href>http://www.nhc.noaa.gov/images/interactive_cone_legend.jpg</href>
+      </Icon>
+      <overlayXY x="0" y="0" xunits="fraction" yunits="fraction" />
+      <screenXY x="0" y="0" xunits="fraction" yunits="fraction" />
+      <rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction" />
+      <size x="-1" y="-1" xunits="pixels" yunits="pixels" />
+      <visibility>0</visibility>
+    </ScreenOverlay>
+    <Folder id="wsp">
+      <name>Wind Speed Probabilities (120 hours)</name>
+      <visibility>1</visibility>
+      <open>1</open>
+      <Folder id="wspValues">
+        <name>Values</name>
+        <visibility>1</visibility>
+        <open>1</open>
+        <Style>
+          <ListStyle>
+            <listItemType>radioFolder</listItemType>
+          </ListStyle>
+        </Style>
+        <NetworkLink id="wsp34">
+          <name>Probability of Tropical-Storm-force winds (34-kt)</name>
+          <visibility>1</visibility>
+          <open>0</open>
+          <Link>
+            <href>http://www.nhc.noaa.gov/gis/forecast/archive/2017062100_wsp34knt120hr_5km.kmz</href>
+          </Link>
+        </NetworkLink>
+        <NetworkLink id="wsp50">
+          <name>Probability of 50 knot winds</name>
+          <visibility>0</visibility>
+          <open>0</open>
+          <Link>
+            <href>http://www.nhc.noaa.gov/gis/forecast/archive/2017062100_wsp50knt120hr_5km.kmz</href>
+          </Link>
+        </NetworkLink>
+        <NetworkLink id="wsp64">
+          <name>Probability of Hurricane-force winds (64-kt)</name>
+          <visibility>0</visibility>
+          <open>0</open>
+          <Link>
+            <href>http://www.nhc.noaa.gov/gis/forecast/archive/2017062100_wsp64knt120hr_5km.kmz</href>
+          </Link>
+        </NetworkLink>
+      </Folder>
+    </Folder>
+    <Folder id="at3">
+      <name>Tropical Storm Cindy</name>
+      <visibility>1</visibility>
+      <open>1</open>
+      <ExtendedData>
+        <Data name="tcType">
+          <value>Tropical Storm</value>
+        </Data>
+        <Data name="tcName">
+          <value>Cindy</value>
+        </Data>
+        <Data name="wallet">
+          <value>AT3</value>
+        </Data>
+        <Data name="atcfID">
+          <value>AL032017</value>
+        </Data>
+        <Data name="centerLat">
+          <value>26.8</value>
+        </Data>
+        <Data name="centerLon">
+          <value>-91.4</value>
+        </Data>
+        <Data name="dateTime">
+          <value>1:00 AM CDT Wed Jun 21</value>
+        </Data>
+        <Data name="movement">
+          <value>NW at 7 mph</value>
+        </Data>
+        <Data name="minimumPressure">
+          <value>997 mb</value>
+        </Data>
+        <Data name="maxSustainedWind">
+          <value>60 mph</value>
+        </Data>
+        <Data name="headline">
+          <value> ...HEAVY RAINFALL COULD PRODUCE LIFE-THREATENING FLASH FLOODING ACROSS PORTIONS OF THE NORTHERN GULF COAST...</value>
+        </Data>
+      </ExtendedData>
+      <ExtendedData xmlns:tc="http://www.nhc.noaa.gov/cyclones">
+        <tc:type>Tropical Storm</tc:type>
+        <tc:name>Cindy</tc:name>
+        <tc:wallet>AT3</tc:wallet>
+        <tc:atcfID>AL032017</tc:atcfID>
+        <tc:centerLat>26.8</tc:centerLat>
+        <tc:centerLon>-91.4</tc:centerLon>
+        <tc:dateTime>1:00 AM CDT Wed Jun 21</tc:dateTime>
+        <tc:movement>NW at 7 mph</tc:movement>
+        <tc:minimumPressure>997 mb</tc:minimumPressure>
+        <tc:maxSustainedWind>60 mph</tc:maxSustainedWind>
+        <tc:headline> ...HEAVY RAINFALL COULD PRODUCE LIFE-THREATENING FLASH FLOODING ACROSS PORTIONS OF THE NORTHERN GULF COAST...</tc:headline>
+      </ExtendedData>
+      <NetworkLink id="cone">
+        <name>Cone of Uncertainty</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>http://www.nhc.noaa.gov/storm_graphics/api/AL032017_006Aadv_CONE.kmz</href>
+        </Link>
+      </NetworkLink>
+      <NetworkLink id="track">
+        <name>Track Forecast</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>http://www.nhc.noaa.gov/storm_graphics/api/AL032017_006Aadv_TRACK.kmz</href>
+        </Link>
+      </NetworkLink>
+      <NetworkLink id="ww">
+        <name>Wind Watches and Warnings</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <Link>
+          <href>http://www.nhc.noaa.gov/storm_graphics/api/AL032017_006Aadv_WW.kmz</href>
+        </Link>
+      </NetworkLink>
+    </Folder>
+  </Document>
+</kml>

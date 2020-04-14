@@ -1,0 +1,237 @@
+---
+# In brief, this file should schedule all our AIS providers:
+# - ExactAIS
+# - MarineTraffic LNG/LPG/OIL/CPP
+# - MarineTraffic COAL
+# - Vessel Finder
+# - Vessel Tracker
+# - SpireApi
+#
+# Note that MarineTraffic and VesselTracker's fleets can both be updated
+# through their API
+
+global_tags:
+  - 'category:ais'
+
+jobs:
+  - spider: VesselTracker
+    description: 'Vessel Tracker AIS provider for LNG Fleet tracking'
+    # Vessel Tracker contract ended on April 2018
+    disabled: true
+    crons:
+      - '*, *, *, *, */30'
+    dynamic_args:
+      password: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQH6wfslKZjQIHXmbYrx8ramAAAAZDBiBgkqhkiG9w0BBwagVTBTAgEAME4GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMkXQIx1wp0KvUw99lAgEQgCGUCXjBDqVf/0WY/Y9a+IGxICAI0lYA6x7g9JNdqSxD7TA=")'
+    args:
+      username: kpler_webservice
+    tags:
+      - 'commodity:lng'
+
+  - spider: VesselFinderApi
+    description: 'Vessel Tracker AIS provider for LNG Fleet tracking'
+    crons:
+      - '*, *, *, *, */15'
+    args:
+      max_age: 20
+    dynamic_args:
+      apikey: 'vault.decrypt("AQECAHj2zz/Y2vMrAcSDgmat/qvZ5owD3g5TSKh3WRZSJXzStwAAAHAwbgYJKoZIhvcNAQcGoGEwXwIBADBaBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHbHgtLZMtbHNHEVOgIBEIAtCzCL/9emof6fIRQGhYV8Dnr1X6FeglbxPSWs0bBo+DiZPxu2iG7Fcd1T3rUf")'
+
+  - spider: ExactAIS
+    description: 'Request ExactEarth Exact AIS feed'
+    disabled: false
+    crons:
+      - '*, *, *, *, */10'
+    dynamic_args:
+      apikey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQG5IuQbndjDfX4gt7jGP3q3AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDK6L0DkbUtLCjdh+GgIBEIA/37fDl0NvtQi7t8jdWCfhlw2+IumaxW0EipCeqej9T2eE8p+7vk5gfiDzQ55Y3rhr4UKcEZ0jMtLq3PF4p0pw")'
+    args:
+      # temporary forcing until `persist` base spider usage becomes clearer
+      # (beware of the added `lag`)
+      window: 15
+      # current contract fleet. Just safe guard since we shouldn't have
+      # assigned more vessels to EE
+      limit: 8000
+      # experimental memory optimization
+      gc: true
+  - spider: ExactAIS
+    description: 'Request ENI vessels positions'
+    crons:
+      - '*, *, *, *, */30'
+    dynamic_args:
+      apikey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQG5IuQbndjDfX4gt7jGP3q3AAAAgzCBgAYJKoZIhvcNAQcGoHMwcQIBADBsBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDK6L0DkbUtLCjdh+GgIBEIA/37fDl0NvtQi7t8jdWCfhlw2+IumaxW0EipCeqej9T2eE8p+7vk5gfiDzQ55Y3rhr4UKcEZ0jMtLq3PF4p0pw")'
+    args:
+      # temporary forcing until `persist` base spider usage becomes clearer
+      # (beware of the added `lag`)
+      window: 40
+      # like explain with Spire, we can only use their mmsi
+      match: mmsi
+      # same list as Spire
+      force: '211764030,211763990,244020207,246295000,244660421,244660413,244660418,244660420,244660415,244660422,244660414,244660423,211493510,211493530,211493550,211493570,211515220,211510550,211617950,211626240,244660416,205423290,211510430,211439370,211474450,211475880,211541290,211455300,211437930,211516390,211785120,211435700,211446560,211550500,205382790,253242440,211464390,211434550,253242278,205549290'
+
+
+  - spider: MarineTrafficAIS2
+    description: 'LNG/LPG/Oil fleets positions update'
+    disabled: false
+    crons:
+      - '*, *, *, *, */5'
+    dynamic_args:
+      poskey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQFhfl3VZ2B70fHE8tJ3DuxIAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDLtFmGHlOU+CzlOWYgIBEIBDqmx5l/uAQ+tAgjJPxsWhGLuty2YFBddHDQKZPFFkzIUv7ARDG1ApflowB7/jUUCi35NlapSgBIcvGoeWMusqFHbTPA==")'
+    args:
+      fleet_name: 'MT_API'
+      timespan: 6
+      msgtype: extended
+    tags:
+      - 'fleet:others'
+      - 'msg:extended'
+
+  - spider: MarineTrafficAIS2
+    description: 'Coal fleet positions update'
+    crons:
+      - '*, *, *, *, */4'
+    dynamic_args:
+      poskey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQFOwXSpuX2Uahiy+qsmQR/5AAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDHaySgjW/59HJh457AIBEIBDm4asC101p9IlqNbAnAql0KkPsdvLlRVtq7ZYQoR6aiRTinR7FKIszJIvjEGzHCoBZmckDGDDfjDBZuCRen42Mr/tZQ==")'
+    args:
+      fleet_name: 'MT_API_5000'
+      timespan: 5
+      msgtype: extended
+    tags:
+      - 'fleet:coal'
+      - 'msg:extended'
+
+  - spider: MarineTrafficAIS2
+    description: 'Small coal and cpp fleet positions update'
+    crons:
+      - '*, *, *, *, */5'
+    dynamic_args:
+      poskey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQGs4t4wrhFzEunWhoS+XJq0AAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDEXMVmSisD4QoeyKhQIBEIBDNr+axVsVVQqHS5g+TalVEGtd364U723anrXveK5LDdhavfPprAv5b4beBkB4Kg+/eir7LQwethHjBI6/fdpgjeIfLQ==")'
+    args:
+      fleet_name: 'MT_API_SMALL'
+      timespan: 6
+      msgtype: extended
+    tags:
+      - 'fleet:small'
+      - 'msg:extended'
+
+  - spider: SpireApi
+    description: 'vessel fleet scanner for the snapshot loader'
+    crons:
+      - '*, *, *, *, 5'
+    args:
+      query_by: imo
+      api: vessels
+      batch: 30
+      limit: 19000  # current fleet size (+ small margin)
+    dynamic_args:
+      token: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQF40bAJj7PNCOjcN4CkwmUiAAAA/jCB+wYJKoZIhvcNAQcGoIHtMIHqAgEAMIHkBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP+q++fZxxsqRPodGAIBEICBtnNymodBQX0DRCzgtygZDNN7TO5IZV2w+lxsD3yv28pbkHcXOi69JkGqrxK2ZBRIZZ8pfQj2hABPtIpxxfRkEtpOO5lxf891/Mo2h2THGBUPw+DAlV3KQAAgN9fRo7NtjFkE8k7eHYd/l2g1kTHKo2L7aHoPMoYwZBvdVM6Dil/QhHe9S1F9sP9rvWWXExp4j57pnPldMb+02IERh+T8Wg3ppuBuBIwsUfFRvQFbn/rIhXt9s8qW")'
+
+  # The vessels API  results into very large job output we struggle to process
+  # downstream. To workaround the issue the job is distributed among several
+  # instances who will cover all the slices of the global fleet
+  - spider: SpireStream
+    description: 'Fleet scan for AIS feed'
+    crons:
+      - '*, *, *, *, */10'
+    args:
+      query_by: imo
+      api: vessels
+      batch: 50
+      # `3000` isdesigned to cover 18000 vessels in 6 runs (so if ran every 10
+      # minutes, we cover the fleet in an hour)
+      slice_size: 3000
+      # `0.8` was tested empirically to give a good balance between precision and recall
+      # for vessel name fuzzy matching
+      message_similarity: 0.80
+    dynamic_args:
+      token: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQF40bAJj7PNCOjcN4CkwmUiAAAA/jCB+wYJKoZIhvcNAQcGoIHtMIHqAgEAMIHkBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP+q++fZxxsqRPodGAIBEICBtnNymodBQX0DRCzgtygZDNN7TO5IZV2w+lxsD3yv28pbkHcXOi69JkGqrxK2ZBRIZZ8pfQj2hABPtIpxxfRkEtpOO5lxf891/Mo2h2THGBUPw+DAlV3KQAAgN9fRo7NtjFkE8k7eHYd/l2g1kTHKo2L7aHoPMoYwZBvdVM6Dil/QhHe9S1F9sP9rvWWXExp4j57pnPldMb+02IERh+T8Wg3ppuBuBIwsUfFRvQFbn/rIhXt9s8qW")'
+    settings:
+      DOTSCRAPY_ENABLED: True
+
+  # European vessels with an ENI usually don't have an IMO and as such they are
+  # more difficult to track given the assumptions our Kpler stack holds. We
+  # register vessels on MarineTraffic using IMO for example.
+  # Nevertheless they do have valid MMSI and Spire returns their ENI at the IMO
+  # place, so it looks like a workaround that can work.
+  - spider: SpireStream
+    description: 'Fetch European vessels with an ENI'
+    crons:
+      - '*, *, *, *, */30'
+    args:
+      query_by: mmsi
+      api: vessels
+      mmsi: '211764030,211763990,244020207,246295000,244660421,244660413,244660418,244660420,244660415,244660422,244660414,244660423,211493510,211493530,211493550,211493570,211515220,211510550,211617950,211626240,244660416,205423290,211510430,211439370,211474450,211475880,211541290,211455300,211437930,211516390,211785120,211435700,211446560,211550500,205382790,253242440,211464390,211434550,253242278,205549290'
+    dynamic_args:
+      token: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQF40bAJj7PNCOjcN4CkwmUiAAAA/jCB+wYJKoZIhvcNAQcGoIHtMIHqAgEAMIHkBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP+q++fZxxsqRPodGAIBEICBtnNymodBQX0DRCzgtygZDNN7TO5IZV2w+lxsD3yv28pbkHcXOi69JkGqrxK2ZBRIZZ8pfQj2hABPtIpxxfRkEtpOO5lxf891/Mo2h2THGBUPw+DAlV3KQAAgN9fRo7NtjFkE8k7eHYd/l2g1kTHKo2L7aHoPMoYwZBvdVM6Dil/QhHe9S1F9sP9rvWWXExp4j57pnPldMb+02IERh+T8Wg3ppuBuBIwsUfFRvQFbn/rIhXt9s8qW")'
+
+  - spider: SpireStream
+    # run fours hours, with ton of useless data and vessels at strange positions in prod
+    disabled: true
+    description: 'AIS messages filtered to our fleet'
+    crons:
+      - '*, *, *, *, */5'
+    args:
+      query_by: imo
+      api: messages
+      since: 6
+      batch: 30
+    dynamic_args:
+      token: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQF40bAJj7PNCOjcN4CkwmUiAAAA/jCB+wYJKoZIhvcNAQcGoIHtMIHqAgEAMIHkBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDP+q++fZxxsqRPodGAIBEICBtnNymodBQX0DRCzgtygZDNN7TO5IZV2w+lxsD3yv28pbkHcXOi69JkGqrxK2ZBRIZZ8pfQj2hABPtIpxxfRkEtpOO5lxf891/Mo2h2THGBUPw+DAlV3KQAAgN9fRo7NtjFkE8k7eHYd/l2g1kTHKo2L7aHoPMoYwZBvdVM6Dil/QhHe9S1F9sP9rvWWXExp4j57pnPldMb+02IERh+T8Wg3ppuBuBIwsUfFRvQFbn/rIhXt9s8qW")'
+
+  # //////////////// fleet sync //////////////////
+
+  - spider: MarineTrafficFleet
+    description: 'Synchronize internal coal fleet with MT'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    dynamic_args:
+      setkey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQGXshmgmAUgGS3YqoGnx3fGAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDL3pNSHSOQ6YnacT8AIBEIBDmkfRVlsTq4bQXRA1HUYCiE3N3AvSeIvn0LtJjTu5S+tO576xsg0EPuuBSLiCEj3Ihl/mWTwE/45jkH6gak1uIgWMBQ==")'
+      getkey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQH6fCR6Cqh/7kQnhOeO3VwcAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDBESezvoJASlZBa2IwIBEIBDUIWV7DyGXkXpZQ04uJ0s4e+hBpWdpUXQkXWbwXlysw95xwJDi21fcqBvinLDYyvDj526mtrEmC1Sv9N2b7TDphqK5w==")'
+    args:
+      fleet_name: MT_API_5000
+      removal: true
+    tags:
+      - 'fleet:coal'
+      - 'fleet'
+
+  - spider: MarineTrafficFleet
+    description: 'Synchronize internal LNG/LPG/OIL/CPP fleets with MT'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    dynamic_args:
+      setkey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQGXshmgmAUgGS3YqoGnx3fGAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDL3pNSHSOQ6YnacT8AIBEIBDmkfRVlsTq4bQXRA1HUYCiE3N3AvSeIvn0LtJjTu5S+tO576xsg0EPuuBSLiCEj3Ihl/mWTwE/45jkH6gak1uIgWMBQ==")'
+      getkey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQH6fCR6Cqh/7kQnhOeO3VwcAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDBESezvoJASlZBa2IwIBEIBDUIWV7DyGXkXpZQ04uJ0s4e+hBpWdpUXQkXWbwXlysw95xwJDi21fcqBvinLDYyvDj526mtrEmC1Sv9N2b7TDphqK5w==")'
+    args:
+      fleet_name: MT_API
+      removal: true
+    tags:
+      - 'fleet:others'
+      - 'fleet'
+
+  - spider: MarineTrafficFleet
+    description: 'Synchronize small CPP and Coal fleets with MT'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    dynamic_args:
+      setkey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQEWkLHPLrGk2B44C35CM2odAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDBhuae3cI79mgMSqMgIBEIBD9+ceH8vhs5FZk3ow42DNFtBxCyF1r+KikENpPwCJsF3TohQaIodex0GMl6tU891OPIoP0sTRrXd38ATeu6a8/ZK4rA==")'
+      getkey: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQETSZ/lggRsB+lNRm1QzcPxAAAAhzCBhAYJKoZIhvcNAQcGoHcwdQIBADBwBgkqhkiG9w0BBwEwHgYJYIZIAWUDBAEuMBEEDOChf5rnaegGfWWnzQIBEIBDuItuO3NYlWPuMDmQKY+LgJy1MeSLgPBwqLJDZ7y0IBjBb23ZsjORa8uofQRzrC3YWVZvWTXGKYxWOmyRq3vltDAQMg==")'
+    args:
+      fleet_name: MT_API_SMALL
+      removal: true
+    tags:
+      - 'fleet:others'
+      - 'fleet'
+
+  # TODO small vessels
+
+  - spider: VesselTracker
+    # Vessel Tracker contract ended on April 2018
+    disabled: true
+    description: 'Synchronise internal LNG fleet with Vessel Tracker'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    dynamic_args:
+      password: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQH6wfslKZjQIHXmbYrx8ramAAAAZDBiBgkqhkiG9w0BBwagVTBTAgEAME4GCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMkXQIx1wp0KvUw99lAgEQgCGUCXjBDqVf/0WY/Y9a+IGxICAI0lYA6x7g9JNdqSxD7TA=")'
+    args:
+      username: kpler_webservice
+      fleet: true
+      # removal: true
+    tags:
+      - 'commodity:lng'

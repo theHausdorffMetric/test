@@ -1,0 +1,16 @@
+---
+# Nest config under `jobs` key to keep room for other meta datas or controls.
+# Good practice anyway to avoid exposing directly an array of indifinite depth
+
+
+global_tags:
+  - 'category:registry'
+
+
+jobs:
+  - spider: MarineTrafficRegistry
+    description: 'Exclusive updates for vessel MMSI and callsign'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    settings:
+      CRAWLERA_ENABLED: True

@@ -1,0 +1,6 @@
+<!-- -*- coding: utf-8-dos; -*- -->
+<RESPONSE>
+	<STATUS>
+		<ERROR CODE="5" DESCRIPTION="ABOVE SERVICE CALL LIMIT" />
+	</STATUS>
+</RESPONSE>

@@ -1,0 +1,10902 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search -->
+<html class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="description" content="">
+		<meta name="author" content="Equasis">
+
+
+		<title>Equasis - Search
+		</title>
+
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+		<meta http-equiv="Expires" content="0">
+
+		<link href="./search_page_last_files/input.css" rel="stylesheet">
+		<link href="./search_page_last_files/bootstrap.min.css" rel="stylesheet">
+		<link href="./search_page_last_files/font-awesome.min.css" rel="stylesheet">
+		<link href="./search_page_last_files/main.css" rel="stylesheet">
+		<link href="./search_page_last_files/dropdown.css" rel="stylesheet">
+		<link href="./search_page_last_files/table.css" rel="stylesheet">
+		<link href="./search_page_last_files/radios.css" rel="stylesheet">
+
+		<link rel="icon" type="image/x-icon" href="http://www.equasis.org/EquasisWeb/Static/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="http://www.equasis.org/EquasisWeb/Static/favicon.ico">
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="http://www.equasis.org/EquasisWeb/Static/images/ico/apple-touch-icon-57-precomposed.png">
+
+
+		<script src="./search_page_last_files/equasis.js"></script>
+
+		<script type="text/javascript" src="./search_page_last_files/memberaccess.js"></script>
+
+
+
+
+		  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="../Static/js/html5shiv.min.js"></script>
+      <script src="../Static/js/respond.min.js"></script>
+    <![endif]-->
+	</head>
+	<body onload="initOnglet()">
+	<a style="display:none" data-toggle="collapse" href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search#collapse1" aria-expanded="false" id="boutonInitOnglet">
+	</a>
+	<div id="body">
+	<header class="banner">
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse white" role="navigation">
+			<div class="separator bleu-equasis"></div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-sm-2 no-padding">
+
+						<!-- LOGO -->
+						<div class="navbar-header full-width">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#equasis-menu-collapse" id="menu" onclick="toggleMenu();">
+								<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+							</button>
+
+							<button type="button" class="navbar-toggle user" data-toggle="collapse" data-target="#equasis-user-collapse" id="user" onclick="toggleUser();">
+								<span class="sr-only">Toggle navigation</span> <span class="icon-user"></span></button>
+
+
+
+						<a class="navbar-brand" href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=Search"><img class="img-responsive" src="./search_page_last_files/logo_equasis_prod.gif" alt="logo"></a>
+					</div>
+					<!-- /LOGO -->
+
+
+
+							<!-- SEARCH XS-->
+							<div class="navbar-header full-width hidden-lg hidden-md hidden-sm no-padding">
+								<div class="bleu-equasis no-padding">
+									<div style="padding-left: 6px; padding-right: 6px;">
+										<form class="navbar-form navbar-input-group" id="RechercheEnteteS" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search" name="formSearchEnteteS" onsubmit="document.formSearchEnteteS.P_ENTREE_ENTETE_HIDDEN.value=document.formSearchEnteteS.P_ENTREE_ENTETE_S.value;" method="post">
+											<input type="hidden" id="P_ENTREE_ENTETE_HIDDEN" value="" name="P_ENTREE_ENTETE_HIDDEN"> <input type="hidden" name="P_PAGE" value="1"> <input type="hidden" name="P_PAGE_COMP" value="1"> <input type="hidden" name="P_PAGE_SHIP" value="1">
+											<div class="input-group equasis-input-group">
+												<input type="text" class="form-control" autocomplete="off" placeholder="IMO, Name, Company" name="P_ENTREE_ENTETE_S" id="P_ENTREE_ENTETE_S"> <span class="input-group-btn">
+
+
+													<button class="btn btn-default" type="submit">
+														<i class="icon-search icon-sm"></i>
+													</button>
+												</span>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+							<!-- /SEARCH XS-->
+
+
+				</div>
+				<div class="hidden-lg hidden-md hidden-sm">
+					<div class="collapse navbar-collapse hidden-lg hidden-md hidden-sm" id="equasis-user-collapse">
+
+
+							<div class="navbar-right hidden-lg hidden-md hidden-sm">
+								<!-- USER INFO XS -->
+								<div class="access-body">
+									<h3>
+										Welcome
+									</h3>
+									<div class="clearfix"></div>
+									<form name="formInfoUser" method="post" action="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=Search" onsubmit="window.location.reload()">
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<h3 class="bleu-equasis">Mr
+													Yacine Badiss</h3>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+											<div class="clearfix h15"></div>
+												<h3 class="bleu-equasis">
+													You can :
+												</h3>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<ul class="no-margin">
+													<li><a href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=Search&amp;P_ACTION=NEW_CONNECTION">
+															Logout <i class="icon-arrow-right icon-sm"></i>
+													</a></li>
+												</ul>
+											</div>
+										</div>
+
+											<div class="row">
+												<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+													<a href="http://www.equasis.org/EquasisWeb/restricted/Registration?fs=Search"> Update your profile <i class="icon-arrow-right icon-sm"></i></a>
+												</div>
+											</div>
+
+										<div class="row">
+											<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+												<ul>
+													<li><a href="http://www.equasis.org/EquasisWeb/restricted/ReportAnError?fs=Search&amp;P_ACTION=NEW_QUERY">
+															Report an Issue
+															<i class="icon-arrow-right icon-sm"></i>
+													</a></li>
+													<li><a href="http://www.equasis.org/EquasisWeb/restricted/Feedback?fs=Search"> Give your opinion <i class="icon-arrow-right icon-sm"></i></a></li>
+												</ul>
+											</div>
+										</div>
+
+									</form>
+									<div class="clearfix h15 hidden-lg hidden-md"></div>
+								</div>
+								<!-- /USER INFO XS -->
+							</div>
+
+					</div>
+				</div>
+				<div class="collapse navbar-collapse" id="equasis-menu-collapse">
+
+
+
+
+						<div class="col-sm-4 col-lg-3 navbar-right hidden-xs">
+
+							<div class="table-cell cell-full text-right">
+
+									<!-- SEARCH -->
+									<form style="margin-top: -15px;" class="navbar-form navbar-input-group" id="RechercheEntete" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search" name="formSearchEntete" onsubmit="document.formSearchEntete.P_ENTREE_ENTETE_HIDDEN.value=document.formSearchEntete.P_ENTREE_ENTETE.value;" method="post">
+										<input type="hidden" name="P_PAGE" value="1"> <input type="hidden" name="P_PAGE_COMP" value="1"> <input type="hidden" name="P_PAGE_SHIP" value="1">
+										<div class="input-group equasis-input-group">
+											<input type="text" class="form-control" autocomplete="off" placeholder="IMO, Name, Company" name="P_ENTREE_ENTETE" id="P_ENTREE_ENTETE"> <span class="input-group-btn"> <input type="hidden" id="P_ENTREE_ENTETE_HIDDEN" value="" name="P_ENTREE_ENTETE_HIDDEN">
+												<button class="btn btn-default" type="submit">
+													<i class="icon-search icon-sm"></i>
+												</button>
+											</span>
+										</div>
+									</form>
+									<!-- /SEARCH -->
+
+							</div>
+
+
+							<div class="table-cell">
+								<ul class="nav" style="margin-top: -10px;">
+
+									<li class="dropdown dropdown-arrow" id="user_menu_container">
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search#" class="dropdown-toggle text-overflow text-left" data-toggle="dropdown"> <span><i class="icon-user icon-md"></i></span>
+									</a>
+										<ul class="dropdown-menu user-menu panel panel-success no-border no-padding no-radius noclose">
+											<li class="panel-body" id="guest-register">
+												<!-- USER INFO -->
+												<form class="text-left" role="form">
+													<div class="pull-left">
+														<i class="icon-unlock icon-md"></i>
+													</div>
+													<div class="access-body">
+														<h3>
+															Welcome
+														</h3>
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<h3 class="bleu-equasis">Mr
+																	Yacine
+																	Badiss</h3>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<div class="clearfix h20"></div>
+																<h3 class="bleu-equasis">
+																	You can :
+																</h3>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<ul class="no-margin">
+																	<li><a href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=Search&amp;P_ACTION=NEW_CONNECTION">
+																			Logout <i class="icon-arrow-right icon-sm"></i>
+																	</a></li>
+																</ul>
+															</div>
+														</div>
+
+															<div class="row">
+																<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+																	<a href="http://www.equasis.org/EquasisWeb/restricted/Registration?fs=Search"> Update your profile <i class="icon-arrow-right icon-sm"></i></a>
+																</div>
+															</div>
+
+														<div class="row">
+															<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+																<ul>
+																	<li><a href="http://www.equasis.org/EquasisWeb/restricted/ReportAnError?fs=Search&amp;P_ACTION=NEW_QUERY">
+																			Report an Issue <i class="icon-arrow-right icon-sm"></i>
+																	</a></li>
+
+																	<li><a href="http://www.equasis.org/EquasisWeb/restricted/Feedback?fs=Search"> Give your opinion <i class="icon-arrow-right icon-sm"></i></a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</form> <!-- USER INFO -->
+											</li>
+
+										</ul>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+					<div class="col-sm-6 col-lg-7 navbar-center">
+						<ul class="nav navbar-nav text-left" style="visibility: visible;">
+							<!-- Home -->
+
+
+								<li>
+
+							<a href="http://www.equasis.org/EquasisWeb/public/HomePage?fs=Search"> Home <i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm">
+							</i>
+							</a>
+
+							</li>
+							<!-- /Home -->
+
+							<!-- ADMINISTRATION -->
+
+							<!-- /ADMINISTRATION -->
+
+							<!-- MY EQUASIS -->
+
+
+
+									<li>
+
+														 		<a href="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=Search" id="dropdownMenuMyEquasis" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+										My Equasis&nbsp;<i class="icon-chevron-down icon-sm hidden-xs"></i>
+									 <i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm"></i>
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenuMyEquasis">
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=Search"><i class="icon-caret-right"></i>&nbsp;Ship sign up
+									</a></li>
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/CompanySubcription?fs=Search"><i class="icon-caret-right"></i>&nbsp;Company sign up
+									</a></li>
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/SurveyList?fs=Search"><i class="icon-caret-right"></i>&nbsp;Survey
+									</a></li>
+
+								</ul>
+
+							<!-- /MY EQUASIS -->
+
+
+							<!-- ABOUT -->
+
+
+								</li><li>
+
+							<a href="http://www.equasis.org/EquasisWeb/restricted/About?fs=Search" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								About Equasis &nbsp;<i class="icon-chevron-down icon-sm hidden-xs"></i><i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm"></i>
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=Search&amp;P_ABOUT=MainConcern.html">
+										<i class="icon-caret-right"></i>&nbsp;Overview
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=Search&amp;P_ABOUT=MoUText.html">
+										<i class="icon-caret-right"></i>&nbsp;MOU text
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=Search&amp;P_ABOUT=Org.html">
+										<i class="icon-caret-right"></i>&nbsp;Organisation
+								</a></li>
+
+								<li><a href="http://www.equasis.org/EquasisWeb/public/DataUpdatePublic?fs=Search&amp;P_PAGE=1">
+										<i class="icon-caret-right"></i>&nbsp;Data update
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=Search&amp;P_ABOUT=Providers.html">
+										<i class="icon-caret-right"></i>&nbsp;Data-Providers
+								</a></li>
+								<li><a href="http://www.equasis.org/EquasisWeb/public/About?fs=Search&amp;P_ABOUT=Events.html">
+										<i class="icon-caret-right"></i>&nbsp;Events
+								</a></li>
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/FlagPerf?fs=Search">
+										<i class="icon-caret-right"></i>&nbsp;Flag Perf.
+									</a></li>
+
+
+									<li><a href="http://www.equasis.org/EquasisWeb/restricted/ROPerf?fs=Search">
+										<i class="icon-caret-right"></i>&nbsp;RO Perf.
+									</a></li>
+
+								<li><a href="http://www.equasis.org/EquasisWeb/public/RatConv?fs=Search"> <i class="icon-caret-right"></i>&nbsp;IMO conventions
+								</a></li>
+							</ul>
+							<!-- /ABOUT -->
+
+							<!-- STATISTICS -->
+
+
+								</li><li>
+
+
+
+								<a href="http://www.equasis.org/EquasisWeb/restricted/PublicStatistic?fs=Search">Statistics <i class="icon-arrow-right icon-sm pull-right hidden-lg hidden-md hidden-sm"></i></a>
+								</li>
+
+
+							<!-- /STATISTICS -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</header>
+<noscript>
+	&lt;div class="remove-spaces-alert"&gt;
+		&lt;div class="alert alert-warning text-left browser-outdated" style="margin: 0px auto;"&gt;
+			&lt;div class="table-cell align-top"&gt;
+				&lt;span class="fa-stack font-200" style="margin-right: 10px"&gt;
+					&lt;i class="fa fa-square fa-stack-2x"&gt;&lt;/i&gt;
+					&lt;i style="color: #CDE7F4" class="fa fa-exclamation-triangle fa-stack-1x"&gt;&lt;/i&gt;
+				&lt;/span&gt;
+			&lt;/div&gt;
+			&lt;div class="table-cell align-top full-width center-block"&gt;
+				&lt;p style="text-align:justify;" class="no-margin"&gt;&lt;strong class="font-120 center-block"&gt;You don't have javascript enabled in your browser.&lt;br /&gt;The Equasis Website use Javascript as a part of its core functionality, and if you browse this website without JavaScript enabled then you won't have the full experience that you normally would.&lt;br /&gt;This website may not work properly.&lt;/strong&gt;&lt;/p&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+</noscript>
+<div id="cookiesDisabled" class="remove-spaces-alert" style="display:none;">
+	<div class="alert alert-danger text-left browser-outdated" style="margin: 0px auto;">
+		<div class="table-cell align-top">
+			<span class="fa-stack font-200" style="margin-right: 10px">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i style="color: #CDE7F4" class="fa fa-exclamation-triangle fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="table-cell align-top full-width center-block">
+			<p style="text-align:justify;" class="no-margin"><strong class="font-120 center-block">You don't have Cookies enabled in your browser.<br>Cookies help us deliver our services. By using our services, you agree to our use of Cookies.
+			<br>The Equasis Website use Cookies as a part of its core functionality, and if you browse this website without Cookies enabled then you won't have the full experience that you normally would.<br>This website may not work properly.</strong></p>
+		</div>
+	</div>
+</div>
+<div id="browser" class="remove-spaces-alert" style="display:none;">
+	<div class="alert alert-danger text-left browser-outdated" style="margin: 0px auto;">
+		<div class="table-cell align-top">
+			<span class="fa-stack font-200" style="margin-right: 10px">
+				<i class="fa fa-square fa-stack-2x"></i>
+				<i style="color: #CDE7F4" class="fa fa-exclamation-triangle fa-stack-1x"></i>
+			</span>
+		</div>
+		<div class="table-cell align-top full-width center-block">
+			<p style="text-align:justify;" class="no-margin"><strong class="font-120 center-block">Your browser is not supported by Equasis Website.
+		</strong></p>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<!-- Breadcrumb -->
+
+
+
+	<div id="breadcrumb" class="hidden-xs">
+		<ul id="breadcrumb">
+
+
+
+							<li><a id="first" href="http://www.equasis.org/EquasisWeb/restricted/HomePage?fs=Search"><i class="icon-home"></i></a></li>
+
+
+
+
+
+
+
+
+
+							<li id="current">Search</li>
+
+
+
+
+
+		</ul>
+	</div>
+
+		<section id="title" class="hidden-lg  hidden-sm hidden-md">
+			<div class="container-fluid no-padding">
+				<div class="row-fluid">
+					<div>
+							<p>
+								<a href="http://www.equasis.org/EquasisWeb/authen/HomePage?fs=HomePage" class="social"><i class="icon-arrow-left icon-md"></i></a>&nbsp;Back to <span><a href="http://www.equasis.org/EquasisWeb/authen/HomePage?fs=HomePage" class="social">Home</a></span>
+							</p>
+						</div>
+					</div>
+				</div>
+		</section>
+
+
+
+
+
+<script src="./search_page_last_files/enteteMenuUser.js"></script>
+
+
+
+
+
+<!-- Message error -->
+
+
+
+
+
+
+
+<!--search -->
+<section class="equasis_blue_boxes bleu-equasis">
+	<div class="container-fluid no-padding">
+
+
+		<div class="news-item">
+			<div class="news-body padding-15">
+				<form role="form" id="shipSearch" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search" method="post" name="formSearch" onsubmit="document.formSearch.P_ENTREE_HOME_HIDDEN.value=document.formSearch.P_ENTREE.value;">
+					<input type="hidden" name="P_PAGE" value="1"> <input type="hidden" name="P_PAGE_COMP" value="1"> <input type="hidden" name="P_PAGE_SHIP" value="1"> <input type="hidden" name="ongletActifSC" value="ship" id="ongletActifSC"> <input type="hidden" name="P_ENTREE_HOME_HIDDEN" value="">
+					<h3 class="orange-equasis">
+						Search
+
+					</h3>
+					<div class="row-fluid">
+
+						<div class="col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 col-sm-12 col-xs-12">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<div class="input-group">
+									<input type="text" class="form-control" autocomplete="off" placeholder="IMO, Name, Company" value="" name="P_ENTREE" id="P_ENTREE" required=""> <span class="input-group-btn"> <input type="hidden" name="Submit" id="Submit" value="Search">
+										<button class="btn btn-default" type="submit" id="lanceRechercheSimple">
+											<i class="icon-search icon-sm"></i>
+										</button>
+									</span>
+								</div>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+									<div class="checkbox">
+
+
+
+												<input type="checkbox" value="Ship" id="checkbox-ship" name="checkbox-shipSearch">
+
+
+										<label for="checkbox-ship"></label>
+										<p>
+											Ship
+										</p>
+									</div>
+								</div>
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+									<div class="checkbox">
+
+
+
+												<input type="checkbox" value="Company" id="checkbox-company" name="checkbox-companySearch">
+
+
+										<label for="checkbox-company"></label>
+										<p>
+											Company
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</form>
+				<form role="form" id="shipSearchAdv" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search" method="post" name="formSearchAdv" onsubmit="document.getElementById(&#39;buttonAdvancedSearch&#39;).value=&#39;advancedOk&#39;;">
+					<input type="hidden" name="P_PAGE" value="1"> <input type="hidden" name="P_PAGE_COMP" value="1"> <input type="hidden" name="P_PAGE_SHIP" value="1"> <input type="hidden" name="ongletActifSC" value="ship" id="ongletActifSC"> <input type="hidden" name="P_ENTREE_HOME_HIDDEN" value="">
+
+
+
+							<div class="row">
+								<div class="col-lg-8 col-lg-push-2 col-md-8 col-md-push-2 col-sm-12 col-xs-12">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<p id="advanced-plus">
+											<a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search#" id="advanced-search-toggle"><i class="searchDisable icon-plus-sign icon-sm"></i>&nbsp;Advanced Ship Search</a>
+										</p>
+									</div>
+								</div>
+
+							</div>
+							<div id="advanced-search" class="gris-bleu-traffic" style="display: none;">
+								<div class="clearfix h10"></div>
+
+
+
+
+
+
+
+<!-- ShipSearch -->
+
+<div class="row">
+	<div class="clearfix h10 hidden-sm hidden-xs"></div>
+	<!--  -->
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div class="form-group">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group input-group equasis-input-group">
+					<input id="P_IMO" type="text" class="form-control" maxlength="7" autocomplete="off" value="" placeholder="IMO number " data-toggle="tooltip" data-placement="top" name="P_IMO" data-original-title="" title=""> <span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							IMO
+						</button>
+					</span> <label for="P_IMO">IMO number </label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+				<div class="form-group input-group equasis-input-group">
+					<input id="P_CALLSIGN" type="text" class="form-control" autocomplete="off" value="" placeholder="Call sign " data-toggle="tooltip" data-placement="top" name="P_CALLSIGN" data-original-title="" title=""> <span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							Call sign
+						</button>
+					</span> <label for="field-mmsi">Call sign </label>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
+					<div class="checkbox">
+
+
+							<input type="checkbox" id="P_CALLSIGN_cu" name="P_CALLSIGN_cu" class="current">
+
+
+							<label for="P_CALLSIGN_cu"></label>
+						<p>
+							Current
+						</p>
+
+					</div>
+				</div>
+		</div>
+	</div>
+
+</div>
+
+
+<div class="row">
+	<div class="clearfix h10 hidden-sm hidden-xs"></div>
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div class="form-group">
+			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+				<div class="form-group input-group equasis-input-group">
+					<input id="P_NAME" type="text" class="form-control" autocomplete="off" value="" placeholder="Name of ship " data-toggle="tooltip" data-placement="top" name="P_NAME" onkeyup="textChanged(this)" onblur="textChanged(this)" data-original-title="" title=""> <span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							Name
+						</button>
+					</span> <label for="P_NAME">Name of ship </label>
+				</div>
+			</div>
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+					<div class="checkbox">
+
+
+							<input type="checkbox" id="P_NAME_cu" name="P_NAME_cu" class="current">
+
+
+						<label for="P_NAME_cu"></label>
+						<p>Current</p>
+					</div>
+				</div>
+		</div>
+	</div>
+
+
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div class="form-group">
+
+
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+				<div class="form-group input-group equasis-input-group">
+					<input id="P_MMSI" type="text" class="form-control" autocomplete="off" value="" placeholder="MMSI number " data-toggle="tooltip" data-placement="top" name="P_MMSI" data-original-title="" title=""> <span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							MMSI
+						</button>
+					</span> <label for="P_MMSI">MMSI number </label>
+				</div>
+			</div>
+
+
+		</div>
+
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="clearfix h25 hidden-sm hidden-xs"></div>
+	<div class="clearfix h10 hidden-lg hidden-md"></div>
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<div class="form-group">
+
+
+
+
+
+
+
+<!-- between -->
+
+
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="form-group input-group equasis-input-group">
+
+				<input id="P_GT_GT" type="text" class="form-control" autocomplete="off" placeholder="Gross tonnage" data-toggle="tooltip" data-placement="top" onkeypress="validateInput(event,[0-9])" name="P_GT_GT" value="" data-original-title="" title="">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" disabled="">
+						GT
+					</button>
+				</span>
+				<label for="field-tonnage-min">Gross tonnage</label>
+			</div>
+			<p style="text-align: center;">
+				from
+			</p>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="form-group input-group equasis-input-group">
+
+				<input id="P_GT_LT" type="text" class="form-control" autocomplete="off" placeholder="Gross tonnage" data-toggle="tooltip" data-placement="top" onkeypress="validateInput(event,[0-9])" name="P_GT_LT" value="" data-original-title="" title="">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							GT
+						</button>
+					</span>
+					<label for="field-tonnage-max">Gross tonnage</label>
+			</div>
+			<p style="text-align: center;">to</p>
+		</div>
+
+
+
+
+</div></div>
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<div class="form-group">
+
+
+
+
+
+
+
+<!-- between -->
+
+
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="form-group input-group equasis-input-group">
+
+				<input id="P_DW_GT" type="text" class="form-control" autocomplete="off" placeholder="DeadWeight" data-toggle="tooltip" data-placement="top" onkeypress="validateInput(event,[0-9])" name="P_DW_GT" value="" data-original-title="" title="">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" disabled="">
+						DWT
+					</button>
+				</span>
+				<label for="field-tonnage-min">DeadWeight</label>
+			</div>
+			<p style="text-align: center;">
+				from
+			</p>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="form-group input-group equasis-input-group">
+
+				<input id="P_DW_LT" type="text" class="form-control" autocomplete="off" placeholder="DeadWeight" data-toggle="tooltip" data-placement="top" onkeypress="validateInput(event,[0-9])" name="P_DW_LT" value="" data-original-title="" title="">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							DWT
+						</button>
+					</span>
+					<label for="field-tonnage-max">DeadWeight</label>
+			</div>
+			<p style="text-align: center;">to</p>
+		</div>
+
+
+
+
+	</div></div>
+</div>
+
+
+
+<div class="row">
+	<div class="clearfix h25 hidden-sm hidden-xs"></div>
+	<div class="clearfix h10 hidden-lg hidden-md"></div>
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<div class="form-group">
+
+
+
+
+
+
+
+<!-- between -->
+
+
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="form-group input-group equasis-input-group">
+
+				<input id="P_YB_GT" type="text" class="form-control" autocomplete="off" placeholder="Year of build" data-toggle="tooltip" data-placement="top" onkeypress="validateInput(event,[0-9])" name="P_YB_GT" value="1960" data-original-title="" title="">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" disabled="">
+						YB
+					</button>
+				</span>
+				<label for="field-tonnage-min">Year of build</label>
+			</div>
+			<p style="text-align: center;">
+				from
+			</p>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+			<div class="form-group input-group equasis-input-group">
+
+				<input id="P_YB_LT" type="text" class="form-control" autocomplete="off" placeholder="Year of build" data-toggle="tooltip" data-placement="top" onkeypress="validateInput(event,[0-9])" name="P_YB_LT" value="1961" data-original-title="" title="">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" disabled="">
+							YB
+						</button>
+					</span>
+					<label for="field-tonnage-max">Year of build</label>
+			</div>
+			<p style="text-align: center;">to</p>
+		</div>
+
+
+
+
+</div></div>
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+
+
+
+
+
+
+
+
+<div class="radios" style="margin-top: 15px;">
+	<ul class="list-inline">
+		<li>
+		<!-- ignore -->
+
+
+				<input type="radio" name="P_CLASS_rb" id="P_CLASS_rb_HC" value="HC" checked="checked" onclick="radioButtonChanged(this);">
+
+		<label for="P_CLASS_rb_HC">
+			Ignore
+		</label>
+		<div class="check"></div>
+		</li>
+
+
+
+		<!-- all -->
+		<li>
+
+				<input type="radio" name="P_CLASS_rb" id="P_CLASS_rb_TT" value="TT" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CLASS_rb_TT">
+			All
+		</label>
+		<div class="check"></div>
+
+		</li>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+
+
+		<!-- exclude all -->
+		<li>
+
+				<input type="radio" name="P_CLASS_rb" id="P_CLASS_rb_AU" value="AU" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CLASS_rb_AU">
+			Exclude all
+		</label>
+		<div class="check"></div>
+
+		</li>
+
+		<!-- choose -->
+		<li>
+
+				<input type="radio" name="P_CLASS_rb" id="P_CLASS_rb_CM" value="CM" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CLASS_rb_CM">
+			Chose
+		</label>
+		<div class="check"></div>
+
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- liste principale contenant des choix multiples si le parametre est actif avec focus -->
+
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><!-- form-control -->
+	<select class="multiSelect form-control" style="display: NONE" id="P_CLASS" name="P_CLASS" multiple="multiple" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)" onchange="(this)">
+
+		<option selected="selected" disabled="disabled" value="">Class society</option>
+
+
+
+
+
+[T283; Albanian Register of Shipping, 0917; Alfa Register of Shipping, 0906; American Bureau of Shipping (IACS), T225; American Register of Shipping, AR; American Register of Shipping, T357; Arados Bureau, CM01; ASIA Classification ACS, 1224; Asia Classification Society, 1301; Associated Consultants Bureau Ltd., 1302; Belgian Marine Inspection Service, 0904; Belize Maritime Bureau Inc., 0905; Belize Register Corporation, 0915; Biro Klasifikasi Indonesia, I225; Black Sea Bureau of Shipping, 1303; British Telecom plc., BRS; Bulgarian Register of Shipping, 0909; Bulgarski Koraben Registar, 1304; Bureau Colombo BR, 0961; Bureau Securitas, 0912; Bureau Veritas (IACS), T457; CASPIAN REGISTER OF SHIPPING, 1305; Central Bureau Shipping Panama S. A., 0931; Ceskoslovensky Lodin Register, 0908; China Classification Society (IACS), 0907; China Corporation Register of Shipping, 900; China Corporation Register of Shipping, T728; CIBS, 0910; Cie Nacional de Registro e Inspeccion de Naves, WDN; Class Withdrawn, T658; Classic Marine Classification, I228; Classification Bureau of Indonesia, CA; Columbus American Register, 1306; Columbus American Register , 1015; Compania Nacional de Registro, 230; Compania Nacional de Registro e Inspeccion de Nave, 1032; Compania Nacional de Registro y Inspecciones de Na, T324; Conarina LLC, 1307; Consultancy4 LLP, I229; Cosmos Marine Bureau Inc, CRCS; CR Classification Society, 0978; Croatian Register of Shipping (IACS), I231; CTM Inspection Classification Company S.de R.L, 0957; Cyprus Bureau of Shipping, 0997; Deutsche Schiffs, T403; DNV GL AS (IACS), 1317; DNV GL (IACS), T466; DNV GL (IACS), 0918; DNV-GL (ex DNV) (IACS), 0924; DNV-GL (ex GL) (IACS), DR; Dromon Bureau of Shipping, 1308; Ellinikos Niognomon, CM02; Emirates Classification TASNEEF, I233; Ferriby Marine, 0933; Fidenavis S.A., T400; Filipino Vessels Classificat'n (IACS), T372; Flag authority, T677; Georgian Veritas, 1020; Global Marine Bureau Inc., T142; Global Shipping Bureau INC, T586; Guardian Bureau of Shipping, 0913; Hellenic Register of Shipping, 0911; Honduras Bureau of Shipping, 0945; Honduras International Naval Survey, 0914; Honduras Maritime Inspection, T285; Horinsib, 1031; Horizon International Naval Surveying and Inspecti, CM03; Horizon International Surveying and Inspection Bur, I240; Icon Marine Services Pte Ltd, 1309; Icons Marine Services PTE Ltd, 0959; Inclamar, 0972; Indian Register of Shipping (IACS), CM04; Inspeccion y Classificacion Maritima, 0916; Inspection y Classification Maritima S. de. R.L., I241; Instituto Nacional Espacios Acuaticos e Insulares, LR01; Intermarine, 0962; Intermaritime Certification Services, S.A., IU; International Maritime Bureau, T224; International Maritime Register, 0928; International Merchant Marine Registry of Belize, 0995; International Naval Surveys Bureau, 0901; International Register of Shipping (IS), LR03; International Ship Class, 0932; International Ship Classification, I243; International Yacht Bureau  Inc, T223; International Yacht Bureau, Inc., IK; Intertek Maritime Bureau, LR02; Iranian Classification Society, IB; Isthmus Bureau of Shipping , 0947; Isthmus Bureau of Shipping (IBS), 1222; Isthmus Maritime Classification, JCS; Joson Classification Society, 1005; Jugoslavenski Register Brodova, 0926; Korea Classification Society, 1026; Korea Classification Society, 1022; Korea Classification Society, 1310; Korea Maritime Dangerous Goods Inspection Center, 0968; Korea Ship Safety Technology Authority , 0930; Korean Register of Shipping (IACS), LS; Libyan Surveyor Mr. Sif Ennasar Abdulhamid Giahmi, T675; Limdal Marine Services, 0936; Lloyd's Register (IACS), MC; Macosnar Corp, 0965; Marconi International Marine Company Ltd. (MIMC), T222; Marine Lloyd, MB; Maritime Bureau of Shipping , 1311; Maritime Inspection Corporation, MG; Maritime Lloyd Georgia, T458; MARITIME SURVEY CORPORATION (MSC, 0920; Maritime Technical Systems and Services, T593; Mediterranean Shipping Register, 0951; MERT, 0929; Mongolia Ship Registry, T594; M&amp;P Surveyors, S. de R.L. de C.V, 0941; National Cargo Bureau Inc. (NCB), 0993; National Shipping Adjusters Inc., U001; Naval Classification Bureau Inc, T674; NCS, NUIM; New United International Marine Services Ltd, 0942; Nippon Kaiji Kyokai (IACS), WSC; No Class, T678; Novel Classification Society, 0955; NV Unitas, 0999; Other, 0934; Overseas Marine Certification Services, T632; Pacific Marine Services, PA; Pacific Register of Ships, 0939; Panama Bureau of Shipping, I251; Panama Marine Survey and Certification Services, 0953; Panama Maritime Documentation Services (PMDS), 0949; Panama Maritime Surveyors Bureau Inc., 0943; Panama Register Corp., 0922; Panama Shipping Certificate Inc., 1030; Panama Shipping Registrar Inc, T270; Philippine Register, 0956; Phoenix Register of Shipping, 1025; Phoenix Register of Shipping, 0948; Polish Register of Shipping (IACS), T574; Qualitas Register of Shipping, 0979; Register of Shipping (Albania), 0981; Register of Shipping (North Korea), 0966; Register of Shipping People's Republic China, CM05; Register of Shipping (RK), 0983; Register of Shipping (Singapore), 0975; Register of Shipping Society ltd (Ghana), 0991; Registri Laknori Shqiptar, 0963; Registro Brasileiro de Nav/Aero., 0937; Registro Cubano de Buques, 0923; Registro Internacional Naval S.A.R.L, 0954; Registro Italiano Navale (IACS), 0919; Registrol Naval Roman, I255; regs4shipsLtd., 0987; Rejnoj Register, 1312; Rinave - Registro Internacional Naval, S.A., 0921; Rinave Portugesa, 0971; R.J. Del Pan (RJDP), 1313; Romanian Naval Register, 0960; Russian Maritime Register of Shipping (IACS), 1010; Russian River Register, 0902; S.A. Internationale de Telegraphie sans fil, 1314; SAC Regsiter, 0973; Seefartsaht Helsinki, 0989; Senbak Kamdok Phenian, CM06; Ship Classification Society of Malaysia, 0935; Shipping Register of Ukraine (SRU), MY; Ships Classification Malaysia, SL; Sing Lloyd, T459; SINGAPORE LR, SCI; SingClass International, I263; Slovak Lloyd, I256; Sociedad Andina de Certificacion Ltda, 0985; Sociedad Classificadora de Colombia, 0969; Sociedad de Registro Class. Mexicana, 0967; Sociedada Classif. Brasileria Nav., 1315; Sociedade Classificadora Registro Italiano Navale, CM07; Societe Anonyme Inter de Telegraphie sans fil, 0903; Societe Generale de Surveillance, I257; State Committee of Fisheries of Ukraine, I258; State Enterprise Registrul Naval, T460; T.G, T461; THAILAND, T462; THAILAND GOVERNMENT, T289; Tsunami Marine, 0925; Turk Loydu, 1223; Ukraine Shipping Register, 0938; Union Bureau of Shipping, T237; Union Marine Classification Society, T679; United Registration and Classification of Services, T463; Universal Marine Classificat'n, 0940; Universal Maritime Bureau, 0952; Universal Shipping Bureau, CM08; Unknown, VZ; Venezuelan Register of Shipping, 1316; Venus Register, 2010; VG Register of Shipping, 0927; Vietnam Register of Shipping, CM09; Yugoslav Register of Shipping, ZC; Zianlian Chuen]
+
+
+
+
+
+		<option value="T283">Albanian Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0917">Alfa Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0906">American Bureau of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T225">American Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="AR">American Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="T357">Arados Bureau</option>
+
+
+
+
+
+
+
+		<option value="CM01">ASIA Classification ACS</option>
+
+
+
+
+
+
+
+		<option value="1224">Asia Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1301">Associated Consultants Bureau Ltd.</option>
+
+
+
+
+
+
+
+		<option value="1302">Belgian Marine Inspection Service</option>
+
+
+
+
+
+
+
+		<option value="0904">Belize Maritime Bureau Inc.</option>
+
+
+
+
+
+
+
+		<option value="0905">Belize Register Corporation</option>
+
+
+
+
+
+
+
+		<option value="0915">Biro Klasifikasi Indonesia</option>
+
+
+
+
+
+
+
+		<option value="I225">Black Sea Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1303">British Telecom plc.</option>
+
+
+
+
+
+
+
+		<option value="BRS">Bulgarian Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0909">Bulgarski Koraben Registar</option>
+
+
+
+
+
+
+
+		<option value="1304">Bureau Colombo BR</option>
+
+
+
+
+
+
+
+		<option value="0961">Bureau Securitas</option>
+
+
+
+
+
+
+
+		<option value="0912">Bureau Veritas (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T457">CASPIAN REGISTER OF SHIPPING</option>
+
+
+
+
+
+
+
+		<option value="1305">Central Bureau Shipping Panama S. A.</option>
+
+
+
+
+
+
+
+		<option value="0931">Ceskoslovensky Lodin Register</option>
+
+
+
+
+
+
+
+		<option value="0908">China Classification Society (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0907">China Corporation Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="900">China Corporation Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="T728">CIBS</option>
+
+
+
+
+
+
+
+		<option value="0910">Cie Nacional de Registro e Inspeccion de Naves</option>
+
+
+
+
+
+
+
+		<option value="WDN">Class Withdrawn</option>
+
+
+
+
+
+
+
+		<option value="T658">Classic Marine Classification</option>
+
+
+
+
+
+
+
+		<option value="I228">Classification Bureau of Indonesia</option>
+
+
+
+
+
+
+
+		<option value="CA">Columbus American Register</option>
+
+
+
+
+
+
+
+		<option value="1306">Columbus American Register </option>
+
+
+
+
+
+
+
+		<option value="1015">Compania Nacional de Registro</option>
+
+
+
+
+
+
+
+		<option value="230">Compania Nacional de Registro e Inspeccion de Nave</option>
+
+
+
+
+
+
+
+		<option value="1032">Compania Nacional de Registro y Inspecciones de Na</option>
+
+
+
+
+
+
+
+		<option value="T324">Conarina LLC</option>
+
+
+
+
+
+
+
+		<option value="1307">Consultancy4 LLP</option>
+
+
+
+
+
+
+
+		<option value="I229">Cosmos Marine Bureau Inc</option>
+
+
+
+
+
+
+
+		<option value="CRCS">CR Classification Society</option>
+
+
+
+
+
+
+
+		<option value="0978">Croatian Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="I231">CTM Inspection Classification Company S.de R.L</option>
+
+
+
+
+
+
+
+		<option value="0957">Cyprus Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0997">Deutsche Schiffs</option>
+
+
+
+
+
+
+
+		<option value="T403">DNV GL AS (IACS)</option>
+
+
+
+
+
+
+
+		<option value="1317">DNV GL (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T466">DNV GL (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0918">DNV-GL (ex DNV) (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0924">DNV-GL (ex GL) (IACS)</option>
+
+
+
+
+
+
+
+		<option value="DR">Dromon Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1308">Ellinikos Niognomon</option>
+
+
+
+
+
+
+
+		<option value="CM02">Emirates Classification TASNEEF</option>
+
+
+
+
+
+
+
+		<option value="I233">Ferriby Marine</option>
+
+
+
+
+
+
+
+		<option value="0933">Fidenavis S.A.</option>
+
+
+
+
+
+
+
+		<option value="T400">Filipino Vessels Classificat'n (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T372">Flag authority</option>
+
+
+
+
+
+
+
+		<option value="T677">Georgian Veritas</option>
+
+
+
+
+
+
+
+		<option value="1020">Global Marine Bureau Inc.</option>
+
+
+
+
+
+
+
+		<option value="T142">Global Shipping Bureau INC</option>
+
+
+
+
+
+
+
+		<option value="T586">Guardian Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0913">Hellenic Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0911">Honduras Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0945">Honduras International Naval Survey</option>
+
+
+
+
+
+
+
+		<option value="0914">Honduras Maritime Inspection</option>
+
+
+
+
+
+
+
+		<option value="T285">Horinsib</option>
+
+
+
+
+
+
+
+		<option value="1031">Horizon International Naval Surveying and Inspecti</option>
+
+
+
+
+
+
+
+		<option value="CM03">Horizon International Surveying and Inspection Bur</option>
+
+
+
+
+
+
+
+		<option value="I240">Icon Marine Services Pte Ltd</option>
+
+
+
+
+
+
+
+		<option value="1309">Icons Marine Services PTE Ltd</option>
+
+
+
+
+
+
+
+		<option value="0959">Inclamar</option>
+
+
+
+
+
+
+
+		<option value="0972">Indian Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="CM04">Inspeccion y Classificacion Maritima</option>
+
+
+
+
+
+
+
+		<option value="0916">Inspection y Classification Maritima S. de. R.L.</option>
+
+
+
+
+
+
+
+		<option value="I241">Instituto Nacional Espacios Acuaticos e Insulares</option>
+
+
+
+
+
+
+
+		<option value="LR01">Intermarine</option>
+
+
+
+
+
+
+
+		<option value="0962">Intermaritime Certification Services, S.A.</option>
+
+
+
+
+
+
+
+		<option value="IU">International Maritime Bureau</option>
+
+
+
+
+
+
+
+		<option value="T224">International Maritime Register</option>
+
+
+
+
+
+
+
+		<option value="0928">International Merchant Marine Registry of Belize</option>
+
+
+
+
+
+
+
+		<option value="0995">International Naval Surveys Bureau</option>
+
+
+
+
+
+
+
+		<option value="0901">International Register of Shipping (IS)</option>
+
+
+
+
+
+
+
+		<option value="LR03">International Ship Class</option>
+
+
+
+
+
+
+
+		<option value="0932">International Ship Classification</option>
+
+
+
+
+
+
+
+		<option value="I243">International Yacht Bureau  Inc</option>
+
+
+
+
+
+
+
+		<option value="T223">International Yacht Bureau, Inc.</option>
+
+
+
+
+
+
+
+		<option value="IK">Intertek Maritime Bureau</option>
+
+
+
+
+
+
+
+		<option value="LR02">Iranian Classification Society</option>
+
+
+
+
+
+
+
+		<option value="IB">Isthmus Bureau of Shipping </option>
+
+
+
+
+
+
+
+		<option value="0947">Isthmus Bureau of Shipping (IBS)</option>
+
+
+
+
+
+
+
+		<option value="1222">Isthmus Maritime Classification</option>
+
+
+
+
+
+
+
+		<option value="JCS">Joson Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1005">Jugoslavenski Register Brodova</option>
+
+
+
+
+
+
+
+		<option value="0926">Korea Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1026">Korea Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1022">Korea Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1310">Korea Maritime Dangerous Goods Inspection Center</option>
+
+
+
+
+
+
+
+		<option value="0968">Korea Ship Safety Technology Authority </option>
+
+
+
+
+
+
+
+		<option value="0930">Korean Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="LS">Libyan Surveyor Mr. Sif Ennasar Abdulhamid Giahmi</option>
+
+
+
+
+
+
+
+		<option value="T675">Limdal Marine Services</option>
+
+
+
+
+
+
+
+		<option value="0936">Lloyd's Register (IACS)</option>
+
+
+
+
+
+
+
+		<option value="MC">Macosnar Corp</option>
+
+
+
+
+
+
+
+		<option value="0965">Marconi International Marine Company Ltd. (MIMC)</option>
+
+
+
+
+
+
+
+		<option value="T222">Marine Lloyd</option>
+
+
+
+
+
+
+
+		<option value="MB">Maritime Bureau of Shipping </option>
+
+
+
+
+
+
+
+		<option value="1311">Maritime Inspection Corporation</option>
+
+
+
+
+
+
+
+		<option value="MG">Maritime Lloyd Georgia</option>
+
+
+
+
+
+
+
+		<option value="T458">MARITIME SURVEY CORPORATION (MSC</option>
+
+
+
+
+
+
+
+		<option value="0920">Maritime Technical Systems and Services</option>
+
+
+
+
+
+
+
+		<option value="T593">Mediterranean Shipping Register</option>
+
+
+
+
+
+
+
+		<option value="0951">MERT</option>
+
+
+
+
+
+
+
+		<option value="0929">Mongolia Ship Registry</option>
+
+
+
+
+
+
+
+		<option value="T594">M&amp;P Surveyors, S. de R.L. de C.V</option>
+
+
+
+
+
+
+
+		<option value="0941">National Cargo Bureau Inc. (NCB)</option>
+
+
+
+
+
+
+
+		<option value="0993">National Shipping Adjusters Inc.</option>
+
+
+
+
+
+
+
+		<option value="U001">Naval Classification Bureau Inc</option>
+
+
+
+
+
+
+
+		<option value="T674">NCS</option>
+
+
+
+
+
+
+
+		<option value="NUIM">New United International Marine Services Ltd</option>
+
+
+
+
+
+
+
+		<option value="0942">Nippon Kaiji Kyokai (IACS)</option>
+
+
+
+
+
+
+
+		<option value="WSC">No Class</option>
+
+
+
+
+
+
+
+		<option value="T678">Novel Classification Society</option>
+
+
+
+
+
+
+
+		<option value="0955">NV Unitas</option>
+
+
+
+
+
+
+
+		<option value="0999">Other</option>
+
+
+
+
+
+
+
+		<option value="0934">Overseas Marine Certification Services</option>
+
+
+
+
+
+
+
+		<option value="T632">Pacific Marine Services</option>
+
+
+
+
+
+
+
+		<option value="PA">Pacific Register of Ships</option>
+
+
+
+
+
+
+
+		<option value="0939">Panama Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="I251">Panama Marine Survey and Certification Services</option>
+
+
+
+
+
+
+
+		<option value="0953">Panama Maritime Documentation Services (PMDS)</option>
+
+
+
+
+
+
+
+		<option value="0949">Panama Maritime Surveyors Bureau Inc.</option>
+
+
+
+
+
+
+
+		<option value="0943">Panama Register Corp.</option>
+
+
+
+
+
+
+
+		<option value="0922">Panama Shipping Certificate Inc.</option>
+
+
+
+
+
+
+
+		<option value="1030">Panama Shipping Registrar Inc</option>
+
+
+
+
+
+
+
+		<option value="T270">Philippine Register</option>
+
+
+
+
+
+
+
+		<option value="0956">Phoenix Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1025">Phoenix Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0948">Polish Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T574">Qualitas Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0979">Register of Shipping (Albania)</option>
+
+
+
+
+
+
+
+		<option value="0981">Register of Shipping (North Korea)</option>
+
+
+
+
+
+
+
+		<option value="0966">Register of Shipping People's Republic China</option>
+
+
+
+
+
+
+
+		<option value="CM05">Register of Shipping (RK)</option>
+
+
+
+
+
+
+
+		<option value="0983">Register of Shipping (Singapore)</option>
+
+
+
+
+
+
+
+		<option value="0975">Register of Shipping Society ltd (Ghana)</option>
+
+
+
+
+
+
+
+		<option value="0991">Registri Laknori Shqiptar</option>
+
+
+
+
+
+
+
+		<option value="0963">Registro Brasileiro de Nav/Aero.</option>
+
+
+
+
+
+
+
+		<option value="0937">Registro Cubano de Buques</option>
+
+
+
+
+
+
+
+		<option value="0923">Registro Internacional Naval S.A.R.L</option>
+
+
+
+
+
+
+
+		<option value="0954">Registro Italiano Navale (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0919">Registrol Naval Roman</option>
+
+
+
+
+
+
+
+		<option value="I255">regs4shipsLtd.</option>
+
+
+
+
+
+
+
+		<option value="0987">Rejnoj Register</option>
+
+
+
+
+
+
+
+		<option value="1312">Rinave - Registro Internacional Naval, S.A.</option>
+
+
+
+
+
+
+
+		<option value="0921">Rinave Portugesa</option>
+
+
+
+
+
+
+
+		<option value="0971">R.J. Del Pan (RJDP)</option>
+
+
+
+
+
+
+
+		<option value="1313">Romanian Naval Register</option>
+
+
+
+
+
+
+
+		<option value="0960">Russian Maritime Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="1010">Russian River Register</option>
+
+
+
+
+
+
+
+		<option value="0902">S.A. Internationale de Telegraphie sans fil</option>
+
+
+
+
+
+
+
+		<option value="1314">SAC Regsiter</option>
+
+
+
+
+
+
+
+		<option value="0973">Seefartsaht Helsinki</option>
+
+
+
+
+
+
+
+		<option value="0989">Senbak Kamdok Phenian</option>
+
+
+
+
+
+
+
+		<option value="CM06">Ship Classification Society of Malaysia</option>
+
+
+
+
+
+
+
+		<option value="0935">Shipping Register of Ukraine (SRU)</option>
+
+
+
+
+
+
+
+		<option value="MY">Ships Classification Malaysia</option>
+
+
+
+
+
+
+
+		<option value="SL">Sing Lloyd</option>
+
+
+
+
+
+
+
+		<option value="T459">SINGAPORE LR</option>
+
+
+
+
+
+
+
+		<option value="SCI">SingClass International</option>
+
+
+
+
+
+
+
+		<option value="I263">Slovak Lloyd</option>
+
+
+
+
+
+
+
+		<option value="I256">Sociedad Andina de Certificacion Ltda</option>
+
+
+
+
+
+
+
+		<option value="0985">Sociedad Classificadora de Colombia</option>
+
+
+
+
+
+
+
+		<option value="0969">Sociedad de Registro Class. Mexicana</option>
+
+
+
+
+
+
+
+		<option value="0967">Sociedada Classif. Brasileria Nav.</option>
+
+
+
+
+
+
+
+		<option value="1315">Sociedade Classificadora Registro Italiano Navale</option>
+
+
+
+
+
+
+
+		<option value="CM07">Societe Anonyme Inter de Telegraphie sans fil</option>
+
+
+
+
+
+
+
+		<option value="0903">Societe Generale de Surveillance</option>
+
+
+
+
+
+
+
+		<option value="I257">State Committee of Fisheries of Ukraine</option>
+
+
+
+
+
+
+
+		<option value="I258">State Enterprise Registrul Naval</option>
+
+
+
+
+
+
+
+		<option value="T460">T.G</option>
+
+
+
+
+
+
+
+		<option value="T461">THAILAND</option>
+
+
+
+
+
+
+
+		<option value="T462">THAILAND GOVERNMENT</option>
+
+
+
+
+
+
+
+		<option value="T289">Tsunami Marine</option>
+
+
+
+
+
+
+
+		<option value="0925">Turk Loydu</option>
+
+
+
+
+
+
+
+		<option value="1223">Ukraine Shipping Register</option>
+
+
+
+
+
+
+
+		<option value="0938">Union Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="T237">Union Marine Classification Society</option>
+
+
+
+
+
+
+
+		<option value="T679">United Registration and Classification of Services</option>
+
+
+
+
+
+
+
+		<option value="T463">Universal Marine Classificat'n</option>
+
+
+
+
+
+
+
+		<option value="0940">Universal Maritime Bureau</option>
+
+
+
+
+
+
+
+		<option value="0952">Universal Shipping Bureau</option>
+
+
+
+
+
+
+
+		<option value="CM08">Unknown</option>
+
+
+
+
+
+
+
+		<option value="VZ">Venezuelan Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1316">Venus Register</option>
+
+
+
+
+
+
+
+		<option value="2010">VG Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0927">Vietnam Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="CM09">Yugoslav Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="ZC">Zianlian Chuen</option>
+
+
+
+
+	</select>
+<!-- </div> -->
+
+
+<!-- liste secondaire affichée si le parametre est actif mais hors focus  -->
+
+
+
+
+
+
+<!-- liste 3 affichee si le parametre n'est pas actif -->
+
+	<!-- isActive =false -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" style="display: NONE" id="P_CLASS_p2" name="P_CLASS_p2" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Class society</option>
+
+
+
+
+
+[T283; Albanian Register of Shipping, 0917; Alfa Register of Shipping, 0906; American Bureau of Shipping (IACS), T225; American Register of Shipping, AR; American Register of Shipping, T357; Arados Bureau, CM01; ASIA Classification ACS, 1224; Asia Classification Society, 1301; Associated Consultants Bureau Ltd., 1302; Belgian Marine Inspection Service, 0904; Belize Maritime Bureau Inc., 0905; Belize Register Corporation, 0915; Biro Klasifikasi Indonesia, I225; Black Sea Bureau of Shipping, 1303; British Telecom plc., BRS; Bulgarian Register of Shipping, 0909; Bulgarski Koraben Registar, 1304; Bureau Colombo BR, 0961; Bureau Securitas, 0912; Bureau Veritas (IACS), T457; CASPIAN REGISTER OF SHIPPING, 1305; Central Bureau Shipping Panama S. A., 0931; Ceskoslovensky Lodin Register, 0908; China Classification Society (IACS), 0907; China Corporation Register of Shipping, 900; China Corporation Register of Shipping, T728; CIBS, 0910; Cie Nacional de Registro e Inspeccion de Naves, WDN; Class Withdrawn, T658; Classic Marine Classification, I228; Classification Bureau of Indonesia, CA; Columbus American Register, 1306; Columbus American Register , 1015; Compania Nacional de Registro, 230; Compania Nacional de Registro e Inspeccion de Nave, 1032; Compania Nacional de Registro y Inspecciones de Na, T324; Conarina LLC, 1307; Consultancy4 LLP, I229; Cosmos Marine Bureau Inc, CRCS; CR Classification Society, 0978; Croatian Register of Shipping (IACS), I231; CTM Inspection Classification Company S.de R.L, 0957; Cyprus Bureau of Shipping, 0997; Deutsche Schiffs, T403; DNV GL AS (IACS), 1317; DNV GL (IACS), T466; DNV GL (IACS), 0918; DNV-GL (ex DNV) (IACS), 0924; DNV-GL (ex GL) (IACS), DR; Dromon Bureau of Shipping, 1308; Ellinikos Niognomon, CM02; Emirates Classification TASNEEF, I233; Ferriby Marine, 0933; Fidenavis S.A., T400; Filipino Vessels Classificat'n (IACS), T372; Flag authority, T677; Georgian Veritas, 1020; Global Marine Bureau Inc., T142; Global Shipping Bureau INC, T586; Guardian Bureau of Shipping, 0913; Hellenic Register of Shipping, 0911; Honduras Bureau of Shipping, 0945; Honduras International Naval Survey, 0914; Honduras Maritime Inspection, T285; Horinsib, 1031; Horizon International Naval Surveying and Inspecti, CM03; Horizon International Surveying and Inspection Bur, I240; Icon Marine Services Pte Ltd, 1309; Icons Marine Services PTE Ltd, 0959; Inclamar, 0972; Indian Register of Shipping (IACS), CM04; Inspeccion y Classificacion Maritima, 0916; Inspection y Classification Maritima S. de. R.L., I241; Instituto Nacional Espacios Acuaticos e Insulares, LR01; Intermarine, 0962; Intermaritime Certification Services, S.A., IU; International Maritime Bureau, T224; International Maritime Register, 0928; International Merchant Marine Registry of Belize, 0995; International Naval Surveys Bureau, 0901; International Register of Shipping (IS), LR03; International Ship Class, 0932; International Ship Classification, I243; International Yacht Bureau  Inc, T223; International Yacht Bureau, Inc., IK; Intertek Maritime Bureau, LR02; Iranian Classification Society, IB; Isthmus Bureau of Shipping , 0947; Isthmus Bureau of Shipping (IBS), 1222; Isthmus Maritime Classification, JCS; Joson Classification Society, 1005; Jugoslavenski Register Brodova, 0926; Korea Classification Society, 1026; Korea Classification Society, 1022; Korea Classification Society, 1310; Korea Maritime Dangerous Goods Inspection Center, 0968; Korea Ship Safety Technology Authority , 0930; Korean Register of Shipping (IACS), LS; Libyan Surveyor Mr. Sif Ennasar Abdulhamid Giahmi, T675; Limdal Marine Services, 0936; Lloyd's Register (IACS), MC; Macosnar Corp, 0965; Marconi International Marine Company Ltd. (MIMC), T222; Marine Lloyd, MB; Maritime Bureau of Shipping , 1311; Maritime Inspection Corporation, MG; Maritime Lloyd Georgia, T458; MARITIME SURVEY CORPORATION (MSC, 0920; Maritime Technical Systems and Services, T593; Mediterranean Shipping Register, 0951; MERT, 0929; Mongolia Ship Registry, T594; M&amp;P Surveyors, S. de R.L. de C.V, 0941; National Cargo Bureau Inc. (NCB), 0993; National Shipping Adjusters Inc., U001; Naval Classification Bureau Inc, T674; NCS, NUIM; New United International Marine Services Ltd, 0942; Nippon Kaiji Kyokai (IACS), WSC; No Class, T678; Novel Classification Society, 0955; NV Unitas, 0999; Other, 0934; Overseas Marine Certification Services, T632; Pacific Marine Services, PA; Pacific Register of Ships, 0939; Panama Bureau of Shipping, I251; Panama Marine Survey and Certification Services, 0953; Panama Maritime Documentation Services (PMDS), 0949; Panama Maritime Surveyors Bureau Inc., 0943; Panama Register Corp., 0922; Panama Shipping Certificate Inc., 1030; Panama Shipping Registrar Inc, T270; Philippine Register, 0956; Phoenix Register of Shipping, 1025; Phoenix Register of Shipping, 0948; Polish Register of Shipping (IACS), T574; Qualitas Register of Shipping, 0979; Register of Shipping (Albania), 0981; Register of Shipping (North Korea), 0966; Register of Shipping People's Republic China, CM05; Register of Shipping (RK), 0983; Register of Shipping (Singapore), 0975; Register of Shipping Society ltd (Ghana), 0991; Registri Laknori Shqiptar, 0963; Registro Brasileiro de Nav/Aero., 0937; Registro Cubano de Buques, 0923; Registro Internacional Naval S.A.R.L, 0954; Registro Italiano Navale (IACS), 0919; Registrol Naval Roman, I255; regs4shipsLtd., 0987; Rejnoj Register, 1312; Rinave - Registro Internacional Naval, S.A., 0921; Rinave Portugesa, 0971; R.J. Del Pan (RJDP), 1313; Romanian Naval Register, 0960; Russian Maritime Register of Shipping (IACS), 1010; Russian River Register, 0902; S.A. Internationale de Telegraphie sans fil, 1314; SAC Regsiter, 0973; Seefartsaht Helsinki, 0989; Senbak Kamdok Phenian, CM06; Ship Classification Society of Malaysia, 0935; Shipping Register of Ukraine (SRU), MY; Ships Classification Malaysia, SL; Sing Lloyd, T459; SINGAPORE LR, SCI; SingClass International, I263; Slovak Lloyd, I256; Sociedad Andina de Certificacion Ltda, 0985; Sociedad Classificadora de Colombia, 0969; Sociedad de Registro Class. Mexicana, 0967; Sociedada Classif. Brasileria Nav., 1315; Sociedade Classificadora Registro Italiano Navale, CM07; Societe Anonyme Inter de Telegraphie sans fil, 0903; Societe Generale de Surveillance, I257; State Committee of Fisheries of Ukraine, I258; State Enterprise Registrul Naval, T460; T.G, T461; THAILAND, T462; THAILAND GOVERNMENT, T289; Tsunami Marine, 0925; Turk Loydu, 1223; Ukraine Shipping Register, 0938; Union Bureau of Shipping, T237; Union Marine Classification Society, T679; United Registration and Classification of Services, T463; Universal Marine Classificat'n, 0940; Universal Maritime Bureau, 0952; Universal Shipping Bureau, CM08; Unknown, VZ; Venezuelan Register of Shipping, 1316; Venus Register, 2010; VG Register of Shipping, 0927; Vietnam Register of Shipping, CM09; Yugoslav Register of Shipping, ZC; Zianlian Chuen]
+
+
+
+
+
+		<option value="T283">Albanian Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0917">Alfa Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0906">American Bureau of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T225">American Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="AR">American Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="T357">Arados Bureau</option>
+
+
+
+
+
+
+
+		<option value="CM01">ASIA Classification ACS</option>
+
+
+
+
+
+
+
+		<option value="1224">Asia Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1301">Associated Consultants Bureau Ltd.</option>
+
+
+
+
+
+
+
+		<option value="1302">Belgian Marine Inspection Service</option>
+
+
+
+
+
+
+
+		<option value="0904">Belize Maritime Bureau Inc.</option>
+
+
+
+
+
+
+
+		<option value="0905">Belize Register Corporation</option>
+
+
+
+
+
+
+
+		<option value="0915">Biro Klasifikasi Indonesia</option>
+
+
+
+
+
+
+
+		<option value="I225">Black Sea Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1303">British Telecom plc.</option>
+
+
+
+
+
+
+
+		<option value="BRS">Bulgarian Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0909">Bulgarski Koraben Registar</option>
+
+
+
+
+
+
+
+		<option value="1304">Bureau Colombo BR</option>
+
+
+
+
+
+
+
+		<option value="0961">Bureau Securitas</option>
+
+
+
+
+
+
+
+		<option value="0912">Bureau Veritas (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T457">CASPIAN REGISTER OF SHIPPING</option>
+
+
+
+
+
+
+
+		<option value="1305">Central Bureau Shipping Panama S. A.</option>
+
+
+
+
+
+
+
+		<option value="0931">Ceskoslovensky Lodin Register</option>
+
+
+
+
+
+
+
+		<option value="0908">China Classification Society (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0907">China Corporation Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="900">China Corporation Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="T728">CIBS</option>
+
+
+
+
+
+
+
+		<option value="0910">Cie Nacional de Registro e Inspeccion de Naves</option>
+
+
+
+
+
+
+
+		<option value="WDN">Class Withdrawn</option>
+
+
+
+
+
+
+
+		<option value="T658">Classic Marine Classification</option>
+
+
+
+
+
+
+
+		<option value="I228">Classification Bureau of Indonesia</option>
+
+
+
+
+
+
+
+		<option value="CA">Columbus American Register</option>
+
+
+
+
+
+
+
+		<option value="1306">Columbus American Register </option>
+
+
+
+
+
+
+
+		<option value="1015">Compania Nacional de Registro</option>
+
+
+
+
+
+
+
+		<option value="230">Compania Nacional de Registro e Inspeccion de Nave</option>
+
+
+
+
+
+
+
+		<option value="1032">Compania Nacional de Registro y Inspecciones de Na</option>
+
+
+
+
+
+
+
+		<option value="T324">Conarina LLC</option>
+
+
+
+
+
+
+
+		<option value="1307">Consultancy4 LLP</option>
+
+
+
+
+
+
+
+		<option value="I229">Cosmos Marine Bureau Inc</option>
+
+
+
+
+
+
+
+		<option value="CRCS">CR Classification Society</option>
+
+
+
+
+
+
+
+		<option value="0978">Croatian Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="I231">CTM Inspection Classification Company S.de R.L</option>
+
+
+
+
+
+
+
+		<option value="0957">Cyprus Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0997">Deutsche Schiffs</option>
+
+
+
+
+
+
+
+		<option value="T403">DNV GL AS (IACS)</option>
+
+
+
+
+
+
+
+		<option value="1317">DNV GL (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T466">DNV GL (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0918">DNV-GL (ex DNV) (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0924">DNV-GL (ex GL) (IACS)</option>
+
+
+
+
+
+
+
+		<option value="DR">Dromon Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1308">Ellinikos Niognomon</option>
+
+
+
+
+
+
+
+		<option value="CM02">Emirates Classification TASNEEF</option>
+
+
+
+
+
+
+
+		<option value="I233">Ferriby Marine</option>
+
+
+
+
+
+
+
+		<option value="0933">Fidenavis S.A.</option>
+
+
+
+
+
+
+
+		<option value="T400">Filipino Vessels Classificat'n (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T372">Flag authority</option>
+
+
+
+
+
+
+
+		<option value="T677">Georgian Veritas</option>
+
+
+
+
+
+
+
+		<option value="1020">Global Marine Bureau Inc.</option>
+
+
+
+
+
+
+
+		<option value="T142">Global Shipping Bureau INC</option>
+
+
+
+
+
+
+
+		<option value="T586">Guardian Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0913">Hellenic Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0911">Honduras Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0945">Honduras International Naval Survey</option>
+
+
+
+
+
+
+
+		<option value="0914">Honduras Maritime Inspection</option>
+
+
+
+
+
+
+
+		<option value="T285">Horinsib</option>
+
+
+
+
+
+
+
+		<option value="1031">Horizon International Naval Surveying and Inspecti</option>
+
+
+
+
+
+
+
+		<option value="CM03">Horizon International Surveying and Inspection Bur</option>
+
+
+
+
+
+
+
+		<option value="I240">Icon Marine Services Pte Ltd</option>
+
+
+
+
+
+
+
+		<option value="1309">Icons Marine Services PTE Ltd</option>
+
+
+
+
+
+
+
+		<option value="0959">Inclamar</option>
+
+
+
+
+
+
+
+		<option value="0972">Indian Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="CM04">Inspeccion y Classificacion Maritima</option>
+
+
+
+
+
+
+
+		<option value="0916">Inspection y Classification Maritima S. de. R.L.</option>
+
+
+
+
+
+
+
+		<option value="I241">Instituto Nacional Espacios Acuaticos e Insulares</option>
+
+
+
+
+
+
+
+		<option value="LR01">Intermarine</option>
+
+
+
+
+
+
+
+		<option value="0962">Intermaritime Certification Services, S.A.</option>
+
+
+
+
+
+
+
+		<option value="IU">International Maritime Bureau</option>
+
+
+
+
+
+
+
+		<option value="T224">International Maritime Register</option>
+
+
+
+
+
+
+
+		<option value="0928">International Merchant Marine Registry of Belize</option>
+
+
+
+
+
+
+
+		<option value="0995">International Naval Surveys Bureau</option>
+
+
+
+
+
+
+
+		<option value="0901">International Register of Shipping (IS)</option>
+
+
+
+
+
+
+
+		<option value="LR03">International Ship Class</option>
+
+
+
+
+
+
+
+		<option value="0932">International Ship Classification</option>
+
+
+
+
+
+
+
+		<option value="I243">International Yacht Bureau  Inc</option>
+
+
+
+
+
+
+
+		<option value="T223">International Yacht Bureau, Inc.</option>
+
+
+
+
+
+
+
+		<option value="IK">Intertek Maritime Bureau</option>
+
+
+
+
+
+
+
+		<option value="LR02">Iranian Classification Society</option>
+
+
+
+
+
+
+
+		<option value="IB">Isthmus Bureau of Shipping </option>
+
+
+
+
+
+
+
+		<option value="0947">Isthmus Bureau of Shipping (IBS)</option>
+
+
+
+
+
+
+
+		<option value="1222">Isthmus Maritime Classification</option>
+
+
+
+
+
+
+
+		<option value="JCS">Joson Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1005">Jugoslavenski Register Brodova</option>
+
+
+
+
+
+
+
+		<option value="0926">Korea Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1026">Korea Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1022">Korea Classification Society</option>
+
+
+
+
+
+
+
+		<option value="1310">Korea Maritime Dangerous Goods Inspection Center</option>
+
+
+
+
+
+
+
+		<option value="0968">Korea Ship Safety Technology Authority </option>
+
+
+
+
+
+
+
+		<option value="0930">Korean Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="LS">Libyan Surveyor Mr. Sif Ennasar Abdulhamid Giahmi</option>
+
+
+
+
+
+
+
+		<option value="T675">Limdal Marine Services</option>
+
+
+
+
+
+
+
+		<option value="0936">Lloyd's Register (IACS)</option>
+
+
+
+
+
+
+
+		<option value="MC">Macosnar Corp</option>
+
+
+
+
+
+
+
+		<option value="0965">Marconi International Marine Company Ltd. (MIMC)</option>
+
+
+
+
+
+
+
+		<option value="T222">Marine Lloyd</option>
+
+
+
+
+
+
+
+		<option value="MB">Maritime Bureau of Shipping </option>
+
+
+
+
+
+
+
+		<option value="1311">Maritime Inspection Corporation</option>
+
+
+
+
+
+
+
+		<option value="MG">Maritime Lloyd Georgia</option>
+
+
+
+
+
+
+
+		<option value="T458">MARITIME SURVEY CORPORATION (MSC</option>
+
+
+
+
+
+
+
+		<option value="0920">Maritime Technical Systems and Services</option>
+
+
+
+
+
+
+
+		<option value="T593">Mediterranean Shipping Register</option>
+
+
+
+
+
+
+
+		<option value="0951">MERT</option>
+
+
+
+
+
+
+
+		<option value="0929">Mongolia Ship Registry</option>
+
+
+
+
+
+
+
+		<option value="T594">M&amp;P Surveyors, S. de R.L. de C.V</option>
+
+
+
+
+
+
+
+		<option value="0941">National Cargo Bureau Inc. (NCB)</option>
+
+
+
+
+
+
+
+		<option value="0993">National Shipping Adjusters Inc.</option>
+
+
+
+
+
+
+
+		<option value="U001">Naval Classification Bureau Inc</option>
+
+
+
+
+
+
+
+		<option value="T674">NCS</option>
+
+
+
+
+
+
+
+		<option value="NUIM">New United International Marine Services Ltd</option>
+
+
+
+
+
+
+
+		<option value="0942">Nippon Kaiji Kyokai (IACS)</option>
+
+
+
+
+
+
+
+		<option value="WSC">No Class</option>
+
+
+
+
+
+
+
+		<option value="T678">Novel Classification Society</option>
+
+
+
+
+
+
+
+		<option value="0955">NV Unitas</option>
+
+
+
+
+
+
+
+		<option value="0999">Other</option>
+
+
+
+
+
+
+
+		<option value="0934">Overseas Marine Certification Services</option>
+
+
+
+
+
+
+
+		<option value="T632">Pacific Marine Services</option>
+
+
+
+
+
+
+
+		<option value="PA">Pacific Register of Ships</option>
+
+
+
+
+
+
+
+		<option value="0939">Panama Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="I251">Panama Marine Survey and Certification Services</option>
+
+
+
+
+
+
+
+		<option value="0953">Panama Maritime Documentation Services (PMDS)</option>
+
+
+
+
+
+
+
+		<option value="0949">Panama Maritime Surveyors Bureau Inc.</option>
+
+
+
+
+
+
+
+		<option value="0943">Panama Register Corp.</option>
+
+
+
+
+
+
+
+		<option value="0922">Panama Shipping Certificate Inc.</option>
+
+
+
+
+
+
+
+		<option value="1030">Panama Shipping Registrar Inc</option>
+
+
+
+
+
+
+
+		<option value="T270">Philippine Register</option>
+
+
+
+
+
+
+
+		<option value="0956">Phoenix Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1025">Phoenix Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0948">Polish Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="T574">Qualitas Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0979">Register of Shipping (Albania)</option>
+
+
+
+
+
+
+
+		<option value="0981">Register of Shipping (North Korea)</option>
+
+
+
+
+
+
+
+		<option value="0966">Register of Shipping People's Republic China</option>
+
+
+
+
+
+
+
+		<option value="CM05">Register of Shipping (RK)</option>
+
+
+
+
+
+
+
+		<option value="0983">Register of Shipping (Singapore)</option>
+
+
+
+
+
+
+
+		<option value="0975">Register of Shipping Society ltd (Ghana)</option>
+
+
+
+
+
+
+
+		<option value="0991">Registri Laknori Shqiptar</option>
+
+
+
+
+
+
+
+		<option value="0963">Registro Brasileiro de Nav/Aero.</option>
+
+
+
+
+
+
+
+		<option value="0937">Registro Cubano de Buques</option>
+
+
+
+
+
+
+
+		<option value="0923">Registro Internacional Naval S.A.R.L</option>
+
+
+
+
+
+
+
+		<option value="0954">Registro Italiano Navale (IACS)</option>
+
+
+
+
+
+
+
+		<option value="0919">Registrol Naval Roman</option>
+
+
+
+
+
+
+
+		<option value="I255">regs4shipsLtd.</option>
+
+
+
+
+
+
+
+		<option value="0987">Rejnoj Register</option>
+
+
+
+
+
+
+
+		<option value="1312">Rinave - Registro Internacional Naval, S.A.</option>
+
+
+
+
+
+
+
+		<option value="0921">Rinave Portugesa</option>
+
+
+
+
+
+
+
+		<option value="0971">R.J. Del Pan (RJDP)</option>
+
+
+
+
+
+
+
+		<option value="1313">Romanian Naval Register</option>
+
+
+
+
+
+
+
+		<option value="0960">Russian Maritime Register of Shipping (IACS)</option>
+
+
+
+
+
+
+
+		<option value="1010">Russian River Register</option>
+
+
+
+
+
+
+
+		<option value="0902">S.A. Internationale de Telegraphie sans fil</option>
+
+
+
+
+
+
+
+		<option value="1314">SAC Regsiter</option>
+
+
+
+
+
+
+
+		<option value="0973">Seefartsaht Helsinki</option>
+
+
+
+
+
+
+
+		<option value="0989">Senbak Kamdok Phenian</option>
+
+
+
+
+
+
+
+		<option value="CM06">Ship Classification Society of Malaysia</option>
+
+
+
+
+
+
+
+		<option value="0935">Shipping Register of Ukraine (SRU)</option>
+
+
+
+
+
+
+
+		<option value="MY">Ships Classification Malaysia</option>
+
+
+
+
+
+
+
+		<option value="SL">Sing Lloyd</option>
+
+
+
+
+
+
+
+		<option value="T459">SINGAPORE LR</option>
+
+
+
+
+
+
+
+		<option value="SCI">SingClass International</option>
+
+
+
+
+
+
+
+		<option value="I263">Slovak Lloyd</option>
+
+
+
+
+
+
+
+		<option value="I256">Sociedad Andina de Certificacion Ltda</option>
+
+
+
+
+
+
+
+		<option value="0985">Sociedad Classificadora de Colombia</option>
+
+
+
+
+
+
+
+		<option value="0969">Sociedad de Registro Class. Mexicana</option>
+
+
+
+
+
+
+
+		<option value="0967">Sociedada Classif. Brasileria Nav.</option>
+
+
+
+
+
+
+
+		<option value="1315">Sociedade Classificadora Registro Italiano Navale</option>
+
+
+
+
+
+
+
+		<option value="CM07">Societe Anonyme Inter de Telegraphie sans fil</option>
+
+
+
+
+
+
+
+		<option value="0903">Societe Generale de Surveillance</option>
+
+
+
+
+
+
+
+		<option value="I257">State Committee of Fisheries of Ukraine</option>
+
+
+
+
+
+
+
+		<option value="I258">State Enterprise Registrul Naval</option>
+
+
+
+
+
+
+
+		<option value="T460">T.G</option>
+
+
+
+
+
+
+
+		<option value="T461">THAILAND</option>
+
+
+
+
+
+
+
+		<option value="T462">THAILAND GOVERNMENT</option>
+
+
+
+
+
+
+
+		<option value="T289">Tsunami Marine</option>
+
+
+
+
+
+
+
+		<option value="0925">Turk Loydu</option>
+
+
+
+
+
+
+
+		<option value="1223">Ukraine Shipping Register</option>
+
+
+
+
+
+
+
+		<option value="0938">Union Bureau of Shipping</option>
+
+
+
+
+
+
+
+		<option value="T237">Union Marine Classification Society</option>
+
+
+
+
+
+
+
+		<option value="T679">United Registration and Classification of Services</option>
+
+
+
+
+
+
+
+		<option value="T463">Universal Marine Classificat'n</option>
+
+
+
+
+
+
+
+		<option value="0940">Universal Maritime Bureau</option>
+
+
+
+
+
+
+
+		<option value="0952">Universal Shipping Bureau</option>
+
+
+
+
+
+
+
+		<option value="CM08">Unknown</option>
+
+
+
+
+
+
+
+		<option value="VZ">Venezuelan Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="1316">Venus Register</option>
+
+
+
+
+
+
+
+		<option value="2010">VG Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="0927">Vietnam Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="CM09">Yugoslav Register of Shipping</option>
+
+
+
+
+
+
+
+		<option value="ZC">Zianlian Chuen</option>
+
+
+
+
+			</select>
+<!-- 		</div> -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" id="P_CLASS_p3" name="P_CLASS_p3" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Class society</option>
+				<option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+			</select>
+<!-- 		</div> -->
+
+
+</div>
+
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+				<div class="checkbox">
+
+
+
+
+						<input id="P_CLASS_hi" name="P_CLASS_hi" type="checkbox" class="current">
+
+						<label for="P_CLASS_hi"></label>
+
+					<p>
+						History
+					</p>
+
+				</div>
+			</div>
+
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+
+
+
+
+
+
+
+
+<div class="radios" style="margin-top: 15px;">
+	<ul class="list-inline">
+		<li>
+		<!-- ignore -->
+
+
+				<input type="radio" name="P_CLASS_ST_rb" id="P_CLASS_ST_rb_HC" value="HC" checked="checked" onclick="radioButtonChanged(this);">
+
+		<label for="P_CLASS_ST_rb_HC">
+			Ignore
+		</label>
+		<div class="check"></div>
+		</li>
+
+
+
+		<!-- all -->
+		<li>
+
+				<input type="radio" name="P_CLASS_ST_rb" id="P_CLASS_ST_rb_TT" value="TT" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CLASS_ST_rb_TT">
+			All
+		</label>
+		<div class="check"></div>
+
+		</li>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+
+
+		<!-- exclude all -->
+		<li>
+
+				<input type="radio" name="P_CLASS_ST_rb" id="P_CLASS_ST_rb_AU" value="AU" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CLASS_ST_rb_AU">
+			Exclude all
+		</label>
+		<div class="check"></div>
+
+		</li>
+
+		<!-- choose -->
+		<li>
+
+				<input type="radio" name="P_CLASS_ST_rb" id="P_CLASS_ST_rb_CM" value="CM" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CLASS_ST_rb_CM">
+			Chose
+		</label>
+		<div class="check"></div>
+
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- liste principale contenant des choix multiples si le parametre est actif avec focus -->
+
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><!-- form-control -->
+	<select class="multiSelect form-control" style="display: NONE" id="P_CLASS_ST" name="P_CLASS_ST" multiple="multiple" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)" onchange="(this)">
+
+		<option selected="selected" disabled="disabled" value="">Classification status</option>
+
+
+
+
+
+[ast; added a new ship type(s), 01; Delivered, 99; Not applicable, 05; Reassigned, 03; Reinstated, rst; removed a ship type(s) from the approved list, 02; Suspended, 04; Withdrawn]
+
+
+
+
+
+		<option value="ast">added a new ship type(s)</option>
+
+
+
+
+
+
+
+		<option value="01">Delivered</option>
+
+
+
+
+
+
+
+		<option value="99">Not applicable</option>
+
+
+
+
+
+
+
+		<option value="05">Reassigned</option>
+
+
+
+
+
+
+
+		<option value="03">Reinstated</option>
+
+
+
+
+
+
+
+		<option value="rst">removed a ship type(s) from the approved list</option>
+
+
+
+
+
+
+
+		<option value="02">Suspended</option>
+
+
+
+
+
+
+
+		<option value="04">Withdrawn</option>
+
+
+
+
+	</select>
+<!-- </div> -->
+
+
+<!-- liste secondaire affichée si le parametre est actif mais hors focus  -->
+
+
+
+
+
+
+<!-- liste 3 affichee si le parametre n'est pas actif -->
+
+	<!-- isActive =false -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" style="display: NONE" id="P_CLASS_ST_p2" name="P_CLASS_ST_p2" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Classification status</option>
+
+
+
+
+
+[ast; added a new ship type(s), 01; Delivered, 99; Not applicable, 05; Reassigned, 03; Reinstated, rst; removed a ship type(s) from the approved list, 02; Suspended, 04; Withdrawn]
+
+
+
+
+
+		<option value="ast">added a new ship type(s)</option>
+
+
+
+
+
+
+
+		<option value="01">Delivered</option>
+
+
+
+
+
+
+
+		<option value="99">Not applicable</option>
+
+
+
+
+
+
+
+		<option value="05">Reassigned</option>
+
+
+
+
+
+
+
+		<option value="03">Reinstated</option>
+
+
+
+
+
+
+
+		<option value="rst">removed a ship type(s) from the approved list</option>
+
+
+
+
+
+
+
+		<option value="02">Suspended</option>
+
+
+
+
+
+
+
+		<option value="04">Withdrawn</option>
+
+
+
+
+			</select>
+<!-- 		</div> -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" id="P_CLASS_ST_p3" name="P_CLASS_ST_p3" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Classification status</option>
+				<option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+			</select>
+<!-- 		</div> -->
+
+
+</div>
+
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+				<div class="checkbox">
+
+
+
+
+						<input id="P_CLASS_ST_hi" name="P_CLASS_ST_hi" type="checkbox" class="current">
+
+						<label for="P_CLASS_ST_hi"></label>
+
+					<p>
+						History
+					</p>
+
+				</div>
+			</div>
+
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	<div class="clearfix h25 hidden-sm hidden-xs"></div>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+
+
+
+
+
+
+
+
+<div class="radios" style="margin-top: 15px;">
+	<ul class="list-inline">
+		<li>
+		<!-- ignore -->
+
+
+				<input type="radio" name="P_FLAG_rb" id="P_FLAG_rb_HC" value="HC" checked="checked" onclick="radioButtonChanged(this);">
+
+		<label for="P_FLAG_rb_HC">
+			Ignore
+		</label>
+		<div class="check"></div>
+		</li>
+
+
+
+		<!-- all -->
+		<li>
+
+				<input type="radio" name="P_FLAG_rb" id="P_FLAG_rb_TT" value="TT" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_FLAG_rb_TT">
+			All
+		</label>
+		<div class="check"></div>
+
+		</li>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+
+
+		<!-- exclude all -->
+		<li>
+
+				<input type="radio" name="P_FLAG_rb" id="P_FLAG_rb_AU" value="AU" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_FLAG_rb_AU">
+			Exclude all
+		</label>
+		<div class="check"></div>
+
+		</li>
+
+		<!-- choose -->
+		<li>
+
+				<input type="radio" name="P_FLAG_rb" id="P_FLAG_rb_CM" value="CM" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_FLAG_rb_CM">
+			Chose
+		</label>
+		<div class="check"></div>
+
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- liste principale contenant des choix multiples si le parametre est actif avec focus -->
+
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><!-- form-control -->
+	<select class="multiSelect form-control" style="display: NONE" id="P_FLAG" name="P_FLAG" multiple="multiple" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)" onchange="(this)">
+
+		<option selected="selected" disabled="disabled" value="">Flag</option>
+
+
+
+
+
+[0003; Afghanistan, 0005; Albania, 0010; Algeria, 0012; Andorra, 0015; Angola, 0020; Anguilla, 0028; Antigua and Barbuda, CM01; Antilles, Netherlands, 0030; Argentina, 0031; Armenia, 0033; Aruba, 0035; Australia, 0040; Austria, 0043; Azerbaijan, 0045; Bahamas, 0050; Bahrain, 0055; Bangladesh, 0060; Barbados, 0064; Belarus, 0065; Belgium, 0067; Belize, 0070; Benin, 0075; Bermuda, 0078; Bhutan, 0080; Bolivia, 0082; Bosnia Herzegovina, 0086; Botswana, 0085; Brazil, 0088; Brunei Darussalam, 0090; Bulgaria, 0092; Burkina Faso, 0096; Burundi, 0098; Cambodia, 0100; Cameroon, 0105; Canada, 0110; Cape Verde, 0115; Cayman Islands, 0116; Central African Republic, 0122; Chad, 0118; Channel Islands, 0120; Chile, 0125; China Peoples's Republic, 0130; Colombia, 0135; Comoros, 0770; Congo, 0725; Congo (Democratic Republic), 0137; Cook islands, 0140; Costa Rica, 0144; Croatia, 0145; Cuba, 0025; Curacao, 0150; Cyprus, 0155; Czechian Republic, 0165; Denmark, 0166; Djibouti, 0168; Dominica, 0170; Dominican Republic, 0175; Ecuador, 0180; Egypt, 0183; El Salvador, 0190; Equatorial Guinea, 0186; Eritrea, 0184; Estonia, 0185; Ethiopia, 0198; Falkland Islands, 0195; Faroe Islands, 0200; Fiji, 0205; Finland, 0210; France, 0211; France (RIF), 0515; French Polynesia, T265; French southern Territories, 0215; Gabon, 0220; Gambia, 0224; Georgia, 0230; Germany, 0235; Ghana, 0240; Gibraltar, 0245; Greece, 0765; Greenland, 0250; Grenada, CM02; Guadeloupe (France), 0750; Guam, 0255; Guatemala, 0258; Guernsey, 0267; Guinea, 0269; Guinea-Bissau, 0260; Guyana, CM03; Guyane (France), 0271; Haiti, 0270; Honduras, 0275; Hong Kong, China, 0280; Hungary, 0285; Iceland, 0290; India, 0295; Indonesia, 0300; Iran, 0305; Iraq, 0310; Ireland, 0403; Isle of Man, 0315; Israel, 0320; Italy, 0325; Ivory Coast, 0330; Jamaica, 0335; Japan, 0337; Jersey, 0340; Jordan, 0344; Kazakhstan, 0345; Kenya, 0350; Kiribati, 0355; Korea Democratic Republic, 0360; Korea (Republic of), 0365; Kuwait, 0366; Kyrgyzstan, 0368; Lao People's Democratic Republic, 0367; Latvia, 0370; Lebanon, 0372; Lesotho, 0375; Liberia, 0380; Libya, 0381; Liechtenstein, 0382; Lithuania, 0383; Luxembourg, 0755; Macao, China, 0385; Madagascar, 0390; Malaysia, 0395; Maldives, 0397; Mali, 0400; Malta, 0404; Marshall Islands, CM04; Martinique (France), 0405; Mauritania, 0410; Mauritius, CM05; Mayotte, 0415; Mexico, 0730; Micronesia, 0419; Moldova, 0420; Monaco, 0422; Mongolia, 0424; Montenegro, 0425; Montserrat, 0430; Morocco, 0435; Mozambique, 0095; Myanmar union of, 0439; Namibia, 0440; Nauru, 0443; Nepal, 0445; Netherlands, CM06; New Caledonia, 0450; New Zealand, 0455; Nicaragua, 0460; Niger, 0465; Nigeria, 0467; Niue, 0745; Northern Mariana Islands, 0470; Norway, 0471; Norway (NIS), 0475; Oman, 0480; Pakistan, 0482; Palau (Republic of), 0485; Panama, 0490; Papua New Guinea, 0495; Paraguay, 0500; Peru, 0505; Philippines, 0510; Poland, 0520; Portugal, 0521; Portugal (MAR), 0740; Puerto Rico, 0525; Qatar, CM07; Reunion, 0530; Romania, 0532; Russia, 0538; Rwanda, 0533; Saint Helena, 0535; Saint Lucia, CM08; Saint Pierre &amp; Miquelon (France), 0545; Samoa, 0550; Samoa American, 0551; San Marino, 0552; Sao Tome and Principe, 0555; Saudi Arabia, 0560; Senegal, 0562; Serbia, 0720; Serbia and Montenegro(Former Yugoslavia), 0565; Seychelles, 0567; Sierra leone, 0570; Singapore, 831; Sint Maarten (Dutch part), 0572; Slovakia, 0573; Slovenia, 0575; Solomon Islands, 0580; Somalia, 0585; South Africa, T686; South Sudan, 0590; Spain, 0595; Sri lanka, T237; St Eustatius, 0540; St Vincent and Grenadines, 0541; St.Kitts and Nevis, 0600; Sudan, 0605; Suriname, 0610; Sweden, 0615; Switzerland, 0620; Syrian Arab Republic, 0625; Taiwan, 0626; Tajikistan, 0630; Tanzania, 0635; Thailand, 0801; Timor Leste, 0640; Togo, 0642; Tonga, 0645; Trinidad and Tobago, 0650; Tunisia, 0655; Turkey, 0656; Turkmenistan, 0660; Turks Caicos Islands, 0663; Tuvalu, CM09; U.A.E. (ABU DHABI), CM10; U.A.E. (AJMAN), CM11; U.A.E. (DUBAI), CM12; U.A.E. (FUJAIRAH), CM13; U.A.E. (RAS AL KHAIMAH), CM14; U.A.E. (SHARJAH), 0735; Uganda, 0664; Ukraine, 0666; United Arab Emirates, 0670; United Kingdom, 0675; United States of America, CM15; UNKNOWN, T999; Unknown, 0680; Uruguay, 0682; Uzbekistan, 0685; Vanuatu, 0690; Venezuela, 0695; Vietnam, 0700; Virgin Islands (U.K), 0705; Virgin Islands (U.S.A), U706; Wallis and Futuna, 0715; Yemen, 0810; Zambia, 0820; Zimbabwe]
+
+
+
+
+
+		<option value="0003">Afghanistan</option>
+
+
+
+
+
+
+
+		<option value="0005">Albania</option>
+
+
+
+
+
+
+
+		<option value="0010">Algeria</option>
+
+
+
+
+
+
+
+		<option value="0012">Andorra</option>
+
+
+
+
+
+
+
+		<option value="0015">Angola</option>
+
+
+
+
+
+
+
+		<option value="0020">Anguilla</option>
+
+
+
+
+
+
+
+		<option value="0028">Antigua and Barbuda</option>
+
+
+
+
+
+
+
+		<option value="CM01">Antilles, Netherlands</option>
+
+
+
+
+
+
+
+		<option value="0030">Argentina</option>
+
+
+
+
+
+
+
+		<option value="0031">Armenia</option>
+
+
+
+
+
+
+
+		<option value="0033">Aruba</option>
+
+
+
+
+
+
+
+		<option value="0035">Australia</option>
+
+
+
+
+
+
+
+		<option value="0040">Austria</option>
+
+
+
+
+
+
+
+		<option value="0043">Azerbaijan</option>
+
+
+
+
+
+
+
+		<option value="0045">Bahamas</option>
+
+
+
+
+
+
+
+		<option value="0050">Bahrain</option>
+
+
+
+
+
+
+
+		<option value="0055">Bangladesh</option>
+
+
+
+
+
+
+
+		<option value="0060">Barbados</option>
+
+
+
+
+
+
+
+		<option value="0064">Belarus</option>
+
+
+
+
+
+
+
+		<option value="0065">Belgium</option>
+
+
+
+
+
+
+
+		<option value="0067">Belize</option>
+
+
+
+
+
+
+
+		<option value="0070">Benin</option>
+
+
+
+
+
+
+
+		<option value="0075">Bermuda</option>
+
+
+
+
+
+
+
+		<option value="0078">Bhutan</option>
+
+
+
+
+
+
+
+		<option value="0080">Bolivia</option>
+
+
+
+
+
+
+
+		<option value="0082">Bosnia Herzegovina</option>
+
+
+
+
+
+
+
+		<option value="0086">Botswana</option>
+
+
+
+
+
+
+
+		<option value="0085">Brazil</option>
+
+
+
+
+
+
+
+		<option value="0088">Brunei Darussalam</option>
+
+
+
+
+
+
+
+		<option value="0090">Bulgaria</option>
+
+
+
+
+
+
+
+		<option value="0092">Burkina Faso</option>
+
+
+
+
+
+
+
+		<option value="0096">Burundi</option>
+
+
+
+
+
+
+
+		<option value="0098">Cambodia</option>
+
+
+
+
+
+
+
+		<option value="0100">Cameroon</option>
+
+
+
+
+
+
+
+		<option value="0105">Canada</option>
+
+
+
+
+
+
+
+		<option value="0110">Cape Verde</option>
+
+
+
+
+
+
+
+		<option value="0115">Cayman Islands</option>
+
+
+
+
+
+
+
+		<option value="0116">Central African Republic</option>
+
+
+
+
+
+
+
+		<option value="0122">Chad</option>
+
+
+
+
+
+
+
+		<option value="0118">Channel Islands</option>
+
+
+
+
+
+
+
+		<option value="0120">Chile</option>
+
+
+
+
+
+
+
+		<option value="0125">China Peoples's Republic</option>
+
+
+
+
+
+
+
+		<option value="0130">Colombia</option>
+
+
+
+
+
+
+
+		<option value="0135">Comoros</option>
+
+
+
+
+
+
+
+		<option value="0770">Congo</option>
+
+
+
+
+
+
+
+		<option value="0725">Congo (Democratic Republic)</option>
+
+
+
+
+
+
+
+		<option value="0137">Cook islands</option>
+
+
+
+
+
+
+
+		<option value="0140">Costa Rica</option>
+
+
+
+
+
+
+
+		<option value="0144">Croatia</option>
+
+
+
+
+
+
+
+		<option value="0145">Cuba</option>
+
+
+
+
+
+
+
+		<option value="0025">Curacao</option>
+
+
+
+
+
+
+
+		<option value="0150">Cyprus</option>
+
+
+
+
+
+
+
+		<option value="0155">Czechian Republic</option>
+
+
+
+
+
+
+
+		<option value="0165">Denmark</option>
+
+
+
+
+
+
+
+		<option value="0166">Djibouti</option>
+
+
+
+
+
+
+
+		<option value="0168">Dominica</option>
+
+
+
+
+
+
+
+		<option value="0170">Dominican Republic</option>
+
+
+
+
+
+
+
+		<option value="0175">Ecuador</option>
+
+
+
+
+
+
+
+		<option value="0180">Egypt</option>
+
+
+
+
+
+
+
+		<option value="0183">El Salvador</option>
+
+
+
+
+
+
+
+		<option value="0190">Equatorial Guinea</option>
+
+
+
+
+
+
+
+		<option value="0186">Eritrea</option>
+
+
+
+
+
+
+
+		<option value="0184">Estonia</option>
+
+
+
+
+
+
+
+		<option value="0185">Ethiopia</option>
+
+
+
+
+
+
+
+		<option value="0198">Falkland Islands</option>
+
+
+
+
+
+
+
+		<option value="0195">Faroe Islands</option>
+
+
+
+
+
+
+
+		<option value="0200">Fiji</option>
+
+
+
+
+
+
+
+		<option value="0205">Finland</option>
+
+
+
+
+
+
+
+		<option value="0210">France</option>
+
+
+
+
+
+
+
+		<option value="0211">France (RIF)</option>
+
+
+
+
+
+
+
+		<option value="0515">French Polynesia</option>
+
+
+
+
+
+
+
+		<option value="T265">French southern Territories</option>
+
+
+
+
+
+
+
+		<option value="0215">Gabon</option>
+
+
+
+
+
+
+
+		<option value="0220">Gambia</option>
+
+
+
+
+
+
+
+		<option value="0224">Georgia</option>
+
+
+
+
+
+
+
+		<option value="0230">Germany</option>
+
+
+
+
+
+
+
+		<option value="0235">Ghana</option>
+
+
+
+
+
+
+
+		<option value="0240">Gibraltar</option>
+
+
+
+
+
+
+
+		<option value="0245">Greece</option>
+
+
+
+
+
+
+
+		<option value="0765">Greenland</option>
+
+
+
+
+
+
+
+		<option value="0250">Grenada</option>
+
+
+
+
+
+
+
+		<option value="CM02">Guadeloupe (France)</option>
+
+
+
+
+
+
+
+		<option value="0750">Guam</option>
+
+
+
+
+
+
+
+		<option value="0255">Guatemala</option>
+
+
+
+
+
+
+
+		<option value="0258">Guernsey</option>
+
+
+
+
+
+
+
+		<option value="0267">Guinea</option>
+
+
+
+
+
+
+
+		<option value="0269">Guinea-Bissau</option>
+
+
+
+
+
+
+
+		<option value="0260">Guyana</option>
+
+
+
+
+
+
+
+		<option value="CM03">Guyane (France)</option>
+
+
+
+
+
+
+
+		<option value="0271">Haiti</option>
+
+
+
+
+
+
+
+		<option value="0270">Honduras</option>
+
+
+
+
+
+
+
+		<option value="0275">Hong Kong, China</option>
+
+
+
+
+
+
+
+		<option value="0280">Hungary</option>
+
+
+
+
+
+
+
+		<option value="0285">Iceland</option>
+
+
+
+
+
+
+
+		<option value="0290">India</option>
+
+
+
+
+
+
+
+		<option value="0295">Indonesia</option>
+
+
+
+
+
+
+
+		<option value="0300">Iran</option>
+
+
+
+
+
+
+
+		<option value="0305">Iraq</option>
+
+
+
+
+
+
+
+		<option value="0310">Ireland</option>
+
+
+
+
+
+
+
+		<option value="0403">Isle of Man</option>
+
+
+
+
+
+
+
+		<option value="0315">Israel</option>
+
+
+
+
+
+
+
+		<option value="0320">Italy</option>
+
+
+
+
+
+
+
+		<option value="0325">Ivory Coast</option>
+
+
+
+
+
+
+
+		<option value="0330">Jamaica</option>
+
+
+
+
+
+
+
+		<option value="0335">Japan</option>
+
+
+
+
+
+
+
+		<option value="0337">Jersey</option>
+
+
+
+
+
+
+
+		<option value="0340">Jordan</option>
+
+
+
+
+
+
+
+		<option value="0344">Kazakhstan</option>
+
+
+
+
+
+
+
+		<option value="0345">Kenya</option>
+
+
+
+
+
+
+
+		<option value="0350">Kiribati</option>
+
+
+
+
+
+
+
+		<option value="0355">Korea Democratic Republic</option>
+
+
+
+
+
+
+
+		<option value="0360">Korea (Republic of)</option>
+
+
+
+
+
+
+
+		<option value="0365">Kuwait</option>
+
+
+
+
+
+
+
+		<option value="0366">Kyrgyzstan</option>
+
+
+
+
+
+
+
+		<option value="0368">Lao People's Democratic Republic</option>
+
+
+
+
+
+
+
+		<option value="0367">Latvia</option>
+
+
+
+
+
+
+
+		<option value="0370">Lebanon</option>
+
+
+
+
+
+
+
+		<option value="0372">Lesotho</option>
+
+
+
+
+
+
+
+		<option value="0375">Liberia</option>
+
+
+
+
+
+
+
+		<option value="0380">Libya</option>
+
+
+
+
+
+
+
+		<option value="0381">Liechtenstein</option>
+
+
+
+
+
+
+
+		<option value="0382">Lithuania</option>
+
+
+
+
+
+
+
+		<option value="0383">Luxembourg</option>
+
+
+
+
+
+
+
+		<option value="0755">Macao, China</option>
+
+
+
+
+
+
+
+		<option value="0385">Madagascar</option>
+
+
+
+
+
+
+
+		<option value="0390">Malaysia</option>
+
+
+
+
+
+
+
+		<option value="0395">Maldives</option>
+
+
+
+
+
+
+
+		<option value="0397">Mali</option>
+
+
+
+
+
+
+
+		<option value="0400">Malta</option>
+
+
+
+
+
+
+
+		<option value="0404">Marshall Islands</option>
+
+
+
+
+
+
+
+		<option value="CM04">Martinique (France)</option>
+
+
+
+
+
+
+
+		<option value="0405">Mauritania</option>
+
+
+
+
+
+
+
+		<option value="0410">Mauritius</option>
+
+
+
+
+
+
+
+		<option value="CM05">Mayotte</option>
+
+
+
+
+
+
+
+		<option value="0415">Mexico</option>
+
+
+
+
+
+
+
+		<option value="0730">Micronesia</option>
+
+
+
+
+
+
+
+		<option value="0419">Moldova</option>
+
+
+
+
+
+
+
+		<option value="0420">Monaco</option>
+
+
+
+
+
+
+
+		<option value="0422">Mongolia</option>
+
+
+
+
+
+
+
+		<option value="0424">Montenegro</option>
+
+
+
+
+
+
+
+		<option value="0425">Montserrat</option>
+
+
+
+
+
+
+
+		<option value="0430">Morocco</option>
+
+
+
+
+
+
+
+		<option value="0435">Mozambique</option>
+
+
+
+
+
+
+
+		<option value="0095">Myanmar union of</option>
+
+
+
+
+
+
+
+		<option value="0439">Namibia</option>
+
+
+
+
+
+
+
+		<option value="0440">Nauru</option>
+
+
+
+
+
+
+
+		<option value="0443">Nepal</option>
+
+
+
+
+
+
+
+		<option value="0445">Netherlands</option>
+
+
+
+
+
+
+
+		<option value="CM06">New Caledonia</option>
+
+
+
+
+
+
+
+		<option value="0450">New Zealand</option>
+
+
+
+
+
+
+
+		<option value="0455">Nicaragua</option>
+
+
+
+
+
+
+
+		<option value="0460">Niger</option>
+
+
+
+
+
+
+
+		<option value="0465">Nigeria</option>
+
+
+
+
+
+
+
+		<option value="0467">Niue</option>
+
+
+
+
+
+
+
+		<option value="0745">Northern Mariana Islands</option>
+
+
+
+
+
+
+
+		<option value="0470">Norway</option>
+
+
+
+
+
+
+
+		<option value="0471">Norway (NIS)</option>
+
+
+
+
+
+
+
+		<option value="0475">Oman</option>
+
+
+
+
+
+
+
+		<option value="0480">Pakistan</option>
+
+
+
+
+
+
+
+		<option value="0482">Palau (Republic of)</option>
+
+
+
+
+
+
+
+		<option value="0485">Panama</option>
+
+
+
+
+
+
+
+		<option value="0490">Papua New Guinea</option>
+
+
+
+
+
+
+
+		<option value="0495">Paraguay</option>
+
+
+
+
+
+
+
+		<option value="0500">Peru</option>
+
+
+
+
+
+
+
+		<option value="0505">Philippines</option>
+
+
+
+
+
+
+
+		<option value="0510">Poland</option>
+
+
+
+
+
+
+
+		<option value="0520">Portugal</option>
+
+
+
+
+
+
+
+		<option value="0521">Portugal (MAR)</option>
+
+
+
+
+
+
+
+		<option value="0740">Puerto Rico</option>
+
+
+
+
+
+
+
+		<option value="0525">Qatar</option>
+
+
+
+
+
+
+
+		<option value="CM07">Reunion</option>
+
+
+
+
+
+
+
+		<option value="0530">Romania</option>
+
+
+
+
+
+
+
+		<option value="0532">Russia</option>
+
+
+
+
+
+
+
+		<option value="0538">Rwanda</option>
+
+
+
+
+
+
+
+		<option value="0533">Saint Helena</option>
+
+
+
+
+
+
+
+		<option value="0535">Saint Lucia</option>
+
+
+
+
+
+
+
+		<option value="CM08">Saint Pierre &amp; Miquelon (France)</option>
+
+
+
+
+
+
+
+		<option value="0545">Samoa</option>
+
+
+
+
+
+
+
+		<option value="0550">Samoa American</option>
+
+
+
+
+
+
+
+		<option value="0551">San Marino</option>
+
+
+
+
+
+
+
+		<option value="0552">Sao Tome and Principe</option>
+
+
+
+
+
+
+
+		<option value="0555">Saudi Arabia</option>
+
+
+
+
+
+
+
+		<option value="0560">Senegal</option>
+
+
+
+
+
+
+
+		<option value="0562">Serbia</option>
+
+
+
+
+
+
+
+		<option value="0720">Serbia and Montenegro(Former Yugoslavia)</option>
+
+
+
+
+
+
+
+		<option value="0565">Seychelles</option>
+
+
+
+
+
+
+
+		<option value="0567">Sierra leone</option>
+
+
+
+
+
+
+
+		<option value="0570">Singapore</option>
+
+
+
+
+
+
+
+		<option value="831">Sint Maarten (Dutch part)</option>
+
+
+
+
+
+
+
+		<option value="0572">Slovakia</option>
+
+
+
+
+
+
+
+		<option value="0573">Slovenia</option>
+
+
+
+
+
+
+
+		<option value="0575">Solomon Islands</option>
+
+
+
+
+
+
+
+		<option value="0580">Somalia</option>
+
+
+
+
+
+
+
+		<option value="0585">South Africa</option>
+
+
+
+
+
+
+
+		<option value="T686">South Sudan</option>
+
+
+
+
+
+
+
+		<option value="0590">Spain</option>
+
+
+
+
+
+
+
+		<option value="0595">Sri lanka</option>
+
+
+
+
+
+
+
+		<option value="T237">St Eustatius</option>
+
+
+
+
+
+
+
+		<option value="0540">St Vincent and Grenadines</option>
+
+
+
+
+
+
+
+		<option value="0541">St.Kitts and Nevis</option>
+
+
+
+
+
+
+
+		<option value="0600">Sudan</option>
+
+
+
+
+
+
+
+		<option value="0605">Suriname</option>
+
+
+
+
+
+
+
+		<option value="0610">Sweden</option>
+
+
+
+
+
+
+
+		<option value="0615">Switzerland</option>
+
+
+
+
+
+
+
+		<option value="0620">Syrian Arab Republic</option>
+
+
+
+
+
+
+
+		<option value="0625">Taiwan</option>
+
+
+
+
+
+
+
+		<option value="0626">Tajikistan</option>
+
+
+
+
+
+
+
+		<option value="0630">Tanzania</option>
+
+
+
+
+
+
+
+		<option value="0635">Thailand</option>
+
+
+
+
+
+
+
+		<option value="0801">Timor Leste</option>
+
+
+
+
+
+
+
+		<option value="0640">Togo</option>
+
+
+
+
+
+
+
+		<option value="0642">Tonga</option>
+
+
+
+
+
+
+
+		<option value="0645">Trinidad and Tobago</option>
+
+
+
+
+
+
+
+		<option value="0650">Tunisia</option>
+
+
+
+
+
+
+
+		<option value="0655">Turkey</option>
+
+
+
+
+
+
+
+		<option value="0656">Turkmenistan</option>
+
+
+
+
+
+
+
+		<option value="0660">Turks Caicos Islands</option>
+
+
+
+
+
+
+
+		<option value="0663">Tuvalu</option>
+
+
+
+
+
+
+
+		<option value="CM09">U.A.E. (ABU DHABI)</option>
+
+
+
+
+
+
+
+		<option value="CM10">U.A.E. (AJMAN)</option>
+
+
+
+
+
+
+
+		<option value="CM11">U.A.E. (DUBAI)</option>
+
+
+
+
+
+
+
+		<option value="CM12">U.A.E. (FUJAIRAH)</option>
+
+
+
+
+
+
+
+		<option value="CM13">U.A.E. (RAS AL KHAIMAH)</option>
+
+
+
+
+
+
+
+		<option value="CM14">U.A.E. (SHARJAH)</option>
+
+
+
+
+
+
+
+		<option value="0735">Uganda</option>
+
+
+
+
+
+
+
+		<option value="0664">Ukraine</option>
+
+
+
+
+
+
+
+		<option value="0666">United Arab Emirates</option>
+
+
+
+
+
+
+
+		<option value="0670">United Kingdom</option>
+
+
+
+
+
+
+
+		<option value="0675">United States of America</option>
+
+
+
+
+
+
+
+		<option value="CM15">UNKNOWN</option>
+
+
+
+
+
+
+
+		<option value="T999">Unknown</option>
+
+
+
+
+
+
+
+		<option value="0680">Uruguay</option>
+
+
+
+
+
+
+
+		<option value="0682">Uzbekistan</option>
+
+
+
+
+
+
+
+		<option value="0685">Vanuatu</option>
+
+
+
+
+
+
+
+		<option value="0690">Venezuela</option>
+
+
+
+
+
+
+
+		<option value="0695">Vietnam</option>
+
+
+
+
+
+
+
+		<option value="0700">Virgin Islands (U.K)</option>
+
+
+
+
+
+
+
+		<option value="0705">Virgin Islands (U.S.A)</option>
+
+
+
+
+
+
+
+		<option value="U706">Wallis and Futuna</option>
+
+
+
+
+
+
+
+		<option value="0715">Yemen</option>
+
+
+
+
+
+
+
+		<option value="0810">Zambia</option>
+
+
+
+
+
+
+
+		<option value="0820">Zimbabwe</option>
+
+
+
+
+	</select>
+<!-- </div> -->
+
+
+<!-- liste secondaire affichée si le parametre est actif mais hors focus  -->
+
+
+
+
+
+
+<!-- liste 3 affichee si le parametre n'est pas actif -->
+
+	<!-- isActive =false -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" style="display: NONE" id="P_FLAG_p2" name="P_FLAG_p2" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Flag</option>
+
+
+
+
+
+[0003; Afghanistan, 0005; Albania, 0010; Algeria, 0012; Andorra, 0015; Angola, 0020; Anguilla, 0028; Antigua and Barbuda, CM01; Antilles, Netherlands, 0030; Argentina, 0031; Armenia, 0033; Aruba, 0035; Australia, 0040; Austria, 0043; Azerbaijan, 0045; Bahamas, 0050; Bahrain, 0055; Bangladesh, 0060; Barbados, 0064; Belarus, 0065; Belgium, 0067; Belize, 0070; Benin, 0075; Bermuda, 0078; Bhutan, 0080; Bolivia, 0082; Bosnia Herzegovina, 0086; Botswana, 0085; Brazil, 0088; Brunei Darussalam, 0090; Bulgaria, 0092; Burkina Faso, 0096; Burundi, 0098; Cambodia, 0100; Cameroon, 0105; Canada, 0110; Cape Verde, 0115; Cayman Islands, 0116; Central African Republic, 0122; Chad, 0118; Channel Islands, 0120; Chile, 0125; China Peoples's Republic, 0130; Colombia, 0135; Comoros, 0770; Congo, 0725; Congo (Democratic Republic), 0137; Cook islands, 0140; Costa Rica, 0144; Croatia, 0145; Cuba, 0025; Curacao, 0150; Cyprus, 0155; Czechian Republic, 0165; Denmark, 0166; Djibouti, 0168; Dominica, 0170; Dominican Republic, 0175; Ecuador, 0180; Egypt, 0183; El Salvador, 0190; Equatorial Guinea, 0186; Eritrea, 0184; Estonia, 0185; Ethiopia, 0198; Falkland Islands, 0195; Faroe Islands, 0200; Fiji, 0205; Finland, 0210; France, 0211; France (RIF), 0515; French Polynesia, T265; French southern Territories, 0215; Gabon, 0220; Gambia, 0224; Georgia, 0230; Germany, 0235; Ghana, 0240; Gibraltar, 0245; Greece, 0765; Greenland, 0250; Grenada, CM02; Guadeloupe (France), 0750; Guam, 0255; Guatemala, 0258; Guernsey, 0267; Guinea, 0269; Guinea-Bissau, 0260; Guyana, CM03; Guyane (France), 0271; Haiti, 0270; Honduras, 0275; Hong Kong, China, 0280; Hungary, 0285; Iceland, 0290; India, 0295; Indonesia, 0300; Iran, 0305; Iraq, 0310; Ireland, 0403; Isle of Man, 0315; Israel, 0320; Italy, 0325; Ivory Coast, 0330; Jamaica, 0335; Japan, 0337; Jersey, 0340; Jordan, 0344; Kazakhstan, 0345; Kenya, 0350; Kiribati, 0355; Korea Democratic Republic, 0360; Korea (Republic of), 0365; Kuwait, 0366; Kyrgyzstan, 0368; Lao People's Democratic Republic, 0367; Latvia, 0370; Lebanon, 0372; Lesotho, 0375; Liberia, 0380; Libya, 0381; Liechtenstein, 0382; Lithuania, 0383; Luxembourg, 0755; Macao, China, 0385; Madagascar, 0390; Malaysia, 0395; Maldives, 0397; Mali, 0400; Malta, 0404; Marshall Islands, CM04; Martinique (France), 0405; Mauritania, 0410; Mauritius, CM05; Mayotte, 0415; Mexico, 0730; Micronesia, 0419; Moldova, 0420; Monaco, 0422; Mongolia, 0424; Montenegro, 0425; Montserrat, 0430; Morocco, 0435; Mozambique, 0095; Myanmar union of, 0439; Namibia, 0440; Nauru, 0443; Nepal, 0445; Netherlands, CM06; New Caledonia, 0450; New Zealand, 0455; Nicaragua, 0460; Niger, 0465; Nigeria, 0467; Niue, 0745; Northern Mariana Islands, 0470; Norway, 0471; Norway (NIS), 0475; Oman, 0480; Pakistan, 0482; Palau (Republic of), 0485; Panama, 0490; Papua New Guinea, 0495; Paraguay, 0500; Peru, 0505; Philippines, 0510; Poland, 0520; Portugal, 0521; Portugal (MAR), 0740; Puerto Rico, 0525; Qatar, CM07; Reunion, 0530; Romania, 0532; Russia, 0538; Rwanda, 0533; Saint Helena, 0535; Saint Lucia, CM08; Saint Pierre &amp; Miquelon (France), 0545; Samoa, 0550; Samoa American, 0551; San Marino, 0552; Sao Tome and Principe, 0555; Saudi Arabia, 0560; Senegal, 0562; Serbia, 0720; Serbia and Montenegro(Former Yugoslavia), 0565; Seychelles, 0567; Sierra leone, 0570; Singapore, 831; Sint Maarten (Dutch part), 0572; Slovakia, 0573; Slovenia, 0575; Solomon Islands, 0580; Somalia, 0585; South Africa, T686; South Sudan, 0590; Spain, 0595; Sri lanka, T237; St Eustatius, 0540; St Vincent and Grenadines, 0541; St.Kitts and Nevis, 0600; Sudan, 0605; Suriname, 0610; Sweden, 0615; Switzerland, 0620; Syrian Arab Republic, 0625; Taiwan, 0626; Tajikistan, 0630; Tanzania, 0635; Thailand, 0801; Timor Leste, 0640; Togo, 0642; Tonga, 0645; Trinidad and Tobago, 0650; Tunisia, 0655; Turkey, 0656; Turkmenistan, 0660; Turks Caicos Islands, 0663; Tuvalu, CM09; U.A.E. (ABU DHABI), CM10; U.A.E. (AJMAN), CM11; U.A.E. (DUBAI), CM12; U.A.E. (FUJAIRAH), CM13; U.A.E. (RAS AL KHAIMAH), CM14; U.A.E. (SHARJAH), 0735; Uganda, 0664; Ukraine, 0666; United Arab Emirates, 0670; United Kingdom, 0675; United States of America, CM15; UNKNOWN, T999; Unknown, 0680; Uruguay, 0682; Uzbekistan, 0685; Vanuatu, 0690; Venezuela, 0695; Vietnam, 0700; Virgin Islands (U.K), 0705; Virgin Islands (U.S.A), U706; Wallis and Futuna, 0715; Yemen, 0810; Zambia, 0820; Zimbabwe]
+
+
+
+
+
+		<option value="0003">Afghanistan</option>
+
+
+
+
+
+
+
+		<option value="0005">Albania</option>
+
+
+
+
+
+
+
+		<option value="0010">Algeria</option>
+
+
+
+
+
+
+
+		<option value="0012">Andorra</option>
+
+
+
+
+
+
+
+		<option value="0015">Angola</option>
+
+
+
+
+
+
+
+		<option value="0020">Anguilla</option>
+
+
+
+
+
+
+
+		<option value="0028">Antigua and Barbuda</option>
+
+
+
+
+
+
+
+		<option value="CM01">Antilles, Netherlands</option>
+
+
+
+
+
+
+
+		<option value="0030">Argentina</option>
+
+
+
+
+
+
+
+		<option value="0031">Armenia</option>
+
+
+
+
+
+
+
+		<option value="0033">Aruba</option>
+
+
+
+
+
+
+
+		<option value="0035">Australia</option>
+
+
+
+
+
+
+
+		<option value="0040">Austria</option>
+
+
+
+
+
+
+
+		<option value="0043">Azerbaijan</option>
+
+
+
+
+
+
+
+		<option value="0045">Bahamas</option>
+
+
+
+
+
+
+
+		<option value="0050">Bahrain</option>
+
+
+
+
+
+
+
+		<option value="0055">Bangladesh</option>
+
+
+
+
+
+
+
+		<option value="0060">Barbados</option>
+
+
+
+
+
+
+
+		<option value="0064">Belarus</option>
+
+
+
+
+
+
+
+		<option value="0065">Belgium</option>
+
+
+
+
+
+
+
+		<option value="0067">Belize</option>
+
+
+
+
+
+
+
+		<option value="0070">Benin</option>
+
+
+
+
+
+
+
+		<option value="0075">Bermuda</option>
+
+
+
+
+
+
+
+		<option value="0078">Bhutan</option>
+
+
+
+
+
+
+
+		<option value="0080">Bolivia</option>
+
+
+
+
+
+
+
+		<option value="0082">Bosnia Herzegovina</option>
+
+
+
+
+
+
+
+		<option value="0086">Botswana</option>
+
+
+
+
+
+
+
+		<option value="0085">Brazil</option>
+
+
+
+
+
+
+
+		<option value="0088">Brunei Darussalam</option>
+
+
+
+
+
+
+
+		<option value="0090">Bulgaria</option>
+
+
+
+
+
+
+
+		<option value="0092">Burkina Faso</option>
+
+
+
+
+
+
+
+		<option value="0096">Burundi</option>
+
+
+
+
+
+
+
+		<option value="0098">Cambodia</option>
+
+
+
+
+
+
+
+		<option value="0100">Cameroon</option>
+
+
+
+
+
+
+
+		<option value="0105">Canada</option>
+
+
+
+
+
+
+
+		<option value="0110">Cape Verde</option>
+
+
+
+
+
+
+
+		<option value="0115">Cayman Islands</option>
+
+
+
+
+
+
+
+		<option value="0116">Central African Republic</option>
+
+
+
+
+
+
+
+		<option value="0122">Chad</option>
+
+
+
+
+
+
+
+		<option value="0118">Channel Islands</option>
+
+
+
+
+
+
+
+		<option value="0120">Chile</option>
+
+
+
+
+
+
+
+		<option value="0125">China Peoples's Republic</option>
+
+
+
+
+
+
+
+		<option value="0130">Colombia</option>
+
+
+
+
+
+
+
+		<option value="0135">Comoros</option>
+
+
+
+
+
+
+
+		<option value="0770">Congo</option>
+
+
+
+
+
+
+
+		<option value="0725">Congo (Democratic Republic)</option>
+
+
+
+
+
+
+
+		<option value="0137">Cook islands</option>
+
+
+
+
+
+
+
+		<option value="0140">Costa Rica</option>
+
+
+
+
+
+
+
+		<option value="0144">Croatia</option>
+
+
+
+
+
+
+
+		<option value="0145">Cuba</option>
+
+
+
+
+
+
+
+		<option value="0025">Curacao</option>
+
+
+
+
+
+
+
+		<option value="0150">Cyprus</option>
+
+
+
+
+
+
+
+		<option value="0155">Czechian Republic</option>
+
+
+
+
+
+
+
+		<option value="0165">Denmark</option>
+
+
+
+
+
+
+
+		<option value="0166">Djibouti</option>
+
+
+
+
+
+
+
+		<option value="0168">Dominica</option>
+
+
+
+
+
+
+
+		<option value="0170">Dominican Republic</option>
+
+
+
+
+
+
+
+		<option value="0175">Ecuador</option>
+
+
+
+
+
+
+
+		<option value="0180">Egypt</option>
+
+
+
+
+
+
+
+		<option value="0183">El Salvador</option>
+
+
+
+
+
+
+
+		<option value="0190">Equatorial Guinea</option>
+
+
+
+
+
+
+
+		<option value="0186">Eritrea</option>
+
+
+
+
+
+
+
+		<option value="0184">Estonia</option>
+
+
+
+
+
+
+
+		<option value="0185">Ethiopia</option>
+
+
+
+
+
+
+
+		<option value="0198">Falkland Islands</option>
+
+
+
+
+
+
+
+		<option value="0195">Faroe Islands</option>
+
+
+
+
+
+
+
+		<option value="0200">Fiji</option>
+
+
+
+
+
+
+
+		<option value="0205">Finland</option>
+
+
+
+
+
+
+
+		<option value="0210">France</option>
+
+
+
+
+
+
+
+		<option value="0211">France (RIF)</option>
+
+
+
+
+
+
+
+		<option value="0515">French Polynesia</option>
+
+
+
+
+
+
+
+		<option value="T265">French southern Territories</option>
+
+
+
+
+
+
+
+		<option value="0215">Gabon</option>
+
+
+
+
+
+
+
+		<option value="0220">Gambia</option>
+
+
+
+
+
+
+
+		<option value="0224">Georgia</option>
+
+
+
+
+
+
+
+		<option value="0230">Germany</option>
+
+
+
+
+
+
+
+		<option value="0235">Ghana</option>
+
+
+
+
+
+
+
+		<option value="0240">Gibraltar</option>
+
+
+
+
+
+
+
+		<option value="0245">Greece</option>
+
+
+
+
+
+
+
+		<option value="0765">Greenland</option>
+
+
+
+
+
+
+
+		<option value="0250">Grenada</option>
+
+
+
+
+
+
+
+		<option value="CM02">Guadeloupe (France)</option>
+
+
+
+
+
+
+
+		<option value="0750">Guam</option>
+
+
+
+
+
+
+
+		<option value="0255">Guatemala</option>
+
+
+
+
+
+
+
+		<option value="0258">Guernsey</option>
+
+
+
+
+
+
+
+		<option value="0267">Guinea</option>
+
+
+
+
+
+
+
+		<option value="0269">Guinea-Bissau</option>
+
+
+
+
+
+
+
+		<option value="0260">Guyana</option>
+
+
+
+
+
+
+
+		<option value="CM03">Guyane (France)</option>
+
+
+
+
+
+
+
+		<option value="0271">Haiti</option>
+
+
+
+
+
+
+
+		<option value="0270">Honduras</option>
+
+
+
+
+
+
+
+		<option value="0275">Hong Kong, China</option>
+
+
+
+
+
+
+
+		<option value="0280">Hungary</option>
+
+
+
+
+
+
+
+		<option value="0285">Iceland</option>
+
+
+
+
+
+
+
+		<option value="0290">India</option>
+
+
+
+
+
+
+
+		<option value="0295">Indonesia</option>
+
+
+
+
+
+
+
+		<option value="0300">Iran</option>
+
+
+
+
+
+
+
+		<option value="0305">Iraq</option>
+
+
+
+
+
+
+
+		<option value="0310">Ireland</option>
+
+
+
+
+
+
+
+		<option value="0403">Isle of Man</option>
+
+
+
+
+
+
+
+		<option value="0315">Israel</option>
+
+
+
+
+
+
+
+		<option value="0320">Italy</option>
+
+
+
+
+
+
+
+		<option value="0325">Ivory Coast</option>
+
+
+
+
+
+
+
+		<option value="0330">Jamaica</option>
+
+
+
+
+
+
+
+		<option value="0335">Japan</option>
+
+
+
+
+
+
+
+		<option value="0337">Jersey</option>
+
+
+
+
+
+
+
+		<option value="0340">Jordan</option>
+
+
+
+
+
+
+
+		<option value="0344">Kazakhstan</option>
+
+
+
+
+
+
+
+		<option value="0345">Kenya</option>
+
+
+
+
+
+
+
+		<option value="0350">Kiribati</option>
+
+
+
+
+
+
+
+		<option value="0355">Korea Democratic Republic</option>
+
+
+
+
+
+
+
+		<option value="0360">Korea (Republic of)</option>
+
+
+
+
+
+
+
+		<option value="0365">Kuwait</option>
+
+
+
+
+
+
+
+		<option value="0366">Kyrgyzstan</option>
+
+
+
+
+
+
+
+		<option value="0368">Lao People's Democratic Republic</option>
+
+
+
+
+
+
+
+		<option value="0367">Latvia</option>
+
+
+
+
+
+
+
+		<option value="0370">Lebanon</option>
+
+
+
+
+
+
+
+		<option value="0372">Lesotho</option>
+
+
+
+
+
+
+
+		<option value="0375">Liberia</option>
+
+
+
+
+
+
+
+		<option value="0380">Libya</option>
+
+
+
+
+
+
+
+		<option value="0381">Liechtenstein</option>
+
+
+
+
+
+
+
+		<option value="0382">Lithuania</option>
+
+
+
+
+
+
+
+		<option value="0383">Luxembourg</option>
+
+
+
+
+
+
+
+		<option value="0755">Macao, China</option>
+
+
+
+
+
+
+
+		<option value="0385">Madagascar</option>
+
+
+
+
+
+
+
+		<option value="0390">Malaysia</option>
+
+
+
+
+
+
+
+		<option value="0395">Maldives</option>
+
+
+
+
+
+
+
+		<option value="0397">Mali</option>
+
+
+
+
+
+
+
+		<option value="0400">Malta</option>
+
+
+
+
+
+
+
+		<option value="0404">Marshall Islands</option>
+
+
+
+
+
+
+
+		<option value="CM04">Martinique (France)</option>
+
+
+
+
+
+
+
+		<option value="0405">Mauritania</option>
+
+
+
+
+
+
+
+		<option value="0410">Mauritius</option>
+
+
+
+
+
+
+
+		<option value="CM05">Mayotte</option>
+
+
+
+
+
+
+
+		<option value="0415">Mexico</option>
+
+
+
+
+
+
+
+		<option value="0730">Micronesia</option>
+
+
+
+
+
+
+
+		<option value="0419">Moldova</option>
+
+
+
+
+
+
+
+		<option value="0420">Monaco</option>
+
+
+
+
+
+
+
+		<option value="0422">Mongolia</option>
+
+
+
+
+
+
+
+		<option value="0424">Montenegro</option>
+
+
+
+
+
+
+
+		<option value="0425">Montserrat</option>
+
+
+
+
+
+
+
+		<option value="0430">Morocco</option>
+
+
+
+
+
+
+
+		<option value="0435">Mozambique</option>
+
+
+
+
+
+
+
+		<option value="0095">Myanmar union of</option>
+
+
+
+
+
+
+
+		<option value="0439">Namibia</option>
+
+
+
+
+
+
+
+		<option value="0440">Nauru</option>
+
+
+
+
+
+
+
+		<option value="0443">Nepal</option>
+
+
+
+
+
+
+
+		<option value="0445">Netherlands</option>
+
+
+
+
+
+
+
+		<option value="CM06">New Caledonia</option>
+
+
+
+
+
+
+
+		<option value="0450">New Zealand</option>
+
+
+
+
+
+
+
+		<option value="0455">Nicaragua</option>
+
+
+
+
+
+
+
+		<option value="0460">Niger</option>
+
+
+
+
+
+
+
+		<option value="0465">Nigeria</option>
+
+
+
+
+
+
+
+		<option value="0467">Niue</option>
+
+
+
+
+
+
+
+		<option value="0745">Northern Mariana Islands</option>
+
+
+
+
+
+
+
+		<option value="0470">Norway</option>
+
+
+
+
+
+
+
+		<option value="0471">Norway (NIS)</option>
+
+
+
+
+
+
+
+		<option value="0475">Oman</option>
+
+
+
+
+
+
+
+		<option value="0480">Pakistan</option>
+
+
+
+
+
+
+
+		<option value="0482">Palau (Republic of)</option>
+
+
+
+
+
+
+
+		<option value="0485">Panama</option>
+
+
+
+
+
+
+
+		<option value="0490">Papua New Guinea</option>
+
+
+
+
+
+
+
+		<option value="0495">Paraguay</option>
+
+
+
+
+
+
+
+		<option value="0500">Peru</option>
+
+
+
+
+
+
+
+		<option value="0505">Philippines</option>
+
+
+
+
+
+
+
+		<option value="0510">Poland</option>
+
+
+
+
+
+
+
+		<option value="0520">Portugal</option>
+
+
+
+
+
+
+
+		<option value="0521">Portugal (MAR)</option>
+
+
+
+
+
+
+
+		<option value="0740">Puerto Rico</option>
+
+
+
+
+
+
+
+		<option value="0525">Qatar</option>
+
+
+
+
+
+
+
+		<option value="CM07">Reunion</option>
+
+
+
+
+
+
+
+		<option value="0530">Romania</option>
+
+
+
+
+
+
+
+		<option value="0532">Russia</option>
+
+
+
+
+
+
+
+		<option value="0538">Rwanda</option>
+
+
+
+
+
+
+
+		<option value="0533">Saint Helena</option>
+
+
+
+
+
+
+
+		<option value="0535">Saint Lucia</option>
+
+
+
+
+
+
+
+		<option value="CM08">Saint Pierre &amp; Miquelon (France)</option>
+
+
+
+
+
+
+
+		<option value="0545">Samoa</option>
+
+
+
+
+
+
+
+		<option value="0550">Samoa American</option>
+
+
+
+
+
+
+
+		<option value="0551">San Marino</option>
+
+
+
+
+
+
+
+		<option value="0552">Sao Tome and Principe</option>
+
+
+
+
+
+
+
+		<option value="0555">Saudi Arabia</option>
+
+
+
+
+
+
+
+		<option value="0560">Senegal</option>
+
+
+
+
+
+
+
+		<option value="0562">Serbia</option>
+
+
+
+
+
+
+
+		<option value="0720">Serbia and Montenegro(Former Yugoslavia)</option>
+
+
+
+
+
+
+
+		<option value="0565">Seychelles</option>
+
+
+
+
+
+
+
+		<option value="0567">Sierra leone</option>
+
+
+
+
+
+
+
+		<option value="0570">Singapore</option>
+
+
+
+
+
+
+
+		<option value="831">Sint Maarten (Dutch part)</option>
+
+
+
+
+
+
+
+		<option value="0572">Slovakia</option>
+
+
+
+
+
+
+
+		<option value="0573">Slovenia</option>
+
+
+
+
+
+
+
+		<option value="0575">Solomon Islands</option>
+
+
+
+
+
+
+
+		<option value="0580">Somalia</option>
+
+
+
+
+
+
+
+		<option value="0585">South Africa</option>
+
+
+
+
+
+
+
+		<option value="T686">South Sudan</option>
+
+
+
+
+
+
+
+		<option value="0590">Spain</option>
+
+
+
+
+
+
+
+		<option value="0595">Sri lanka</option>
+
+
+
+
+
+
+
+		<option value="T237">St Eustatius</option>
+
+
+
+
+
+
+
+		<option value="0540">St Vincent and Grenadines</option>
+
+
+
+
+
+
+
+		<option value="0541">St.Kitts and Nevis</option>
+
+
+
+
+
+
+
+		<option value="0600">Sudan</option>
+
+
+
+
+
+
+
+		<option value="0605">Suriname</option>
+
+
+
+
+
+
+
+		<option value="0610">Sweden</option>
+
+
+
+
+
+
+
+		<option value="0615">Switzerland</option>
+
+
+
+
+
+
+
+		<option value="0620">Syrian Arab Republic</option>
+
+
+
+
+
+
+
+		<option value="0625">Taiwan</option>
+
+
+
+
+
+
+
+		<option value="0626">Tajikistan</option>
+
+
+
+
+
+
+
+		<option value="0630">Tanzania</option>
+
+
+
+
+
+
+
+		<option value="0635">Thailand</option>
+
+
+
+
+
+
+
+		<option value="0801">Timor Leste</option>
+
+
+
+
+
+
+
+		<option value="0640">Togo</option>
+
+
+
+
+
+
+
+		<option value="0642">Tonga</option>
+
+
+
+
+
+
+
+		<option value="0645">Trinidad and Tobago</option>
+
+
+
+
+
+
+
+		<option value="0650">Tunisia</option>
+
+
+
+
+
+
+
+		<option value="0655">Turkey</option>
+
+
+
+
+
+
+
+		<option value="0656">Turkmenistan</option>
+
+
+
+
+
+
+
+		<option value="0660">Turks Caicos Islands</option>
+
+
+
+
+
+
+
+		<option value="0663">Tuvalu</option>
+
+
+
+
+
+
+
+		<option value="CM09">U.A.E. (ABU DHABI)</option>
+
+
+
+
+
+
+
+		<option value="CM10">U.A.E. (AJMAN)</option>
+
+
+
+
+
+
+
+		<option value="CM11">U.A.E. (DUBAI)</option>
+
+
+
+
+
+
+
+		<option value="CM12">U.A.E. (FUJAIRAH)</option>
+
+
+
+
+
+
+
+		<option value="CM13">U.A.E. (RAS AL KHAIMAH)</option>
+
+
+
+
+
+
+
+		<option value="CM14">U.A.E. (SHARJAH)</option>
+
+
+
+
+
+
+
+		<option value="0735">Uganda</option>
+
+
+
+
+
+
+
+		<option value="0664">Ukraine</option>
+
+
+
+
+
+
+
+		<option value="0666">United Arab Emirates</option>
+
+
+
+
+
+
+
+		<option value="0670">United Kingdom</option>
+
+
+
+
+
+
+
+		<option value="0675">United States of America</option>
+
+
+
+
+
+
+
+		<option value="CM15">UNKNOWN</option>
+
+
+
+
+
+
+
+		<option value="T999">Unknown</option>
+
+
+
+
+
+
+
+		<option value="0680">Uruguay</option>
+
+
+
+
+
+
+
+		<option value="0682">Uzbekistan</option>
+
+
+
+
+
+
+
+		<option value="0685">Vanuatu</option>
+
+
+
+
+
+
+
+		<option value="0690">Venezuela</option>
+
+
+
+
+
+
+
+		<option value="0695">Vietnam</option>
+
+
+
+
+
+
+
+		<option value="0700">Virgin Islands (U.K)</option>
+
+
+
+
+
+
+
+		<option value="0705">Virgin Islands (U.S.A)</option>
+
+
+
+
+
+
+
+		<option value="U706">Wallis and Futuna</option>
+
+
+
+
+
+
+
+		<option value="0715">Yemen</option>
+
+
+
+
+
+
+
+		<option value="0810">Zambia</option>
+
+
+
+
+
+
+
+		<option value="0820">Zimbabwe</option>
+
+
+
+
+			</select>
+<!-- 		</div> -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" id="P_FLAG_p3" name="P_FLAG_p3" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Flag</option>
+				<option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+			</select>
+<!-- 		</div> -->
+
+
+</div>
+
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+				<div class="checkbox">
+
+
+
+
+						<input id="P_FLAG_hi" name="P_FLAG_hi" type="checkbox" class="current">
+
+						<label for="P_FLAG_hi"></label>
+
+					<p>
+						History
+					</p>
+
+				</div>
+			</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="clearfix h25 hidden-sm hidden-xs"></div>
+	<div class="clearfix h10 hidden-lg hidden-md"></div>
+
+
+
+
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 no-padding">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+
+
+
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 no-padding">
+
+
+
+
+
+
+
+<div class="radios" style="margin-top: 15px;">
+	<ul class="list-inline">
+		<li>
+		<!-- ignore -->
+
+
+				<input type="radio" name="P_CatTypeShip_rb" id="P_CatTypeShip_rb_HC" value="HC" checked="checked" onclick="radioButtonChanged(this);">
+
+		<label for="P_CatTypeShip_rb_HC">
+			Ignore
+		</label>
+		<div class="check"></div>
+		</li>
+
+
+
+		<!-- all -->
+		<li>
+
+				<input type="radio" name="P_CatTypeShip_rb" id="P_CatTypeShip_rb_TT" value="TT" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CatTypeShip_rb_TT">
+			All
+		</label>
+		<div class="check"></div>
+
+		</li>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+
+
+		<!-- exclude all -->
+		<li>
+
+				<input type="radio" name="P_CatTypeShip_rb" id="P_CatTypeShip_rb_AU" value="AU" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CatTypeShip_rb_AU">
+			Exclude all
+		</label>
+		<div class="check"></div>
+
+		</li>
+
+		<!-- choose -->
+		<li>
+
+				<input type="radio" name="P_CatTypeShip_rb" id="P_CatTypeShip_rb_CM" value="CM" onclick="radioButtonChanged(this);">
+
+
+		<label for="P_CatTypeShip_rb_CM">
+			Chose
+		</label>
+		<div class="check"></div>
+
+		</li>
+	</ul>
+</div>
+
+
+
+<!-- liste principale contenant des choix multiples si le parametre est actif avec focus -->
+
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"><!-- form-control -->
+	<select class="multiSelect form-control" style="display: NONE" id="P_CatTypeShip" name="P_CatTypeShip" multiple="multiple" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)" onchange="(this)">
+
+		<option selected="selected" disabled="disabled" value="">Category ship type</option>
+
+
+
+
+
+[5; Bulk Carriers, 3; Container Ships, 14; Fishing vessels, 7; Gas Tankers, 1; General Cargo Ships, 10; Offshore Vessels, 6; Oil and Chemical Tankers, 13; Other ships, 8; Other Tankers, 9; Passenger Ships, 4; Ro-Ro Cargo Ships, 11; Service Ships, 2; Specialized Cargo Ships, 12; Tugs]
+
+
+
+
+
+		<option value="5">Bulk Carriers</option>
+
+
+
+
+
+
+
+		<option value="3">Container Ships</option>
+
+
+
+
+
+
+
+		<option value="14">Fishing vessels</option>
+
+
+
+
+
+
+
+		<option value="7">Gas Tankers</option>
+
+
+
+
+
+
+
+		<option value="1">General Cargo Ships</option>
+
+
+
+
+
+
+
+		<option value="10">Offshore Vessels</option>
+
+
+
+
+
+
+
+		<option value="6">Oil and Chemical Tankers</option>
+
+
+
+
+
+
+
+		<option value="13">Other ships</option>
+
+
+
+
+
+
+
+		<option value="8">Other Tankers</option>
+
+
+
+
+
+
+
+		<option value="9">Passenger Ships</option>
+
+
+
+
+
+
+
+		<option value="4">Ro-Ro Cargo Ships</option>
+
+
+
+
+
+
+
+		<option value="11">Service Ships</option>
+
+
+
+
+
+
+
+		<option value="2">Specialized Cargo Ships</option>
+
+
+
+
+
+
+
+		<option value="12">Tugs</option>
+
+
+
+
+	</select>
+<!-- </div> -->
+
+
+<!-- liste secondaire affichée si le parametre est actif mais hors focus  -->
+
+
+
+
+
+
+<!-- liste 3 affichee si le parametre n'est pas actif -->
+
+	<!-- isActive =false -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" style="display: NONE" id="P_CatTypeShip_p2" name="P_CatTypeShip_p2" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Category ship type</option>
+
+
+
+
+
+[5; Bulk Carriers, 3; Container Ships, 14; Fishing vessels, 7; Gas Tankers, 1; General Cargo Ships, 10; Offshore Vessels, 6; Oil and Chemical Tankers, 13; Other ships, 8; Other Tankers, 9; Passenger Ships, 4; Ro-Ro Cargo Ships, 11; Service Ships, 2; Specialized Cargo Ships, 12; Tugs]
+
+
+
+
+
+		<option value="5">Bulk Carriers</option>
+
+
+
+
+
+
+
+		<option value="3">Container Ships</option>
+
+
+
+
+
+
+
+		<option value="14">Fishing vessels</option>
+
+
+
+
+
+
+
+		<option value="7">Gas Tankers</option>
+
+
+
+
+
+
+
+		<option value="1">General Cargo Ships</option>
+
+
+
+
+
+
+
+		<option value="10">Offshore Vessels</option>
+
+
+
+
+
+
+
+		<option value="6">Oil and Chemical Tankers</option>
+
+
+
+
+
+
+
+		<option value="13">Other ships</option>
+
+
+
+
+
+
+
+		<option value="8">Other Tankers</option>
+
+
+
+
+
+
+
+		<option value="9">Passenger Ships</option>
+
+
+
+
+
+
+
+		<option value="4">Ro-Ro Cargo Ships</option>
+
+
+
+
+
+
+
+		<option value="11">Service Ships</option>
+
+
+
+
+
+
+
+		<option value="2">Specialized Cargo Ships</option>
+
+
+
+
+
+
+
+		<option value="12">Tugs</option>
+
+
+
+
+			</select>
+<!-- 		</div> -->
+<!-- 		<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12"> -->
+			<select class="multiSelect form-control" id="P_CatTypeShip_p3" name="P_CatTypeShip_p3" onclick="multiSelectGotFocus(this)" onfocus="multiSelectGotFocus(this)" onblur="multiSelectLostFocus(this)">
+				<option selected="selected" disabled="disabled" value="">Category ship type</option>
+				<option>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</option>
+			</select>
+<!-- 		</div> -->
+
+
+</div>
+
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+				<div class="checkbox">
+
+
+
+
+						<input id="P_CatTypeShip_hi" name="P_CatTypeShip_hi" type="checkbox" class="current">
+
+						<label for="P_CatTypeShip_hi"></label>
+
+					<p>
+						History
+					</p>
+
+				</div>
+			</div>
+
+
+					</div>
+
+		</div>
+
+	</div>
+
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="clearfix h25 hidden-sm hidden-xs"></div>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+
+		</div>
+
+	</div>
+</div>
+
+
+
+</div>
+
+<div class="row">
+	<!-- liste deroulante simple ship status -->
+
+	<div class="clearfix h25 hidden-sm hidden-xs"></div>
+	<div class="clearfix h10 hidden-lg hidden-md"></div>
+
+
+
+
+
+
+
+
+<!-- liste deroulante simple -->
+
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
+<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 no-padding">
+	<div class="form-group">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+			<select id="P_STATUS" name="P_STATUS" class=" simpleSelect form-control" onchange="selectChanged(this)">
+			<option selected="selected" disabled="disabled" value="">Ship status</option>
+
+
+
+
+
+
+[D; Broken Up, M; Continued Existence In Doubt, C; Converting/Rebuilding, H; Hulked, R; In Casualty Or Repairing, S; In Service/Commission, L; Laid-Up, D; Broken Up, M; Continued Existence In Doubt, C; Converting/Rebuilding, H; Hulked, R; In Casualty Or Repairing, S; In Service/Commission, L; Laid-Up, F; Launched, Q; Scuttled, T; To Be Broken Up, W; Total Loss, F; Launched, Q; Scuttled, T; To Be Broken Up, W; Total Loss, V; U.S. Reserve Fleet, V; U.S. Reserve Fleet]
+
+
+
+
+
+		<option value="D">Broken Up</option>
+
+
+
+
+
+
+
+		<option value="M">Continued Existence In Doubt</option>
+
+
+
+
+
+
+
+		<option value="C">Converting/Rebuilding</option>
+
+
+
+
+
+
+
+		<option value="H">Hulked</option>
+
+
+
+
+
+
+
+		<option value="R">In Casualty Or Repairing</option>
+
+
+
+
+
+
+
+		<option value="S">In Service/Commission</option>
+
+
+
+
+
+
+
+		<option value="L">Laid-Up</option>
+
+
+
+
+
+
+
+		<option value="D">Broken Up</option>
+
+
+
+
+
+
+
+		<option value="M">Continued Existence In Doubt</option>
+
+
+
+
+
+
+
+		<option value="C">Converting/Rebuilding</option>
+
+
+
+
+
+
+
+		<option value="H">Hulked</option>
+
+
+
+
+
+
+
+		<option value="R">In Casualty Or Repairing</option>
+
+
+
+
+
+
+
+		<option value="S">In Service/Commission</option>
+
+
+
+
+
+
+
+		<option value="L">Laid-Up</option>
+
+
+
+
+
+
+
+		<option value="F">Launched</option>
+
+
+
+
+
+
+
+		<option value="Q">Scuttled</option>
+
+
+
+
+
+
+
+		<option value="T">To Be Broken Up</option>
+
+
+
+
+
+
+
+		<option value="W">Total Loss</option>
+
+
+
+
+
+
+
+		<option value="F">Launched</option>
+
+
+
+
+
+
+
+		<option value="Q">Scuttled</option>
+
+
+
+
+
+
+
+		<option value="T">To Be Broken Up</option>
+
+
+
+
+
+
+
+		<option value="W">Total Loss</option>
+
+
+
+
+
+
+
+		<option value="V">U.S. Reserve Fleet</option>
+
+
+
+
+
+
+
+		<option value="V">U.S. Reserve Fleet</option>
+
+
+
+
+			</select>
+		</div>
+	</div>
+</div>
+<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 no-padding">
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="form-group">
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+	<div class="checkbox">
+
+
+
+
+
+	<input id="P_STATUS_hi" name="P_STATUS_hi" type="checkbox" disabled="disabled">
+	<label for="P_STATUS_hi"></label>
+
+
+
+	<p>History</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+		<div class="clearfix h25 hidden-sm hidden-xs"></div>
+		<div class="clearfix h10 hidden-lg hidden-md"></div>
+		<div class="col-centered" style="width: 190px;">
+		<input id="reset" class="btn btn-lg gris-bleu-copyright col-centered" type="button" value="Clear" onclick="javascript:boutonClearShipSearchAdvanced();">
+
+				<input type="hidden" id="buttonAdvancedSearch" value="advancedOk" name="buttonAdvancedSearch">
+			<button id="buttonAdvSearch" type="submit" class="btn btn-lg gris-bleu-copyright col-centered" onclick="boutonClearSearch()">Search</button>
+		</div>
+		<div class="clearfix h10 "></div>
+	</div>
+</div>
+<!-- <div class="clearfix h25 hidden-sm hidden-xs"></div> -->
+
+							</div>
+
+
+				</form>
+
+
+
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="separator orange-equasis"></section>
+
+<!-- result list -->
+<section class="grey_white_boxes gris-clair-login">
+	<div class="container-fluid no-padding">
+		<div class="row-fluid">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="access-item">
+					<div class="access-body">
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<h3>
+									Results list
+								</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 padding-right-ship">
+
+
+
+									<button type="button" class="btn btn-default btn-normal btn-results padding-right-ship btn-inactive" id="ShipId">
+										Ship
+										(825)
+									</button>
+
+
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 padding-left-company">
+
+
+
+
+									<button type="button" class="btn btn-default btn-normal btn-results padding-left-company active">
+										Company
+										(0)
+									</button>
+
+
+
+							</div>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- result ship -->
+<section class="grey_white_boxes gris-clair-login" id="resultShip" style="display: block;">
+	<div class="container-fluid no-padding">
+		<div class="row-fluid">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="access-item">
+					<div class="access-body">
+
+
+						<div class="clearfix h10"></div>
+						<form name="formShip" action="http://www.equasis.org/EquasisWeb/restricted/ShipInfo?fs=Search" method="post">
+							<input type="hidden" name="P_IMO" value="">
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="ShipResultId">
+									<table class="table table-striped">
+										<thead class="hidden-sm hidden-xs">
+											<tr>
+												<th>Name of ship</th>
+												<th>Gross tonnage</th>
+												<th>Type of ship</th>
+												<th>Year of build</th>
+												<th>Flag</th>
+											</tr>
+										</thead>
+										<tbody>
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5191593&#39;;document.formShip.submit();">
+																YEOSU PIONEER No. 3</a>
+														</th>
+
+														<td>
+
+																467
+
+														</td>
+														<td>
+
+																Chemical Tanker
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	Korea (Republic of)
+
+																		(KOR)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5395735&#39;;document.formShip.submit();">
+																YHAGUY</a>
+														</th>
+
+														<td>
+
+																1100
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	Paraguay
+
+																		(PRY)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5023643&#39;;document.formShip.submit();">
+																YICEL</a>
+														</th>
+
+														<td>
+
+																195
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	Panama
+
+																		(PAN)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5374690&#39;;document.formShip.submit();">
+																YONG SAN</a>
+														</th>
+
+														<td>
+
+																1981
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	Korea (Republic of)
+
+																		(KOR)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5396090&#39;;document.formShip.submit();">
+																YORK SYME</a>
+														</th>
+
+														<td>
+
+																149
+
+														</td>
+														<td>
+
+																Tug
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	Not Known
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5365261&#39;;document.formShip.submit();">
+																YU HONG</a>
+														</th>
+
+														<td>
+
+																7956
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	China Peoples's Republic
+
+																		(CHN)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;7832579&#39;;document.formShip.submit();">
+																YU SUNG No. 1</a>
+														</th>
+
+														<td>
+
+																499
+
+														</td>
+														<td>
+
+																Oil Products Tanker
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	Korea (Republic of)
+
+																		(KOR)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5306875&#39;;document.formShip.submit();">
+																ZAHRATHALLAH</a>
+														</th>
+
+														<td>
+
+																152
+
+														</td>
+														<td>
+
+																Tug
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	Saudi Arabia
+
+																		(SAU)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5397666&#39;;document.formShip.submit();">
+																ZAMZAM</a>
+														</th>
+
+														<td>
+
+																280
+
+														</td>
+														<td>
+
+																Oil Products Tanker
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	Not Known
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;6401490&#39;;document.formShip.submit();">
+																ZAVIZAN</a>
+														</th>
+
+														<td>
+
+																397
+
+														</td>
+														<td>
+
+																Passenger/Ro-Ro Cargo Ship
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	Croatia
+
+																		(HRV)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;8426688&#39;;document.formShip.submit();">
+																ZHAN DOU 66</a>
+														</th>
+
+														<td>
+
+																2564
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	China Peoples's Republic
+
+																		(CHN)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5228956&#39;;document.formShip.submit();">
+																ZHE DAI 319</a>
+														</th>
+
+														<td>
+
+																944
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	China Peoples's Republic
+
+																		(CHN)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;8832124&#39;;document.formShip.submit();">
+																ZHOU SHAN 6</a>
+														</th>
+
+														<td>
+
+																711
+
+														</td>
+														<td>
+
+																Fish Carrier
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	China Peoples's Republic
+
+																		(CHN)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5126744&#39;;document.formShip.submit();">
+																ZIEDS</a>
+														</th>
+
+														<td>
+
+																1184
+
+														</td>
+														<td>
+
+																General Cargo Ship
+
+														</td>
+														<td>
+
+																1960
+
+														</td>
+														<td>
+
+																	Not Known
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+													<tr class="hidden-sm hidden-xs">
+														<th scope="row"><a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5102798&#39;;document.formShip.submit();">
+																ZODIAK</a>
+														</th>
+
+														<td>
+
+																984
+
+														</td>
+														<td>
+
+																Fish Carrier
+
+														</td>
+														<td>
+
+																1961
+
+														</td>
+														<td>
+
+																	Russia
+
+																		(RUS)
+
+
+
+														</td>
+													</tr>
+
+
+
+
+
+
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5191593&#39;;document.formShip.submit();"><span>YEOSU PIONEER No. 3</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Chemical Tanker
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																467
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5395735&#39;;document.formShip.submit();"><span>YHAGUY</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1100
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5023643&#39;;document.formShip.submit();"><span>YICEL</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																195
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5374690&#39;;document.formShip.submit();"><span>YONG SAN</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1981
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5396090&#39;;document.formShip.submit();"><span>YORK SYME</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Tug
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																149
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5365261&#39;;document.formShip.submit();"><span>YU HONG</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																7956
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;7832579&#39;;document.formShip.submit();"><span>YU SUNG No. 1</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Oil Products Tanker
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																499
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5306875&#39;;document.formShip.submit();"><span>ZAHRATHALLAH</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Tug
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																152
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5397666&#39;;document.formShip.submit();"><span>ZAMZAM</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Oil Products Tanker
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																280
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;6401490&#39;;document.formShip.submit();"><span>ZAVIZAN</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Passenger/Ro-Ro Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																397
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;8426688&#39;;document.formShip.submit();"><span>ZHAN DOU 66</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																2564
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5228956&#39;;document.formShip.submit();"><span>ZHE DAI 319</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																944
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;8832124&#39;;document.formShip.submit();"><span>ZHOU SHAN 6</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Fish Carrier
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																711
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5126744&#39;;document.formShip.submit();"><span>ZIEDS</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		General Cargo Ship
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1960
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1184
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+													<tr class="hidden-lg hidden-md">
+														<td>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+																	<a style="cursor: pointer" onclick="document.formShip.P_IMO.value=&#39;5102798&#39;;document.formShip.submit();"><span>ZODIAK</span></a>
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-12 col-xs-12">
+
+
+																		Fish Carrier
+
+																</div>
+															</div>
+														</td>
+														<td>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																1961
+
+																</div>
+															</div>
+															<div class="row">
+																<div class="col-sm-6 col-xs-6">
+
+																984
+
+																</div>
+															</div>
+														</td>
+													</tr>
+
+
+
+
+
+
+
+
+
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</form>
+						<div class="row">
+
+
+
+
+
+
+
+
+
+
+<section class="grey_blue_boxes">
+		<div class="container-fluid font-size-sm no-padding">
+			<div class="row-fluid">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 white padding-sub-row no-padding">
+							<div class="access-item">
+								<div class="access-body">
+								<div class="row padding-15">
+									<div class="clearfix h10 hidden-sm hidden-xs"></div>
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class=" h20"></div>
+										<div class="form-group results">
+												 <p><strong>825</strong> results found.&nbsp;Displaying results 811 to <strong>825</strong>.
+										</p></div>
+									</div>
+
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+											<nav class="navPagination pull-right">
+												<ul class="pagination">
+
+											         		<li>
+											         		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=1;document.formSearchAdv.submit();">«
+			    													</a>
+											         		</li>
+											         		<li>
+											         		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=54;document.formSearchAdv.submit();">&lt;
+			    													</a>
+											         		</li>
+
+
+
+
+														    	<li>
+														    		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=49;document.formSearchAdv.submit();">49
+			    													</a>
+														    	</li>
+
+
+
+
+														    	<li>
+														    		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=50;document.formSearchAdv.submit();">50
+			    													</a>
+														    	</li>
+
+
+
+
+														    	<li>
+														    		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=51;document.formSearchAdv.submit();">51
+			    													</a>
+														    	</li>
+
+
+
+
+														    	<li>
+														    		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=52;document.formSearchAdv.submit();">52
+			    													</a>
+														    	</li>
+
+
+
+
+														    	<li>
+														    		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=53;document.formSearchAdv.submit();">53
+			    													</a>
+														    	</li>
+
+
+
+
+														    	<li>
+														    		<a style="cursor : pointer" onclick="document.formSearchAdv.P_PAGE_SHIP.value=54;document.formSearchAdv.submit();">54
+			    													</a>
+														    	</li>
+
+
+
+														    	 <li class="active"><a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search#">55</a>
+														    	 </li>
+
+
+
+
+
+
+
+
+
+
+												</ul>
+											</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div></div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- result comp -->
+<section class="grey_white_boxes gris-clair-login" id="resultComp" style="display: none;">
+	<div class="container-fluid no-padding">
+		<div class="row-fluid">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="access-item">
+					<div class="access-body">
+						<form name="formComp" action="http://www.equasis.org/EquasisWeb/restricted/CompanyInfo?fs=Search" method="post">
+							<input type="hidden" name="P_COMP" value="">
+							<div class="row">
+
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="CompanyResultId">
+									<table class="table table-striped">
+										<thead class="hidden-sm hidden-xs">
+											<tr>
+												<th>Company Number</th>
+												<th>Name of Company</th>
+												<th>Address</th>
+
+											</tr>
+										</thead>
+										<tbody>
+
+
+
+
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</form>
+						<div class="row">
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+	<!--#page-wrap -->
+	<div class="footer" style="position: static;">
+	<section id="news-separator" class="separator orange-equasis"></section>
+	<section id="contributors" class="white">
+		<div class="container-fluid col-centered">
+			<div class="row-fluid">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="access-item">
+						<div class="access-body">
+							<h3>Equasis's contributors</h3>
+							<div class="col-md-offset-1">
+								<div class="row">
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.mar.mil.br/" target="_blank" class="social"><img class="img-responsive" title="Brasil" alt="Brasil" src="./search_page_last_files/brasil_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.tc.gc.ca/eng/marinesafety/oep-inspection-menu-770.htm" target="_blank" class="social"><img class="img-responsive" title="Canada" alt="Canada" src="./search_page_last_files/Canada_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.emsa.europa.eu/" target="_blank" class="social"><img class="img-responsive" title="EMSA" alt="EMSA" src="./search_page_last_files/EMSA_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.developpement-durable.gouv.fr/-Mer-et-littoral,2045-.html" target="_blank" class="social"><img class="img-responsive" title="France" alt="France" src="./search_page_last_files/France_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.mofa.go.jp/" target="_blank" class="social"><img class="img-responsive" title="Japan" alt="Japan" src="./search_page_last_files/Japan_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.korea.net/" target="_blank" class="social"><img class="img-responsive" title="Korea (Republic of )" alt="Korea (Republic of )" src="./search_page_last_files/South_Korea_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.norway.no/" target="_blank" class="social"><img class="img-responsive" title="Norway" alt="Norway" src="./search_page_last_files/Norway_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.la-moncloa.es/index.htm" target="_blank" class="social"><img class="img-responsive" title="Spain" alt="Spain" src="./search_page_last_files/Spain_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.mcga.gov.uk/c4mca/mcga07-home" target="_blank" class="social"><img class="img-responsive" title="United Kingdom" alt="United Kingdom" src="./search_page_last_files/UK_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+									<div class="col-lg-1 col-md-1 col-sm-3 col-xs-3">
+
+
+
+											<a href="http://www.uscg.mil/top/missions/MaritimeSafety.asp" target="_blank" class="social"><img class="img-responsive" title="United States of America" alt="United States of America" src="./search_page_last_files/USA_flag.jpg"></a>&nbsp;
+
+
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--/.col-md-12-->
+			</div>
+		</div>
+	</section>
+	<!--/#contributors-->
+
+	<!--  -->
+	<section id="sitemap" class="gris-bleu-traffic">
+		<div class="container-fluid no-padding">
+			<div class="row-fluid">
+			<!-- join us xs-->
+				<div class="hidden-lg hidden-md  col-sm-12 col-xs-12 social-group ">
+					<div class="sitemap-item">
+						<div class="sitemap-body">
+							<div class="col-sm-6 col-xs-6 hidden-lg hidden-md">
+								<div class="row">
+									<p>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=Search&amp;P_MOA=contact" class="social">
+											<i class="icon-envelope icon-md"></i>
+											&nbsp;Contact us
+										</a>
+									</p>
+								</div>
+								<div class="row">
+									<p>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=Search&amp;P_MOA=help" class="social">
+											<i class="icon-info icon-md"></i>
+											&nbsp;Help
+										</a>
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-6 col-xs-6">
+								<div class="row">
+									<p class="pull-right">
+										Join us on&nbsp;
+										<a href="http://www.facebook.com/equasis.news" target="_blank" class="social">
+											<i class="icon-facebook icon-md"></i>
+										</a>&nbsp;
+										<a href="http://twitter.com/equasis_news" target="_blank" class="social">
+											<i class="icon-twitter icon-md"></i>
+										</a>
+									</p>
+								</div>
+								<div class="row hidden-lg hidden-md">
+									<p class="pull-right">
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=Search&amp;P_MOA=faq" class="social">
+											<i class="icon-question icon-md"></i>
+											&nbsp;FAQ
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /join us -->
+			<!-- site map -->
+			<div class="col-lg-6  col-md-6  col-sm-12 col-xs-12">
+					<div class="sitemap-item">
+						<div class="sitemap-body">
+							<h3>Site map</h3>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+								<ul>
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/public/HomePage?fs=Search">
+											Home
+										</a>
+									</li>
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/public/About?fs=Search">
+											About Equasis
+										</a>
+									</li>
+									<li>
+											<form name="lienSearchFooter" method="post" action="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search">
+												<input type="hidden" name="lienFooter" value="true">
+											</form>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search#" onclick="document.lienSearchFooter.submit();">
+											Search
+										</a>
+									</li>
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/restricted/About?fs=Search&amp;P_ABOUT=Providers.html">
+											Data providers
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+								<ul>
+
+
+
+										<li>
+											<a href="http://www.equasis.org/EquasisWeb/restricted/PublicStatistic?fs=Search">
+												Statistics
+											</a>
+										</li>
+
+
+
+									<li>
+										<a href="http://www.equasis.org/EquasisWeb/public/HomePage?fs=Search">
+											News
+										</a>
+									</li>
+
+
+
+
+										<li>
+											<a href="http://www.equasis.org/EquasisWeb/restricted/ShipSubcription?fs=Search">
+												My Equasis
+											</a>
+										</li>
+
+
+
+
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /site map -->
+				<!-- join us lg-->
+				<div class="col-lg-6 col-md-6 hidden-sm hidden-xs social-group ">
+					<div class="sitemap-item">
+						<div class="sitemap-body">
+							<div class="clearfix h30 hidden-sm hidden-xs"></div>
+
+							<div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+								<div class="row">
+									<p class="pull-right">
+										Join us on&nbsp;
+										<a href="http://www.facebook.com/equasis.news" target="_blank" class="social">
+											<i class="icon-facebook icon-md"></i>
+										</a>&nbsp;
+										<a href="http://twitter.com/equasis_news" target="_blank" class="social">
+											<i class="icon-twitter icon-md"></i>
+										</a>
+										<span class="no-style hidden-sm hidden-xs">
+											&nbsp;or contact us&nbsp;
+											<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=Search&amp;P_MOA=contact" class="social">
+												<i class="icon-envelope icon-md"></i>
+											</a>
+										</span>
+									</p>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /join us -->
+			</div>
+		</div>
+	</section>
+	<!--/#sitemap-->
+	<footer id="footer" class="gris-bleu-copyright">
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+					<p>© Copyright 2000-2016; Version : Prod v3.0.5; Developed and hosted by French Ministry for Transport -DAM/SI-Saint-Malo</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+					<ul class="pull-right">
+						<li>
+							<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=Search&amp;P_MOA=help">
+								Help
+							</a>
+						</li>
+
+
+						<li>
+							<a href="http://www.equasis.org/EquasisWeb/restricted/Moa?fs=Search&amp;P_MOA=faq">
+								FAQ
+							</a>
+						</li>
+
+
+							<li>
+								<a href="http://www.equasis.org/EquasisWeb/restricted/ReportAnError?fs=Search&amp;P_ACTION=NEW_QUERY">
+									Report an Issue
+								</a>
+							</li>
+							<li>
+								<a href="http://www.equasis.org/EquasisWeb/restricted/Feedback?fs=Search">
+									Give your opinion
+								</a>
+							</li>
+
+						<li><a id="gototop" class="gototop" href="http://www.equasis.org/EquasisWeb/restricted/Search?fs=Search#"><i class="icon-chevron-up"></i></a></li>
+						<!--#gototop-->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!--/#footer-->
+</div>
+
+
+	<!-- Help Modal -->
+<div class="modal fade" id="modal-help" tabindex="-1" role="dialog" aria-labelledby="mymodallabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header bleu-equasis">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					<i class="icon-remove-sign"></i>
+				</button>
+				<h1>
+					<i class="icon-info-sign"></i> <span id="modal-title-help">&nbsp;</span>
+				</h1>
+			</div>
+			<div class="modal-body" id="modal-body-help"></div>
+			<div class="modal-footer">
+				<button style="padding-right: 11px;" type="button" class="btn btn-md gris-bleu-copyright pull-left" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+		<script src="./search_page_last_files/jquery.js"></script>
+		<script src="./search_page_last_files/AdvancedSearch.js"></script>
+		<script src="./search_page_last_files/bootstrap.min.js"></script>
+		<script src="./search_page_last_files/modernizr-2.0.6-min.js"></script>
+		<script src="./search_page_last_files/dropdown.js"></script>
+		<script src="./search_page_last_files/modal.js"> </script>
+		<script src="./search_page_last_files/SearchHandler.js"></script>
+		<script src="./search_page_last_files/jquery.placeholder.js"></script>
+		<script src="./search_page_last_files/footer.js"></script>
+		<script src="./search_page_last_files/home.js"></script>
+
+		<!-- #body -->
+	</div>
+
+
+
+<script type="text/javascript">
+
+
+
+	var form = document.getElementById("shipSearch");
+
+	if (document.getElementById("ShipId") != null
+			&& document.getElementById("ongletActifSC").value != "comp") {
+		document
+				.getElementById("ShipId")
+
+				.addEventListener(
+						"click",
+						function() {
+
+							document.getElementById("resultComp").style.display = "none";
+
+							document.getElementById("resultShip").style.display = "block";
+
+							document.getElementById("ShipId").className = "btn btn-default btn-normal btn-results padding-right-ship btn-inactive";
+							document.getElementById("CompanyId").className = "btn btn-default btn-normal btn-results padding-left-company active";
+							document.getElementById("ongletActifSC").value = "ship"
+						});
+	} else {
+
+		document.getElementById("resultComp").style.display = "block";
+
+		document.getElementById("resultShip").style.display = "none";
+
+		if (document.getElementById("ShipId") != null) {
+			document.getElementById("ShipId").className = "btn btn-default btn-normal btn-results padding-left-company active";
+		}
+		;
+		if (document.getElementById("CompanyId") != null) {
+			document.getElementById("CompanyId").className = "btn btn-default btn-normal btn-results padding-right-ship btn-inactive";
+		}
+		;
+		document
+		.getElementById("ShipId")
+
+		.addEventListener(
+				"click",
+				function() {
+
+					document.getElementById("resultComp").style.display = "none";
+
+					document.getElementById("resultShip").style.display = "block";
+
+					document.getElementById("ShipId").className = "btn btn-default btn-normal btn-results padding-right-ship btn-inactive";
+					document.getElementById("CompanyId").className = "btn btn-default btn-normal btn-results padding-left-company active";
+					document.getElementById("ongletActifSC").value = "ship"
+				});
+
+	};
+
+	if (document.getElementById("CompanyId") != null) {
+		document
+				.getElementById("CompanyId")
+				.addEventListener(
+						"click",
+						function() {
+
+							document.getElementById("resultComp").style.display = "block";
+							document.getElementById("resultShip").style.display = "none";
+							if (document.getElementById("ShipId") != null) {
+								document.getElementById("ShipId").className = "btn btn-default btn-normal btn-results padding-left-company active";
+							}
+							;
+							document.getElementById("CompanyId").className = "btn btn-default btn-normal btn-results padding-right-ship btn-inactive";
+							document.getElementById("ongletActifSC").value = "comp";
+						});
+
+	};
+</script></body></html>

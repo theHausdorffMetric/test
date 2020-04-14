@@ -1,0 +1,25 @@
+global_tags:
+  - 'category:registry'
+
+
+global_settings:
+  DOTSCRAPY_ENABLED: True
+
+
+jobs:
+
+  - spider: GibsonRegistryNewbuild
+    description: 'Newbuild vessels from Gibson'
+    crons:
+      # provider uploads new data every Monday at 1900 UTC
+      - '*, *, *, 19, 30'
+    tags:
+      - status:newbuild
+
+  - spider: GibsonRegistryActive
+    description: 'Active vessels from Gibson'
+    crons:
+      # provider uploads new data every Monday at 1900 UTC
+      - '*, *, *, 20, 0'
+    tags:
+      - status:active

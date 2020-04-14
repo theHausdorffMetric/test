@@ -1,0 +1,23 @@
+---
+default_crons:
+  - '*, *, *, *, {minute}'
+
+global_tags:
+  - 'category:slot'
+
+jobs:
+  - spider: SlotDragon
+
+  - spider: SlotDunkerque
+
+  - spider: SlotGate
+
+  - spider: SlotGrain
+
+  - spider: SlotMontoirFosTonkin
+    crons:
+      - '*, *, *, 22, {minute}'
+
+  - spider: SlotSpain
+
+  - spider: SlotZeebrugge

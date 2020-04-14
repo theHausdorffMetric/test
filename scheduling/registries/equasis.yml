@@ -1,0 +1,172 @@
+---
+# Nest config under `jobs` key to keep room for other meta datas or controls.
+# Good practice anyway to avoid exposing directly an array of indifinite depth
+#
+# Equasis vessel categories:
+#   - 5: Bulk Carriers
+#   - 6: Oil and chemical tankers
+#   - 7: Gas Tankers
+#
+# Equasis search filters:
+#   - P_DW_LT: deadweight tonnage less than
+#   - P_DW_GT: deadweight tonnage greater than
+#   - P_STATUS: vessel operational status
+#               (F = under construction)
+#               (S = in service/commission)
+#               (D = broken up)
+#               (Q = scuttled)
+#               (H = hulked)
+#               (W = total loss)
+#
+
+global_tags:
+  - 'category:registry'
+
+
+global_settings:
+  DOTSCRAPY_ENABLED: True
+
+
+jobs:
+
+  ##
+  #  Newbuilds not yet in active service
+  ##
+
+  - spider: Equasis
+    description: 'Newbuild gas tankers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '7'
+      filters: 'P_STATUS:F'
+    dynamic_args:
+      max_year: 'list(range(dt.datetime.utcnow().year, dt.datetime.utcnow().year + 2))'
+    tags:
+      - status:newbuild
+      - commodity:gas
+
+  - spider: Equasis
+    description: 'Newbuild oil/chemical tankers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '6'
+      filters: 'P_DW_GT:10000,P_STATUS:F'
+    dynamic_args:
+      max_year: 'list(range(dt.datetime.utcnow().year, dt.datetime.utcnow().year + 2))'
+    tags:
+      - status:newbuild
+      - commodity:oil
+
+  - spider: Equasis
+    description: 'Newbuild bulk carriers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '5'
+      filters: 'P_DW_GT:20000,P_STATUS:F'
+    dynamic_args:
+      max_year: 'list(range(dt.datetime.utcnow().year, dt.datetime.utcnow().year + 2))'
+    tags:
+      - status:newbuild
+      - commodity:bulk
+
+  ##
+  #  Newbuilds transitioning to active service
+  ##
+
+  - spider: Equasis
+    description: 'Active gas tankers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '7'
+      filters: 'P_STATUS:S'
+    dynamic_args:
+      max_year: 'list(range(dt.datetime.utcnow().year - 1, dt.datetime.utcnow().year + 1))'
+    tags:
+      - status:active
+      - commodity:gas
+
+  - spider: Equasis
+    description: 'Active oil/chemical tankers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '6'
+      filters: 'P_DW_GT:10000,P_STATUS:S'
+    dynamic_args:
+      max_year: 'list(range(dt.datetime.utcnow().year - 1, dt.datetime.utcnow().year + 1))'
+    tags:
+      - status:active
+      - commodity:oil
+
+  - spider: Equasis
+    description: 'Active bulk carriers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '5'
+      filters: 'P_DW_GT:20000,P_STATUS:S'
+    dynamic_args:
+      max_year: 'list(range(dt.datetime.utcnow().year - 1, dt.datetime.utcnow().year + 1))'
+    tags:
+      - status:active
+      - commodity:bulk
+
+  ##
+  #  Inactive (no longer in service)
+  ##
+
+  - spider: Equasis
+    description: 'Inactive gas tankers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '7'
+    dynamic_args:
+      max_year: 'list(range(1980, 2000))'
+      filters: '["P_STATUS:D", "P_STATUS:Q", "P_STATUS:H", "P_STATUS:W"]'
+    tags:
+      - status:inactive
+      - commodity:gas
+
+  - spider: Equasis
+    description: 'Inactive oil/chemical tankers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '6'
+    dynamic_args:
+      max_year: 'list(range(1980, 2000))'
+      filters: '["P_DW_GT:10000,P_STATUS:D", "P_DW_GT:10000,P_STATUS:Q", "P_DW_GT:10000,P_STATUS:H", "P_DW_GT:10000,P_STATUS:W"]'
+    tags:
+      - status:inactive
+      - commodity:oil
+
+  - spider: Equasis
+    description: 'Inactive bulk carriers from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      category: '5'
+    dynamic_args:
+      max_year: 'list(range(1980, 2000))'
+      filters: '["P_DW_GT:20000,P_STATUS:D", "P_DW_GT:20000,P_STATUS:Q", "P_DW_GT:20000,P_STATUS:H", "P_DW_GT:20000,P_STATUS:W"]'
+    tags:
+      - status:inactive
+      - commodity:bulk
+
+  ##
+  #  Fleet status updates
+  ##
+
+  - spider: EquasisActive
+    description: 'Fleet status updates of active vessels from Equasis'
+    crons:
+      - '*, *, {dayofweek}, {hour}, {minute}'
+    args:
+      whitelist: 'status'
+    tags:
+      - status:active

@@ -1,0 +1,14 @@
+                                                                                 ATORIZADOS 19.02.15
+
+
+Atra. Esc. Subp.   Atra. Esc. AñoAtra. Esc. Núm
+                                              Atra. Esc. Buque Nombre Buque
+                                                                          T. Oper. Cód.       Merc.       Cant. Mov.    Atra. Aut. Alin. Desc. Atra. Aut. Noray Ini.
+                                                                                                                                                                  Atra. Aut. Noray Fin.Atra. Aut. Fec. Ini.
+        S                2015          00050               LEONIE               E           ALUMINIUM      3500,00 SAN CIPRIAN MUELLE AUXILIAR         4,00               6,00          18-02-2015 12:00
+        S                2015          00049               LAMBAY              D             BAUXITA       59001,00 SAN CIPRIAN MUELLE PRINCIPAL       1,00               3,00          20-02-2015 08:00
+        S                2015          00048                ESKY                E       ALUMINA CALCINADA   3250,00 SAN CIPRIAN MUELLE AUXILIAR        4,00               6,00          19-02-2015 08:00
+        S                2015          00046               HATHOR               E          ALUMINA SC       3500,00 SAN CIPRIAN MUELLE AUXILIAR        4,00               6,00          19-02-2015 12:00
+        S                2015          00044             NORD VIRGO            D             BAUXITA       60000,00 SAN CIPRIAN MUELLE PRINCIPAL       1,00               3,00          17-02-2015 22:00
+        F                2015          00112            FLINTEREEMS             E      COMPONENTES EOLICOS 700,00        CERRAMIENTO NORTE             1,00               11,00         19-02-2015 12:00
+        F                2015         000102          BRITISH TRADER       REPARACION                                 NAVANTIA FERROL DIQUE 3          1,00                1,00          19.02.15 09:30

@@ -1,0 +1,97 @@
+---
+global_tags:
+  - 'category:contract'
+
+jobs:
+  - spider: EIA_Flows
+    description: 'Weekly crude oil flows from official US EIA reports'
+    crons:
+      - '*, *, *, *, {minute}'
+    dynamic_args:
+      token: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQE2gV5oHDhtyIaPLzvFm30eAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMIDel+OyxzyDfkeLeAgEQgDs0FWUt9YoihDKJ7hotiJ5CzLEQo5jK7HqN69dRpLQ9Zbeu1SPW1o5VbOtqz3pwCKWOAeReSgjsxG9QTA==")'
+    settings:
+      DOTSCRAPY_ENABLED: True
+
+  # if mode='csv' used: We can only extract a certain number of csv lines
+  # per month on Import Genius.
+  # We run the spider one time a day at the end of the US day to save exports.
+  # You can also use html mode to save exports.
+  - spider: BillOfLading
+    description: 'Bill of lading Spider for Import Genius, to gather volume'
+    # NOTE analysts iterates on the queries above directly from scrapinghub so
+    # this yaml not really the source of truth
+    disabled: true
+    # importgenius limits us by queries/day
+    crons:
+      - '*, *, *, 6, {minute}'
+      - '*, *, *, 20, {minute}'
+    settings:
+      # source expects a relatively-fixed IP with paid subscription
+      HTTP_PROXY_ENABLED: True
+      # be kind to website, to mitigate possibility of account ban
+      CONCURRENT_REQUESTS: 1
+      DOWNLOAD_DELAY': 10
+    dynamic_args:
+      user: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQE2L+TWcDY59z2bAFCi2XOMAAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMAqpVKO0Y57+TKNCcAgEQgCkLrO5VYpuQ8S0cNI8Nk+u54WLKs6oCBxhMTxhAmYKtsR/uXSLDr0ppLg==")'
+      password: 'vault.decrypt("AQICAHj43fng1oWnnfGLhxPO9gafmpFj8dByW+AGf7hha+5stQHpSqcM7qqNwuv/dEERGaIuAAAAajBoBgkqhkiG9w0BBwagWzBZAgEAMFQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMd+BaLRXw7eVlOnS7AgEQgCdZBnDls1/cL4SI1JytS6BnIuIZkLWJPPViegqmJppxTvPXi73yX9U=")'
+    args:
+      backlog: 14
+      not_terms: >
+        accessories, accumulator, aceite, acid, acrylic, additive, aircraft, airgun, alcohol,
+        alm, aluminium, alumminium, aluthene, analysis, ananas, animal, antioxidant, argentine sme,
+        aroma, articulated, aspargus, aspha, asphalt, asphat, assembly, auburn, automotive,
+        avocado, baby, baffle, bag, bale, bamboo, bandsaws, barite, barras, barrette, barricade,
+        barrier, barrow, barry, batman, batteries, bayhydrol, beef, beer, beeswax, beverage,
+        bitum, bitumen, blind, body, boiler, bone, book, books, borja, bourbon, bowl, boxes,
+        brewing, brine, brush, bubble, burner, butadiene, butane, cabernet, cabinet, cable,
+        california, candle, candy, canola, canopied, car, carton, cartons, cashew, caskmates,
+        casks, cauliflower, caustic, cavit, centrifuge, ceramic, cereal, chafing, chain, chair,
+        charcoal, cheese, chevrolet, chili, chivas, chocolate, chrome, clothing, coat, coax,
+        cocoa, coffee, components, composite, container, control, conversion, cook, cooker, cooler,
+        copper, cornmint, corona, cotton, cover, crafts, crane, crated, crates, credit, cube,
+        cushion, cushions, cylinder, decorative, deodorant, distilled, door, drums, educational,
+        effect, electric, electrical, empty, engine, engines, equipment, ethylhexanol, fabrics,
+        fajita, fat, fertilizer, film, filter, fish, flammable, flange, food, footwear, fork,
+        fountain, fragrance, frozen, fruit, fry, furniture, galvanizadas, galvanizados, galvanized,
+        garment, gel, generating, generatoe, generator, generatos, gherkin, glass, glove,
+        glycerine, goods, grapefruit, grill, ground, groundnut, guard, guatemala, hair, hammer,
+        head, headlamp, heineken, helium, honda, honey, honour, hornitos, household, hydrat,
+        hydrocarbon, hygiene, injection, injector, ink, insulation, iron, items, jam, jameson,
+        jar, jeep, jewelry, joint, juice, keyless, kit, kitchen, kosher, krombacher, lader,
+        ladies, launcher, leather, lemon, level, linen, litemax, lng, looms, lssr, lubricant,
+        lug, machin, machine, malbec, malt, manufacture, marker, marker*, men, mens, metal,
+        methane, micro, milk, mirror, model, module, monopod, monster, multirgai, mushroom,
+        mustard, napkin, natural gas, neck, needle, neon, nissan, nozle, nut, nylon, oak, octanol,
+        office, olive, orange, ore, organizer, outdoor, oxidation, package, packing, paint,
+        pallet, pallets, parks, part, parts, peach, peanut, pen, pepper, personnal, peruvian,
+        pick, piece, pieces, pilates, pillar, pillow, pineapple, pipe, piping, piston, pit,
+        plantain, plantains, plastic, pneumatic, polyols, poo, potato, propane, pump, pumps,
+        racket, radiator, rail, rain, rains, rapeseed, rare, rear, refrigerante, refrigerator,
+        regenerated, remote, reprocessing, research, resistance, rice, roof, roofing, rope, rotary,
+        rover, rum, sacks, safflower, salt, sample, sand, scarf, screen, screw, screws, seed,
+        sensor, sesame, shell, shirt, shoe, shoes, silicon, slops, sludge, smoke, soap, sock,
+        socks, sofa, solenoid, soluble, spare, spares, spice, square, stator, steel, sticky,
+        stone, stones, straps, strapwinch, style, subaru, sugar, surfboard, suzuki, switch, syst,
+        system, tank, tea, telescopia, tequila, thrustwasher, tie, tires, titan, tools, towel,
+        towing, toy, toys, trader, truck, tube, tubes, turbojet, unpacked, used, valve, vegetable,
+        vehicle, vinyl, viscose, volvo, wagon, wall, walnut, washout, water, waxe, wedge, whiskey,
+        whisky, wine, women, womens, wood, wool, woven, zinc
+      query: >
+        AND crude, OR API gravity, OR crude oil, OR alkylate, OR avgas, OR
+        barr*, OR bbl*, OR blend, OR cbob, OR condensate, OR crude api, OR
+        diesel, OR etbe, OR fuel, OR gas oil, OR gasoil, OR gasoline, OR
+        gtab, OR heating oil, OR jet, OR mogas, OR mtbe, OR naphta, OR
+        naphtha, OR pbob, OR rbob, OR reformate, OR ulsd, OR unleaded, OR
+        mgo, OR v.g.o, OR vgo, OR hsvgo, OR lsfo, OR lsvgo, OR kerosene, OR
+        toluene, OR coconut oil, OR ammon*, OR sulphuric acid, OR acetone, OR
+        canola oil, OR palm oil, OR methanol, OR b100, OR molasse, OR
+        ethanol, OR olive oil, OR benzene, NOT alcohol*, NOT alm, NOT alu*,
+        NOT ananas, NOT argentine sme, NOT aspha*, NOT avocado, NOT bag, NOT
+        barite, NOT beverag*, NOT butane, NOT coffee, NOT cornmint, NOT
+        cotton, NOT credit, NOT distilled, NOT equipment, NOT fat, NOT film,
+        NOT fish, NOT food, NOT galvanized, NOT glycerine, NOT ground*, NOT
+        guatemala, NOT gum*, NOT household, NOT iron, NOT octanol, NOT ore,
+        NOT pack*, NOT peach, NOT peanut, NOT peruvian, NOT pineappl*, NOT
+        pneumatic, NOT propane, NOT rains, NOT rapeseed, NOT research, NOT
+        roofing, NOT safflower, NOT sesame, NOT slops, NOT soap, NOT solubl*,
+        NOT washout

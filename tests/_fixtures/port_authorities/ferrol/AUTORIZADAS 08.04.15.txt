@@ -1,0 +1,9 @@
+                                                                                        AUTORIZADAS 08.04.15
+
+
+Atra. Esc. Subp.   Atra. Esc. AñoAtra. Esc. NúmAtra. Esc. Buque Nombre BuqueT. Oper. Cód.             Merc.            Cant. Mov.    Atra. Aut. Alin. Desc. Atra. Aut. Noray Ini.Atra. Aut. Noray Fin.Atra. Aut. Fec. Ini.
+        S                2015          00107                 CELIA                E               ALUMINA SC0            3500,00 SAN CIPRIAN MUELLE AUXILIAR        4,00                 6,00          08-04-2015 20:00
+        S                2015          00105               ELBETOR                E             ALUMINA HYDRATE          2800,00 SAN CIPRIAN MUELLE AUXILIAR        4,00                 6,00          09-04-2015 12:00
+        S                2015          00102            YM ENDEAVOUR              D                 BAUXITA             60000,00 SAN CIPRIAN MUELLE PRINCIPAL       1,00                 3,00          07-04-2015 03:00
+        S                2015          00099             ROSCO LITCHI             D                 BAUXITA             60000,00 SAN CIPRIAN MUELLE PRINCIPAL       1,00                 3,00          05-04-2015 16:00
+        F                2015          00200             FLINTERDUIN              E      COMPONENTES DE AEROGENERADORES 1125,00      CERRAMIENTO NORTE              3,00                 8,00          08-04-2015 23:01

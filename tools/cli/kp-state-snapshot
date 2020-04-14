@@ -1,0 +1,156 @@
+#! /usr/bin/env python
+
+""" Update airtable to reflect spider status"""
+
+from collections import OrderedDict
+import datetime as dt
+
+import click
+
+from kp_scrapers.cli.commands.doctor import load_jobs, lookup
+from kp_scrapers.cli.ui import info, success
+from kp_scrapers.commands import run_scrapy_command
+from kp_scrapers.lib.services import kp_airtable, kp_datadog
+
+
+ITEM_SCRAPED_METRIC = 'kp.sh.spiders.stats.item_scraped_count'
+JOBS_ERROR_METRIC = 'kp.sh.spiders.stats.log_count.error'
+BASE_NAME = 'Data Sourcing'
+
+
+# The table must exist and have fields defined
+@click.command('update_airtable')
+@click.option('-t', '--table', default='Status', help='The table you need to operate')
+@click.option('-c', '--config', default='./scheduling', help='Configuration files path')
+def update_airtable(table, config):
+    # current time as updated time
+    current_time = dt.datetime.now().isoformat()
+
+    info(f"loading local jobs path: {config}")
+    local_jobs = list(load_jobs(config, blacklist=['settings.yml']))
+
+    info(f"Fetching data from {BASE_NAME}: {table}")
+    current_records = list(kp_airtable.retrieve_all_records(BASE_NAME, table))
+
+    info("Fetching datadog metrics")
+    item_scraped_metric = kp_datadog.get_metric_by_spider(ITEM_SCRAPED_METRIC)
+    jobs_error_metric = kp_datadog.get_metric_by_spider(JOBS_ERROR_METRIC)
+
+    missing_spiders = []
+    current_spiders = []
+    for spider in run_scrapy_command('describe', '--filter enabled:true --silent'):
+        spider_name = spider['name']
+        spider_metric = merge_metrics(
+            item_scraped_metric.get(spider_name.lower()), jobs_error_metric.get(spider_name.lower())
+        )
+
+        if not lookup(local_jobs, value=spider_name, key='spider'):
+            info(f"Spider {spider_name} is not in scheduled ymls, skipping")
+            continue
+
+        # check if there are any newly added spiders not in airtable
+        if not lookup(current_records, value=spider_name, key='Spider'):
+            info(f"Spider {spider_name} is missing in Airtable")
+            missing_spiders.append(build_spider_row(spider, spider_metric, current_time))
+            continue
+
+        # get airtable record id from current records as reference for updating
+        record_id = [
+            dic['id'] for dic in current_records if 'Spider' in dic and dic['Spider'] == spider_name
+        ][0]
+        row = build_spider_row(spider, spider_metric, current_time)
+        current_spiders.append((row, record_id))
+
+    if missing_spiders:
+        info('Creating missing spiders...')
+        kp_airtable.batch_create(BASE_NAME, table, missing_spiders)
+
+    info('Updating current spiders...')
+    kp_airtable.batch_update(BASE_NAME, table, current_spiders)
+
+    success('updated')
+
+
+def build_spider_row(spider, spider_metric, updated):
+    """Build a dict suited for updating Airtable row.
+
+    Args:
+        spider (Dict[str, str]):
+        spider_metric (OrderedDict(str, Tuple(str))):
+        updated (str):
+
+    Returns:
+        Dict[str, str]:
+
+    """
+    row = {
+        'Spider': spider['name'],
+        'Version': spider['version'],
+        'Provider': spider['provider'],
+        'Produces': spider['produces'],
+        'Category': spider['category'],
+        'Commodities': spider['commodities'],
+        'Updated': updated,
+    }
+
+    # the spider is not running in datadog in the last 24hrs, it's not released
+    if not spider_metric:
+        row.update({'Items': None, 'Status': None, 'Finished': None, 'Has Data': False})
+        return row
+
+    latest_job = spider_metric.popitem()
+    finished, item, error = latest_job[0], latest_job[1][0], latest_job[1][1]
+    row.update(
+        {
+            'Items': item,
+            'Status': 'Error' if error else 'OK',
+            'Finished': finished,
+            'Has Data': True,
+        }
+    )
+
+    # more info: last yielded fields
+    for timestamp in reversed(spider_metric):
+        last_yielded_item, last_yielded_error = spider_metric[timestamp]
+
+        if last_yielded_item != 0:
+            row.update(
+                {
+                    'Last Yielded': timestamp,
+                    'Last Yielded Items': last_yielded_item,
+                    'Last Yielded Status': 'Error' if last_yielded_error else 'OK',
+                }
+            )
+            break
+
+    return row
+
+
+def merge_metrics(base_metric, other_metrics):
+    """Merge two metrics into one with their value as tuple.
+
+    Args:
+        base_metric (Dict[str, str]):
+        other_metrics (Dict[str, str]):
+
+    Returns:
+        OrderedDict(str, Tuple(str)):
+
+    """
+
+    if not base_metric or not other_metrics:
+        return
+
+    metrics = [base_metric, other_metrics]
+    merged = OrderedDict()
+    for timestamp in base_metric:
+        merged[timestamp] = tuple(
+            metric[timestamp] if timestamp in metric else None for metric in metrics
+        )
+
+    return merged
+
+
+if __name__ == '__main__':
+    kp_datadog.initialize_api()
+    update_airtable()

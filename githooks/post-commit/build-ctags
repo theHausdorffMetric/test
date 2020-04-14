@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# stolen from https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
+
+# warn if ctags is not installed
+[ -z "$(command -v ctags)" ] && { echo "Warning: You should install ctags" >&2 ; exit 0 ; }
+
+set -e
+
+repo=$(git config --local remote.origin.url|sed -n 's#.*/\([^.]*\)\.git#\1#p')
+
+# Start from the repository root.
+cd ./$(git rev-parse --show-cdup)
+
+# remove existing tags, if any
+rm -f tags
+
+__build_tags() {
+    ctags -f tags --recurse=yes --langmap=python:.py --python-kinds=-iv $1
+}
+
+# rebuild tags
+echo "[ $repo ] re-indexing project tags"
+# assume package dir name is same as project name (all hyphens replaced with underscores)
+__build_tags $(echo $repo | tr - _)

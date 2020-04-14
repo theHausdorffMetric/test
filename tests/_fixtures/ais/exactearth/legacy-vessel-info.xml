@@ -1,0 +1,46 @@
+<wfs:FeatureCollection xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:exactAIS="https://gws.exactearth.com/gws" xmlns:ows="http://www.opengis.net/ows" xmlns:wfs="http://www.opengis.net/wfs" numberOfFeatures="1" timeStamp="2017-11-06T09:33:40.017Z" xsi:schemaLocation="http://www.opengis.net/wfs https://gws.exactearth.com:443/schemas/wfs/1.1.0/wfs.xsd?authkey=a95388d5-37df-470d-900b-f9d85097d1ab https://gws.exactearth.com/gws https://gws.exactearth.com:443/exactAIS/wfs?service=WFS&version=1.1.0&request=DescribeFeatureType&typeName=exactAIS%3ALVI&authkey=a95388d5-37df-470d-900b-f9d85097d1ab">
+  <gml:featureMembers>
+    <exactAIS:LVI gml:id="LVI.fid--3e9f426b_15f90a385b4_-1b84">
+      <exactAIS:mmsi>310550000</exactAIS:mmsi>
+      <exactAIS:imo>9311579</exactAIS:imo>
+      <exactAIS:vessel_name>LNG ONDO</exactAIS:vessel_name>
+      <exactAIS:callsign>ZCDT5</exactAIS:callsign>
+      <exactAIS:vessel_type>Tanker</exactAIS:vessel_type>
+      <exactAIS:vessel_type_code>82</exactAIS:vessel_type_code>
+      <exactAIS:vessel_type_cargo>
+        Carrying DG,HS or MP,IMO hazard or Pollutant Category Y
+      </exactAIS:vessel_type_cargo>
+      <exactAIS:vessel_class>A</exactAIS:vessel_class>
+      <exactAIS:length>288</exactAIS:length>
+      <exactAIS:width>43</exactAIS:width>
+      <exactAIS:flag_country>Bermuda</exactAIS:flag_country>
+      <exactAIS:flag_code>310</exactAIS:flag_code>
+      <exactAIS:destination>BONNY</exactAIS:destination>
+      <exactAIS:eta>11211100</exactAIS:eta>
+      <exactAIS:draught>9.5</exactAIS:draught>
+      <exactAIS:position>
+        <gml:Point srsDimension="2" srsName="urn:x-ogc:def:crs:EPSG:4326">
+          <gml:pos>12.278785 -18.00121</gml:pos>
+        </gml:Point>
+      </exactAIS:position>
+      <exactAIS:longitude>-18.00121</exactAIS:longitude>
+      <exactAIS:latitude>12.278785</exactAIS:latitude>
+      <exactAIS:sog>9.7</exactAIS:sog>
+      <exactAIS:cog>180.7</exactAIS:cog>
+      <exactAIS:rot>0.0</exactAIS:rot>
+      <exactAIS:heading>183.0</exactAIS:heading>
+      <exactAIS:nav_status>Under Way Using Engine</exactAIS:nav_status>
+      <exactAIS:nav_status_code>0</exactAIS:nav_status_code>
+      <exactAIS:source>S-AIS</exactAIS:source>
+      <exactAIS:ts_pos_utc>20171106061130</exactAIS:ts_pos_utc>
+      <exactAIS:ts_static_utc>20171106060522</exactAIS:ts_static_utc>
+      <exactAIS:ts_insert_utc>20171106091405</exactAIS:ts_insert_utc>
+      <exactAIS:dt_pos_utc>2017-11-06 06:11:30</exactAIS:dt_pos_utc>
+      <exactAIS:dt_static_utc>2017-11-06 06:05:22</exactAIS:dt_static_utc>
+      <exactAIS:dt_insert_utc>2017-11-06 09:14:05</exactAIS:dt_insert_utc>
+      <exactAIS:vessel_type_main>Gas Tanker</exactAIS:vessel_type_main>
+      <exactAIS:vessel_type_sub>Lng Tanker</exactAIS:vessel_type_sub>
+      <exactAIS:message_type>1</exactAIS:message_type>
+    </exactAIS:LVI>
+  </gml:featureMembers>
+</wfs:FeatureCollection>

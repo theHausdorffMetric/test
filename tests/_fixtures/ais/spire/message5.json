@@ -1,0 +1,23 @@
+{"data":[{"mmsi":205194000,
+          "nmea": "SOME NMEA STRING",
+          "type": 5,
+          "longitude":5.342667,
+          "latitude":43.332330,
+          "sog":0.1,
+          "heading":511,
+          "imo":7357452,
+          "name":"METHANIA",
+          "CALLSIGN":"ONAE",
+          "timestamp": "2015-06-12T10:46:46.0",
+          "ship_and_cargo_type":81,
+          "A":191,
+          "B":52,
+          "C":17,
+          "D":17,
+          "DRAUGHT":9.5,
+          "destination":"MARSEILLE",
+          "ETA":"12-16 10:00",
+          "NAVSTAT":0
+          }
+         ]
+}

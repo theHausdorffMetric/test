@@ -1,0 +1,694 @@
+---
+# This file includes schedules for spiders related to ship agents (i.e., vessel lineups)
+# from market analysts.
+
+global_tags:
+  - 'category:agents'
+
+default_crons:
+  - '*, *, *, *, {minute}'
+
+jobs:
+  - spider: AMA_Augusta_Grades
+    description: 'Cargo movement reports for Augusta from Avvisatore'
+    args:
+      folder: 'Reports/Ocean Brokers/Augusta'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: AS_DryCoast
+    description: 'Cargo movement reports (Dry Bulk) from Atlantic Shipping'
+    args:
+      folder: 'Reports/Shipping/INDIA DAILY DRY'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: AS_India_Grades
+    description: 'Cargo movement reports (Tankers) from Atlantic Shipping'
+    args:
+      folder: 'Reports/Shipping/INDIA - PORT POSITION DAILY'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; iniklyaev@kpler.com; nleconte@kpler.com'
+
+  - spider: AS_IndiaAgent_Grades
+    description: 'Cargo movement reports (Tankers) from Atlantic Shipping Website'
+    tags:
+      - 'country:India'
+
+  - spider: BC_USMonthly
+    description: 'Cargo movement reports from B&C for OIL'
+    crons:
+      - '*, *, *, *, 58'
+    args:
+      folder: 'Kpler/Quentin/BC'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ebelostrino@kpler.com'
+
+  - spider: BCR_Italy_Grades
+    description: 'Cargo movement reports from Banchero Italy for OIL/DPP/CPP'
+    args:
+      folder: 'Reports/Banchero Costa/Italy Ports'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: BCR_Odessa_Grades
+    description: 'Cargo movement reports from Banchero for OIL/DPP/CPP'
+    args:
+      folder: 'Reports/Banchero Costa/Odessa'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: BL_Dry_Grades
+    description: 'Cargo movement reports from ben line for australia, dry bulk'
+    args:
+      folder: 'Reports/Ben Line/Australia Dry'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: BL_Taiwan_Grades
+    description: 'Cargo movement reports from ben line for taiwan'
+    args:
+      folder: 'Reports/Ben Line/Taiwan'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: BL_Vietnam
+    description: 'Cargo movement reports from ben line for taiwan'
+    args:
+      folder: 'Kpler/Hanxi/vietnam ytd'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: BMS_Grades_Clean
+    description: 'Cargo movement reports from BMS for CPP'
+    crons:
+      - '*, *, *, 15, 55'
+    args:
+      folder: 'Reports/Ocean Brokers/BMS Ocean'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; zliu@kpler.com'
+
+  - spider: BMS_Grades_Crude
+    disabled: true
+    description: 'Cargo movement reports from BMS for OIL'
+    crons:
+      - '*, *, *, 18, 25'
+    args:
+      folder: 'Kpler/Quentin/BMS Quentin'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: BS_WestAfricaProductTankers
+    description: 'Daily West Africa product reports from Blueseas'
+    args:
+      folder: 'Reports/Ocean Brokers/WEST AFRICA PRODUCT REPORT'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: Datos_Grades
+    description: 'Cargo movement reports from DatosGob'
+    crons:
+      - '*, *, *, 9, 30'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: DB_Colombia_Grades
+    description: 'Cargo movement reports from DeepBlue Agency'
+    crons:
+      - '*, *, *, 8, 20'
+    args:
+      folder: 'Reports/deep blue colombia'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: FBR_CargoMovements
+    description: 'Federal Board of Revenue'
+    crons:
+      - '*, *, *, 0, 0'
+    args:
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: Fiumicino_Grades
+    description: 'fiumicino grades'
+    args:
+      folder: 'Reports/Ocean Brokers/fiumicino'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: GB_EA_Algeria_Grades
+    description: 'Gibson Algeria'
+    crons:
+      - '*, *, *, {hour}, {minute}'
+    args:
+      folder: 'Reports/EA Gibson Research/ALGERIAN LIQUIDS DAILY'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: GC_Australia
+    description: 'gac shipping india coke'
+    args:
+      folder: 'Kpler/Hanxi/gac australia'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: GC_IndiaCoke_Grades
+    description: 'gac shipping india coke'
+    args:
+      folder: 'Kpler/Hanxi/coal_coke_india'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: GDrive_Grades_COAL
+    description: 'coal grades by Analysts'
+    crons:
+      - '*, *, *, *, 5'
+      - '*, *, *, *, 35'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/COAL/cargo_movements'
+
+  - spider: GDrive_Grades_Liquids
+    description: 'liquid(cpp, dpp, oil) grades by Analysts'
+    crons:
+      - '*, *, *, *, 10'
+      - '*, *, *, *, 40'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/Liquids/cargo_movements'
+
+  - spider: GDrive_Grades_LNG
+    description: 'lng grades by Analysts'
+    crons:
+      - '*, *, *, *, 15'
+      - '*, *, *, *, 45'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/LNG/cargo_movements'
+
+  - spider: GDrive_Grades_LPG
+    description: 'lpg grades by Analysts'
+    crons:
+      - '*, *, *, *, 20'
+      - '*, *, *, *, 50'
+    args:
+      path: 'Data/Data Sourcing/DataToLoad/LPG/cargo_movements'
+
+  - spider: GP_LNG_PortCalls
+    description: 'Portcalls for Mongstad/Sture ports on LNG by Graypen'
+    crons:
+      - '*, *, *, 20, 27'
+    args:
+      folder: 'Reports/Graypen LNG'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'nleconte@kpler.com'
+
+  - spider: GP_MongstadSture_Grades
+    description: 'Grades for Mongstad/Sture ports on OIL by Graypen'
+    crons:
+      - '*, *, *, *, 12'
+    args:
+      folder: 'Reports/Graypen MS'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com; jjuay-ext@kpler.com'
+
+  - spider: GP_UKGrades
+    description: 'Weekly UK grades from Graypen Research'
+    crons:
+      - '*, *, 1, 14, 30'
+    args:
+      folder: 'Reports/Graypen'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com; iniklyaev@kpler.com; nleconte@kpler.com'
+
+  - spider: HT_DailyUpdate
+    description: 'Cargo movement reports from Humann & Taconet'
+    args:
+      folder: 'Reports/Ocean Brokers/French Daily Update'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'zliu@kpler.com'
+
+  - spider: IC_Brazil_Grades
+    description: 'Cargo movement reports for Brazil Inchcape'
+    crons:
+      - '*, *, *, 9, 0'
+    tags:
+      - 'country:Brazil'
+    args:
+      folder: 'Kpler/Marshall/Inchcape Brazil'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; ppater@kpler.com'
+
+  - spider: IC_Sabine_Baltimore
+    description: 'Cargo movement and portcall for USA ISS'
+    tags:
+      - 'country:USA'
+    args:
+      folder: 'Kpler/Marshall/inchcape sabine'
+      query: '(UNSEEN)'
+      limit: '2'
+    settings:
+      NOTIFY_SOMEONE: 'nleconte@kpler.com'
+
+  - spider: IDT_PTDry_PlayerGrades
+    description: 'Coal player and grades from Platts'
+    crons:
+      - '*, *, *, 10, 21'
+    args:
+      folder: 'Reports/IDT Coal and Dry'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: IN_Siot_Grades
+    description: 'Cargo movement reports for Trieste from Interadria'
+    crons:
+      - '*, *, *, *, 0'
+    tags:
+      - 'country:Italy'
+    args:
+      folder: 'Reports/Ocean Brokers/SIOT'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: ISS_Tema_Grades
+    description: 'ISS grades for Tema'
+    tags:
+      - 'country:Indonesia'
+    args:
+      folder: 'Reports/Ocean Brokers/Tema Port'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: ITL_Indonesia_PC
+    description: 'Daily Indonesian vessel movement reports from ITL'
+    crons:
+      - '*, *, *, 20, 40'
+    tags:
+      - 'country:Indonesia'
+    args:
+      folder: 'Kpler/Shan/ITL DAILY'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: ITL_Indonesia_Movements
+    description: 'Daily Indonesian vessel movement reports from ITL'
+    crons:
+      - '*, *, *, 20, 55'
+    tags:
+      - 'country:Indonesia'
+    args:
+      folder: 'Kpler/Shan/ITL DAILY'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: JF_Libya_Grades
+    description: 'Libya cargo movements by Jurfmar'
+    crons:
+      - '*, *, *, 19, 35'
+    args:
+      folder: 'Reports/Jurfmar'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; iniklyaev@kpler.com; nleconte@kpler.com; yrtan@kpler.com'
+
+  - spider: JLC_China_Oil
+    disabled: true
+    description: 'Chinese OIL cargo movements by JLC'
+    args:
+      folder: 'Reports/JLC'
+      query: '(SUBJECT "Feedstock") (UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ylchay@kpler.com'
+
+  - spider: JP_Italy
+    description: 'Cargo movement reports from JP Shipping Italy'
+    args:
+      folder: 'Kpler/david/jp italy'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: KN_AbuDhabi_Grades
+    description: 'Cargo movement reports from Kanoo Shipping, AbuDhabi'
+    crons:
+      - '*, *, *, 21, 35'
+    args:
+      folder: 'Reports/Shipping/uae daily tanker'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: KN_AlJubail
+    description: 'Cargo movement reports from Kanoo Shipping'
+    args:
+      folder: 'Reports/Shipping/JUBAIL'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: KN_Bahrain_Grades
+    description: 'Cargo movement reports from Kanoo Shipping'
+    args:
+      folder: 'Reports/Shipping/Bahrain Bapco'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: KN_Djibouti_Grades
+    description: 'Cargo movement reports from Kanoo Djibouti'
+    args:
+      folder: 'Reports/Shipping/Djibouti Line Up'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; ppater@kpler.com'
+
+  - spider: KN_DryBulk_Grades
+    description: 'Dry Bulk Grades from Kanoo Shipping'
+    crons:
+      - '*, *, *, 22, 10'
+    args:
+      folder: 'Reports/Shipping/INDIA DRY BULKS'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: KN_ExportVesselsStatement
+    description: 'Cargo movement reports from Kanoo Shipping'
+    args:
+      folder: 'Reports/Shipping/Export Vessels Statement Monthly'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: KN_Pakistan_Grades
+    description: 'Cargo movement reports from Kanoo Shipping, for Pakistan ports'
+    crons:
+      - '*, *, *, *, 46'
+    args:
+      folder: 'Reports/Shipping/Pakistan Line Up'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: KN_Pakistan_Grades_DRY
+    description: 'Cargo movement reports from Kanoo Shipping, for Pakistan ports DRY'
+    args:
+      folder: 'Reports/Shipping/Pakistan Dry'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: KN_Regional_Grades
+    description: 'Cargo movement reports from Kanoo Shipping, Regional'
+    crons:
+      - '*, *, *, 8, 55'
+    args:
+      folder: 'Kpler/Quentin/Kanoo Regional All'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com'
+
+  - spider: KN_SouthAfrica_Grades
+    description: 'Cargo movement reports from Kanoo South Africa'
+    crons:
+      - '*, *, *, *, 48'
+    args:
+      folder: 'Reports/Shipping/South Africa Port List'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: KN_Yemen_Grades
+    description: 'Cargo movement reports from Kanoo Yemen'
+    args:
+      folder: 'Reports/Shipping/yemen'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; ppater@kpler.com'
+
+  - spider: LBH_Chinese_Grades
+    description: 'Cargo movement reports from LBH chinese grades and players'
+    args:
+      folder: 'Kpler/Hanxi/updated chinese'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com'
+
+  - spider: MRI_Grades
+    disabled: true
+    description: 'Cargo movements from MRI'
+    crons:
+      - '*, *, *, 18, 15'
+    args:
+      folder: 'Kpler/Quentin/mri'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; ppater@kpler.com; yrtan@kpler.com'
+
+  - spider: MS_USWeekly
+    description: 'Weekly US OIL/CPP vessel movement reports from MS'
+    args:
+      folder: 'Kpler/Quentin/US grades weekly MS'
+      query: '(UNSEEN)'
+      limit: '2'
+    settings:
+      NOTIFY_SOMEONE: 'ebelostrino@kpler.com; yeu@kpler.com'
+
+  - spider: NM_Grades
+    description: 'Cargo movements from Next Maritime'
+    crons:
+      - '*, *, *, *, 20'
+    args:
+      folder: 'Kpler/Quentin/Next Maritime'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: OS_GreeceGrades_CPP
+    description: 'Greece grades reports from Ocean Shipbrokers'
+    args:
+      folder: 'Reports/Ocean Brokers/Greece Liquid Cargos'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: OS_Sarroch_Grades
+    description: 'Sarroch grades reports from Ocean Shipbrokers'
+    args:
+      folder: 'Reports/Ocean Brokers/SARROCH DAILY'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: PF_Gdansk_Grades
+    description: 'Cargo Movements from Gdansk'
+    crons:
+      - '*, *, *, 8, 20'
+    args:
+      folder: 'Reports/EA Gibson Research/Tankers calling Gdansk'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: PI_Venezuela_Grades
+    description: 'Venezuela grades reports from PI'
+    crons:
+      - '*, *, *, 19, 15'
+    args:
+      folder: 'Kpler/Quentin/PI Venezuela'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com; sahmed@kpler.com'
+
+  - spider: SD_India_Grades
+    description: 'samudra india grades'
+    args:
+      folder: 'Kpler/Hanxi/india east west coast'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; ppater@kpler.com'
+
+  - spider: SEL_Grades
+    description: 'seoul line grades'
+    crons:
+      - '*, *, *, 8, 10'
+    args:
+      folder: 'Reports/seoul line korea'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: SF_MidEastAfrica_Grades
+    description: 'Cargo movement reports for middle east and africa from sharaf'
+    crons:
+      - '*, *, *, *, 35'
+    args:
+      folder: 'Reports/Sharaf'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; yrtan@kpler.com; sahmed@kpler.com'
+
+  - spider: SFK_Kenya
+    description: 'Cargo movement reports for kenya'
+    args:
+      folder: 'Kpler/Quentin/weekly tanker stats'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com; ppater@kpler.com'
+
+  - spider: SGS_Grades
+    disabled: true
+    description: 'Cargo movement reports from SGS'
+    crons:
+      - '*, *, *, *, 35'
+    args:
+      folder: 'Kpler/Quentin/SGS'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'zyuan@kpler.com'
+
+  - spider: ST_NovoOilTerminal
+    description: 'Daily Novo grades cargo movement reports from Seatrade'
+    args:
+      folder: 'Reports/Ocean Brokers/Novorossiysk'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'zliu@kpler.com'
+
+  - spider: SM_Fujairah
+    description: 'Biweekly report for fujairah grades'
+    args:
+      folder: 'Kpler/Quentin/seamaster fujairah'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: SShip_Aratu
+    description: 'Daily report for brazil'
+    args:
+      folder: 'Reports/Ocean Brokers/Aratu Line Up'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'
+
+  - spider: STM_RedSea_Grades
+    description: 'Daily report for Egypt'
+    args:
+      folder: 'Reports/Stream Ship/Red Sea'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'ppater@kpler.com; zliu@kpler.com'
+
+  - spider: STM_LibyaGrades_OIL
+    description: 'stream ship libya'
+    crons:
+      - '*, *, *, 22, 20'
+    args:
+      folder: 'Reports/Stream Ship/Libya'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: UN_KlaipedaButinge_Grades
+    description: 'Cargo movement for Butinge from Unitek'
+    crons:
+      - '*, *, *, 12, 20'
+    args:
+      folder: 'Reports/Ocean Brokers/Klaipeda and Butinge'
+      query: '(UNSEEN)'
+      limit: '1'
+    settings:
+      NOTIFY_SOMEONE: 'yrtan@kpler.com'
+
+  - spider: WB_Brazil
+    description: 'Brazil cargo movement reports from www.udop.com.br'
+    tags:
+      - 'country:Brazil'
+    crons:
+      - '*, *, 5, 18, {minute}'
+    settings:
+      NOTIFY_SOMEONE: 'yeu@kpler.com'

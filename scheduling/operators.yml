@@ -1,0 +1,64 @@
+---
+default_crons:
+  - '*, *, *, *, {minute}'
+
+global_tags:
+  - 'category:operator'
+
+jobs:
+  - spider: FosCavaouOperator
+    description: 'Provider of Fos Cavaou installation level and sendout'
+    settings:
+      FOSCAVAOUOPERATOR_LAG_DAYS: '6'
+
+  - spider: UKOperatorInventories
+    description: 'Provider of Grain, South Hook, and Dragon installation level'
+    settings:
+      UKOPERATORINVENTORIES_LAG_DAYS: '20'
+
+  - spider: FosTonkinOperator
+    description: 'Provider of Fos Tonkin, from Elengy website'
+    args:
+      terminal: Fos Tonkin
+      query_type: flow
+      lookbehind_days: 7
+
+  - spider: MontoirOperator
+    description: 'Provider of Montoir, from Elengy website'
+    args:
+      terminal: Montoir
+      query_type: flow
+      lookbehind_days: 7
+
+  - spider: SabinePassKMLP_NGPL
+    description: 'NGPL and KMLP sendin pipeline of Sabin Pass operator'
+
+  - spider: DunkerqueOperator
+
+  - spider: GateOperator
+    description: 'Netherland Gate Gaz terminal'
+    settings:
+       GATEOPERATOR_LAG_DAYS: '30'
+
+  - spider: GrainSendoutOperator
+    description: 'National Grid Grain export'
+
+  - spider: SinesOperator
+    disabled: true
+
+  - spider: SpainOperator
+    description: 'Enagás is Spain’s leading natural gas transmission company'
+
+  - spider: UKOperatorRealTimeSendOut
+    description: 'Instantaneous Flows into the NTS'
+
+  - spider: SabinePassCreoleTrail
+
+  - spider: SabinePassTransco
+    crons:
+      - '*, *, *, 19, {minute}'
+
+  - spider: ZeebruggeOperator
+    description: 'Fluxys Belgium manages natural gas transmission and storage'
+    settings:
+      ZEEBRUGGEOPERATOR_LAG_DAYS: '20'

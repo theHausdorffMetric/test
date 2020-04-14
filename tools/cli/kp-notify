@@ -1,0 +1,156 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""Notify Slack channels using IFTTT rules.
+
+Rules are defined in https://airtable.com/tblarrWLrGtsvRD3T/
+
+"""
+
+from __future__ import absolute_import, unicode_literals
+from collections import namedtuple
+
+import click
+
+from kp_scrapers.cli.ui import fail, info, success
+from kp_scrapers.lib.services import kp_airtable, slack
+
+
+click.disable_unicode_literals_warning = True
+
+# sugar for formatting slack message attachments
+Message = namedtuple('message_fmt', ['pretext', 'color'])
+
+
+MSG_TEMPLATES = {
+    'triggered': Message(pretext=':redsiren: *[Issue Detected]* {rule}', color='danger'),
+    'resolved': Message(pretext=':rocket: *[Issue Resolved]* {rule}', color='good'),
+    'update': Message(pretext=':memo: *[Update]* {rule}', color='#439FE0'),
+    'feature': Message(pretext=':tada: *[Feature]* {rule}', color='#439FE0'),
+}
+
+
+def _match_rule(record, rule_or_id):
+    """Match by `Rule` or `id` fields."""
+    if 'Rule' in record['fields'].keys() and record['fields'].get('Rule') == rule_or_id:
+        return True
+    if 'ID' in record['fields'].keys() and str(record['fields'].get('ID')) == rule_or_id:
+        return True
+
+    return False
+
+
+def fetch_records(rule):
+    """Get fields of an Airtable row.
+
+    TODO encapsulate in a generic `AirtableClient` class in `lib.airtable` ?
+
+    Args:
+        rule (str): rule name in abovementioned Airtable
+
+    Returns:
+        Dict[str, (str | int | bool | List)]:
+
+    """
+    table = kp_airtable.connect('Data Sourcing').get('IFTTT')
+    for record in table['records']:
+        if _match_rule(record, rule):
+            info(
+                'found relevant record `{}` created on {}'.format(
+                    record['id'], record['createdTime']
+                )
+            )
+            return record['fields']
+
+
+def _notify(msg, **kwargs):
+    """Wrapper around slack notify method.
+    """
+    res = slack.send(msg, **kwargs)
+    if not res.get('ok'):
+        fail("failed: {}".format(res.get('error')))
+    else:
+        success('success!')
+
+
+def _get_names(ids):
+    """Get `Overview` names of affected sources/platforms.
+
+    Args:
+        ids (List[str]):
+
+    Returns:
+        str:
+
+    """
+    names = []
+    for ident in ids:
+        record = kp_airtable.connect('Data Sourcing').get('Overview', record_id=ident)
+        names.append(record['fields']['Name'])
+
+    return ', '.join(names) if names else 'Not specified'
+
+
+def _is_triggered(rule):
+    """Check if a rule is marked as triggered.
+    """
+    return rule.get('Triggered') is not None
+
+
+@click.command()
+@click.option('-r', '--rule', help='IFTTT rule to check for triggered/recovered conditions')
+@click.option(
+    '-e',
+    '--event',
+    default=None,
+    type=click.Choice(MSG_TEMPLATES.keys()),
+    help='Event type to display',
+)
+@click.argument('message', default='')
+def notify(rule, event, message):
+    """Notify channels specified in Airtable given a rule.
+
+    Each rule is defined according to IFTTT patterns (i.e, if this, then do that).
+    Rules are defined in https://airtable.com/tblarrWLrGtsvRD3T
+
+    """
+    record = fetch_records(rule)
+
+    # default to check for trigger condition
+    if not event:
+        event = 'triggered' if _is_triggered(record) else 'resolved'
+
+    # build attachment content
+    attach = slack.build_table(
+        # record returns time in seconds
+        # Since='{0:.2f} hours ago'.format(float(record['Since']) / 3600),
+        Affected=_get_names(record.get('ON', []))
+    )
+    if event in ('triggered', 'resolved'):
+        attach.extend(slack.build_table(Cause=record.get('IF')))
+
+    # send notification to each channel
+    relevant_channels = record.get('THEN Notify')
+    if not relevant_channels:
+        fail('no relevant channels specified, nothing to do.')
+        return
+
+    for channel in relevant_channels:
+        info('notifying `{}` ...'.format(channel))
+        _notify(
+            msg=MSG_TEMPLATES[event].pretext.format(rule=record['Rule']),
+            attachments=[
+                {
+                    'color': MSG_TEMPLATES[event].color,
+                    'fields': attach,
+                    'text': message if message else None,
+                }
+            ],
+            channel=channel,
+        )
+
+    info('finished')
+
+
+if __name__ == '__main__':
+    notify()

@@ -1,0 +1,137 @@
+#! /usr/bin/env python
+"""Wrap useful deployment goodies.
+
+"""
+
+import datetime as dt
+import json
+import os
+
+import click
+import datadog
+import requests
+
+from kp_scrapers.cli.project import git_head_branch, git_last_commit_msg, git_last_tag
+from kp_scrapers.cli.ui import fail, info, success
+
+
+DEFAULT_USER = os.getenv('USER', 'kpler-bot')
+DEFAULT_PACKAGE = 'kp-scrapers'
+KP_EVENT_TPL = "{user} deployed {pkg} (#{commit}) on {project}"
+COMMIT_TAG_TPL = 'https://github.com/Kpler/kp-scrapers/commits/{tag}'
+
+
+def _to_slack_link(link, text):
+    return f'<{link}|{text}>'
+
+
+# TODO should be made generic in a `shub` lib
+SHUB_PROJECT_URLS = {
+    'production': _to_slack_link('https://app.scrapinghub.com/p/321191', 'production'),
+    'playground': _to_slack_link('https://app.scrapinghub.com/p/6932', 'playground'),
+}
+
+
+def _to_statsd_tags(**kwargs):
+    return ['{k}:{v}'.format(k=k, v=v) for k, v in kwargs.items()]
+
+
+def release_tags(user):
+    branch = git_head_branch()
+    version = '{proj}-{ts}-{commit}'.format(
+        proj=DEFAULT_PACKAGE, ts=dt.datetime.now().strftime('%Y%m%d'), commit=branch
+    )
+
+    # TODO use git user instead
+    return _to_statsd_tags(user=user, project=DEFAULT_PACKAGE, version=version, limit=branch)
+
+
+def _release_datadog(user, title, description, tags, dry_run=False):
+    info("initializing Datadog agent...")
+    datadog.initialize(api_key=os.environ['DATADOG_API_KEY'], app_key=os.environ['DATADOG_APP_KEY'])
+
+    info(f"firing event '{title}'\n\tmsg='{description}'\n\ttags={tags}")
+    if dry_run:
+        success('deployment successfully notified on Datadog (DRY RUN)')
+        return
+
+    feedback = datadog.api.Event.create(title=title, text=description, tags=tags)
+    if feedback['status'] == 'ok':
+        success('deployment successfully notified on Datadog')
+    else:
+        fail(f'failed to notify Datadog: {feedback}')
+
+
+def _release_slack(token, user, version, project, dry_run=False):
+    info("initializing Slack webhook...")
+
+    # mirror kp-deployment `deployment-trace` role
+    project_link = SHUB_PROJECT_URLS.get(project, project)
+    channel = '#prod-deploy' if project == 'production' else '#dev-deploy'
+    msg = {
+        'username': 'Deployment done on scrapinghub',
+        'channel': channel,
+        'icon_url': 'https://www.ansible.com/favicon.ico',
+        'attachments': [
+            {
+                'fallback': f'{user} deployed version {version} on {project}',
+                'color': 'good',
+                'text': f'{user} deployed version {version} on {project_link}',
+            }
+        ],
+    }
+
+    if dry_run:
+        success('deployment successfully notified on Slack (DRY RUN)')
+        return
+
+    resp = requests.post(
+        url=f'https://hooks.slack.com/services/{token}',
+        headers={'Content-type': 'application/json'},
+        data=json.dumps(msg),
+    )
+    if resp.ok:
+        success('deployment successfully notified on Slack')
+    else:
+        fail(f'failed to notify Slack: ({resp.status_code} {resp.reason}) {resp.text}')
+
+
+@click.command()
+# TODO default to last commit message
+@click.option('-p', '--project', required=True, help='Scrapinghub project to deploy to')
+@click.option('-u', '--user', default=DEFAULT_USER)
+@click.option('-d', '--dry-run', is_flag=True, default=False, help="don't notify on dd and slack")
+def run(project, user, dry_run):
+    """Notify Datadog/Slack with deployment results for traceability."""
+
+    # sanity check; in case datadog keys are missing
+    datadog_keys = os.environ.get('DATADOG_API_KEY') and os.environ.get('DATADOG_APP_KEY')
+    if not datadog_keys:
+        fail('failed to obtain Datadog tokens: DATADOG_API_KEY, DATADOG_APP_KEY')
+        return
+
+    # build vars for datadog event
+    project = project
+    version = git_last_tag() if project == 'production' else git_head_branch(style='short')
+    title = KP_EVENT_TPL.format(project=project, pkg=DEFAULT_PACKAGE, commit=version, user=user)
+    text = git_last_commit_msg()
+    tags = release_tags(user)
+    _release_datadog(user, title, text, tags, dry_run)
+
+    # sanity check; in case slack keys are missing
+    slack_hook = os.environ.get('SLACK_MONITORING_HOOK')
+    if not slack_hook:
+        fail('failed to obtain Slack token: SLACK_MONITORING_HOOK')
+        return
+
+    # deployment trace on slack
+    if project == 'production':
+        version = git_last_tag()
+        version = _to_slack_link(COMMIT_TAG_TPL.format(tag=version), version)
+    else:
+        version = git_head_branch(style='short')
+    _release_slack(slack_hook, user, version, project, dry_run)
+
+
+if __name__ == '__main__':
+    run()
