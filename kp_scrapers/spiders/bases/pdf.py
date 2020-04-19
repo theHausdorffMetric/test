@@ -87,7 +87,8 @@ class PdfSpider(Spider):
         data_path = os.path.join(self.data_path, filename)
 
         # even if file exists, it will be overwritten
-        open(data_path, 'wb').write(content)
+        with open(data_path, 'wb') as fout:
+            fout.write(content)
         self.logger.info('Saved new file %s', filename)
 
     def generate_filename(self, body):

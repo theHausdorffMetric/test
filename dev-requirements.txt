@@ -17,3 +17,4 @@ pre-commit
 shub
 sphinx
 sphinx_rtd_theme
+parse
