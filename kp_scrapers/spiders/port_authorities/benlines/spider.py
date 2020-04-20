@@ -1,17 +1,18 @@
 import datetime as dt
 import logging
-import json
+from typing import Any, Dict, List
 
-from scrapy import Spider
+from parse import compile
 
-from kp_scrapers.lib.parser import may_strip, row_to_dict
 from kp_scrapers.models.normalize import DataTypes
+from kp_scrapers.models.port_call import CargoMovement
+from kp_scrapers.models.normalize import DataTypes
+from kp_scrapers.models.utils import validate_item
 from kp_scrapers.spiders.bases.pdf import PdfSpider
 from kp_scrapers.spiders.port_authorities import PortAuthoritySpider
 from kp_scrapers.spiders.port_authorities.benlines import normalize
-from parse import compile
-
-from kp_scrapers.spiders.port_authorities.benlines import schema
+from kp_scrapers.models.utils import validate_item
+from kp_scrapers.models.port_call import PortCall
 
 logger = logging.getLogger(__name__)
 
@@ -20,12 +21,12 @@ tabula_options_2 = {'--guess': [], '--stream': [], '--pages': ['all'], '--lattic
 
 
 class BenlinesSpider(PortAuthoritySpider, PdfSpider):
-    name = 'BenlinesVadinar'
-    provider = 'BenlinesVadinar'
-    version = '1.3.1'
+    name = 'Benlines'
+    provider = 'Benlines'
+    version = '0.0.1'
     produces = [DataTypes.PortCall, DataTypes.Vessel, DataTypes.Cargo]
 
-    start_urls = ['https://benline.co.in/VPR/DailyReport/']
+    start_urls = ['https://benline.co.in/VPR/DailyReport/VPR-08-04-2020.PDF']
 
     def parse(self, response):
         """
@@ -36,13 +37,7 @@ class BenlinesSpider(PortAuthoritySpider, PdfSpider):
             Dict[str, str]:
 
         """
-        # memoise reported_date so it won't need to be called repeatedly
-        reported_date = (
-            dt.datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
-        )
-
-        logger.info(f"reported date : {reported_date}")
-        yield from self.extract_from_vessels_forecast(response.body)
+        yield from self.extract_port_data(response.body)
 
     def extract_port_names(self, data):
         """Extract port names from report.
@@ -78,35 +73,78 @@ class BenlinesSpider(PortAuthoritySpider, PdfSpider):
                 return None
 
         port_names = [f for f in [f(all_rows[index + 2][0]) for index in start_port_indexes] if f]
+        logger.info(f"found {len(port_names)} ports")
         return port_names
 
     def extract_port_data(self, data):
         port_names_iter = iter(p for p in self.extract_port_names(data))
         all_rows = self.extract_pdf_io(data, **tabula_options_2)
         current_port_name = None
-        current_table_id = None
-        output = {}
+        current_table_label = None
+        current_table_col_names = None
+        current_item = {}
+        reported_date = dt.datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
 
         row_iter = (r for r in all_rows)
         for row in row_iter:
-            id = schema.table_id_of_label(row[0])
-            if id and id != current_table_id:
-                current_table_id = id
-                #print(f">>> table is now {current_table_id}")
-
-                if id == schema.BenlineTableEnum.LOADING:
+            if is_row_a_table_label(row):
+                if is_row_a_new_port(row):
                     current_port_name = next(port_names_iter)
-                    output[current_port_name] = {}
-                    print(f">>> port is now {current_port_name} ; {len(output.keys())}")
-
-                output[current_port_name][current_table_id] = []
-                next(row_iter)
+                    #print(f">>> port is now {current_port_name}")
+                current_table_label = row[0]
+                #print(f">>> table is now {current_table_label}")
+                current_table_col_names = next(row_iter)
+                #print(f">>> col names {current_table_col_names}")
                 continue
 
-            #print(row)
-            output[current_port_name][current_table_id].append(row)
+            # print(row)
+            #logger.info(row)
+            current_item = {
+                'provider_name': self.provider,
+                'port_name': current_port_name,
+                'reported_date': reported_date,
+                'table_label':current_table_label
+            }
+            for (k, v) in zip(current_table_col_names, row):
+                current_item.update({k: v})
+
+            yield normalize.process_item(current_item)
 
 
-        #print(output)
+def is_row_a_table_label(row: List[str]) -> bool:
+    """
+    the parsing of the pdf file returns a list of rows
+    where table name, column names and data are all rows
 
-        return output
+    Args:
+        a row in the pdf file
+
+    Returns:
+        True if this row is a table label
+
+    """
+    label = row[0]
+    if label == 'VESSELS AT BERTH FOR  LOADING' \
+            or label == 'VESSELS AT BERTH FOR  DISCHARGE' \
+            or label == 'VESSELS WAITING FOR BERTH' \
+            or label == 'VESSELS EXPECTED TO ARRIVE PORT':
+        return True
+    return False
+
+
+def is_row_a_new_port(row: List[str]) -> bool:
+    """
+    the parsing of the pdf file returns a list of rows
+    where table name, column names and data are all rows
+
+    Args:
+        a row in the pdf file
+
+    Returns:
+        True if this row shows
+
+    """
+    label = row[0]
+    if label == 'VESSELS AT BERTH FOR  LOADING':
+        return True
+    return False

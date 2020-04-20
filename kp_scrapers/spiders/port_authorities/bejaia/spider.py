@@ -7,6 +7,8 @@ from kp_scrapers.models.normalize import DataTypes
 from kp_scrapers.spiders.port_authorities import PortAuthoritySpider
 from kp_scrapers.spiders.port_authorities.bejaia import normalize
 
+import logging
+logger = logging.getLogger(__name__)
 
 class BejaiaSpider(PortAuthoritySpider, Spider):
 
@@ -40,6 +42,8 @@ class BejaiaSpider(PortAuthoritySpider, Spider):
         reported_date = (
             dt.datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0).isoformat()
         )
+
+        logger.info(f"JJJJJJJJJJJJJJ {self.provider}")
 
         # each index corresponds to the vessel movement type in the table
         # 0: attendus

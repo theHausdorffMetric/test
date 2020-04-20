@@ -1,116 +1,106 @@
 import logging
+from typing import List, Dict, Callable
+from parse import compile
 
 from kp_scrapers.lib.date import to_isoformat
 from kp_scrapers.lib.parser import may_strip
 from kp_scrapers.lib.utils import ignore_key, map_keys
 from kp_scrapers.models.port_call import PortCall
+from kp_scrapers.models.cargo import Cargo
 from kp_scrapers.models.utils import validate_item
-
 
 logger = logging.getLogger(__name__)
 
-IRRELEVANT_PRODUCT = ['BARGES', 'DIVERS', 'NEANT', 'PASSAGERS', 'TCS', 'TRANSIT']
+tf_type = Callable[[str], str]
 
-RELEVANT_VESSEL_TYPES = [
-    'CARGO',
-    'CEREALIER',
-    'GAZIER',
-    'HUILIER',
-    'NAVIRE SUCRE',
-    'PETROLIER',
-    'SUCRE',
-]
+def remove_endline_dec(g: tf_type) -> tf_type:
+    def f(s: str) -> str:
+        s = s.replace("\n", " ")
+        return g(s)
+
+    return f
 
 
-@validate_item(PortCall, normalize=True, strict=False)
-def process_item(raw_item):
-    """Transform raw item into a usable event.
-
-    Args:
-        raw_item (Dict[str, str]):
-
-    Returns:
-        ArrivedEvent | BerthedEvent | EtaEvent:
-
-    """
-    item = map_keys(raw_item, portcall_mapping())
-
-    # discard vessels with irrelevant types
-    if not item.pop('vessel_type'):
-        logger.info(
-            f"Vessel {item['vessel_name']} has an irrelevant type {raw_item['TYPE']}, " "discarding"
-        )
-        return
-
-    # discard vessels with irrelevant cargoes
-    if is_placeholder(item) or not item['cargoes']:
-        logger.info(f'Vessel {item["vessel_name"]} has irrelevant cargo, discarding')
-        return
-
-    # build Vessel sub-model
-    item['vessel'] = {'name': item.pop('vessel_name'), 'imo': item.pop('vessel_imo')}
-
-    return item
+def remove_endline(s):
+    s = s.replace("\n", " ")
+    return s
 
 
 def portcall_mapping():
     return {
-        'ACCOSTAGE': ('berthed', to_isoformat),
-        'AGENT': ignore_key('shipping agent'),
-        'D.H.R': ('arrival', to_isoformat),
-        'E.T.A': ('eta', to_isoformat),
-        'MARCHANDISE': ('cargoes', lambda x: list(normalize_product(x))),
-        'NAVIRE': ('vessel_name', may_strip),
+        'Vessel Name': ('vessel_name', remove_endline_dec(may_strip)),
+        'arrival': ('arrival', None),
+        'berthed': ('berthed', None),
+        'cargoes':('cargoes',None),
+        'Berth Name': ('berth', remove_endline),
         'port_name': ('port_name', None),
-        'POSTE': ignore_key('post'),
-        'PROVENANCE': ignore_key('previous zone'),
         'provider_name': ('provider_name', None),
-        'RECEPTIONNAIRE': ignore_key('receiver'),
-        'reported_date': ('reported_date', None),
-        'T.E.D': ignore_key('draught on arrival'),
-        'TONNAGE': ignore_key('we cannot use volume since there is no corresponding movement'),
-        'TYPE': ('vessel_type', lambda x: x if x in RELEVANT_VESSEL_TYPES else None),
-        'vessel_imo': ('vessel_imo', None),
+        'reported_date': ('reported_date', lambda x: to_isoformat(x, dayfirst=True)),
     }
 
+def normalize_movement(s):
+    if s=="D":
+        return "discharge"
+    elif s=="L":
+        return "load"
+    return None
 
-def normalize_product(raw_product):
-    """Normalize raw product and build a Cargo model.
+pattern = compile("{}-{}/{:f}")
 
-    Note that we don't use the volume provided by the source as there is no
-    corresponding movement.
+@validate_item(Cargo, normalize=True, strict=False)
+def process_cargo_item(data:str) -> Dict[str, str]:
+    try:
+        data=data.strip()
+        result = pattern.parse(data)
 
-    Args:
-        raw_product (str):
+        return {
+            'movement':normalize_movement(result[0]),
+            'product':result[1],
+            'volume':str(result[2]),
+            'volume_unit':'meter',
+        }
+    except :
+        print(data)
+        assert (False)
+        # movement = StringType(metadata='build year of vessel', validators=[is_valid_cargo_movement])
+    # product = StringType(metadata='name of cargo')
+    # volume = StringType(metadata='absolute quantity of cargo', validators=[is_valid_numeric])
+    # volume_unit = StringType(
+    #     metadata='unique numeric identifier of vessel', choices=[value for _, value in Unit]
+    # )
 
-    Returns:
-        Dict[str, str]:
+def process_cargo_list_items(data:str) -> List[Dict[str,str]]:
+    data = remove_endline(data)
+    l = data.split(",")
+    return [process_cargo_item(i) for i in l if i]
+
+
+@validate_item(PortCall, normalize=True, strict=True)
+def process_item(raw_item: Dict[str, str]) -> Dict[str, str]:
+    """Transform raw item into a usable event.
 
     """
-    # discard irrelevant products
-    if not raw_product or any(alias in raw_product for alias in IRRELEVANT_PRODUCT):
-        return
+    table_label = raw_item['table_label']
+    if table_label == 'VESSELS EXPECTED TO ARRIVE PORT':
+        eta = raw_item.pop('ETA')
+        raw_item['arrival'] = to_isoformat(eta, dayfirst=True)
+        raw_item['cargoes'] = process_cargo_list_items(raw_item['Activity / Cargo / Quantity'])
+    elif table_label == 'VESSELS AT BERTH FOR  LOADING':
+        etc = raw_item.pop('Arrival Date')
+        raw_item['berthed'] = to_isoformat(etc, dayfirst=True)
+        raw_item['cargoes'] = process_cargo_list_items(raw_item['Activity / Cargo / Quantity'])
+    elif table_label == 'VESSELS AT BERTH FOR  DISCHARGE':
+        etc = raw_item.pop('Berth Date')
+        raw_item['berthed'] = to_isoformat(etc, dayfirst=True)
+        raw_item['cargoes'] = process_cargo_list_items(raw_item['Activity / Cargo / Quantity'])
+    elif table_label == 'VESSELS WAITING FOR BERTH':
+        etc = raw_item.pop('Arrival Date')
+        raw_item['arrival'] = to_isoformat(etc, dayfirst=True)
+        raw_item['cargoes'] = process_cargo_list_items(raw_item['Activity / Cargo / Quantity'])
+    else:
+        logger.error(f"unexpected label {table_label}")
 
-    for product in [may_strip(prod) for prod in raw_product.split('+')]:
-        yield {'product': product}
+    item = map_keys(raw_item, portcall_mapping())
+    item['vessel'] = {'name': item.pop('vessel_name')}
 
-
-def is_placeholder(item):
-    """Check if vessel name is actually a placeholder and not an actual vessel.
-
-    Sometimes, the website will display a row in the table with the vessel "FIXIN"
-    with an IMO of "2222222" (clearly a placeholder).
-
-    For example:
-    https://www.portdeBenlinesVadinar.dz/components/com_jumi/files/navire_e.php?ship=2222222
-
-    TODO monitor for other possible placeholders
-
-    Args:
-        item (Dict[str, str]):
-
-    Returns:
-        bool: True if vessel is a placeholder
-
-    """
-    return True if item['vessel_name'] == 'FIXIN' or item['vessel_imo'] == '2222222' else False
+    return item
