@@ -9,7 +9,6 @@ import logging
 from pathlib import Path
 
 from kp_scrapers.spiders.port_authorities.benlines.spider import BenlinesSpider
-from kp_scrapers.spiders.port_authorities.benlines import schema
 
 from tests._helpers.mocks import fixtures_path
 logger = logging.getLogger(__name__)
@@ -17,8 +16,7 @@ logger = logging.getLogger(__name__)
 
 class BenlinesTestCase(TestCase):
 
-    def test_0(self):
-        logger.setLevel("INFO")
+    def test_first_pass_port_names(self):
         name = "VPR-08-04-2020.PDF"
         filename = fixtures_path('port_authorities', 'benlines', name)
         content = Path(filename).read_bytes()
@@ -38,16 +36,48 @@ class BenlinesTestCase(TestCase):
         spider = BenlinesSpider()
 
         port_names = spider.extract_port_names(content)
-        data = spider.extract_port_data(content)
-        keys = sorted(data.keys())
-        self.assertEqual(keys[38],"VADINAR")
-        self.assertIsNotNone(data.get("VADINAR",None))
-        self.assertListEqual(sorted(port_names),sorted(list(data.keys())))
-        self.assertEqual(40,len(data.keys()))
+        rows = spider.extract_port_data(content)
 
-        self.assertEqual(data["BEDI(INCL. ROZI-JAMNAGAR)"][schema.BenlineTableEnum.ARRIVE][0][0],"CLIPPER BAROLO")
-        self.assertEqual(data["MUMBAI (JNPT)"][schema.BenlineTableEnum.LOADING][0][0],"JAG VIJAYA")
+        data={}
+        for row in rows:
+            data[row["vessel"]["name"]] = row
 
-        self.assertEqual(data["GANGAVARAM"][schema.BenlineTableEnum.DISCHARGE][0][0],"AQUAEXPLORER")
+        print(data)
 
+        #     port_name=row[0]
+        #     table_id=row[1]
+        #     info=row[2]
+        #     if data.get(port_name,None) is None:
+        #         data[port_name] = {}
+        #     if data[port_name].get(table_id,None) is None:
 
+        #self.assertListEqual(sorted(port_names),sorted(list(data.keys())))
+        self.assertEqual(566,len(data.keys()))
+
+        d=data["CERVIA"]
+        self.assertEqual("SANDHEAD ANCHORAGE",d["berth"])
+
+        d=data["WEI LUN JU LONG"]
+        self.assertEqual("8",d["berth"])
+        self.assertEqual("discharge",d["cargoes"][0]["movement"])
+        self.assertEqual("COKING COAL",d["cargoes"][0]["product"])
+        self.assertEqual(26803,float(d["cargoes"][0]["volume"]))
+
+        d=data["JAG PRABHA"]
+        self.assertEqual("Q4",d["berth"])
+        self.assertEqual(2,len(d["cargoes"]))
+        self.assertEqual("discharge",d["cargoes"][1]["movement"])
+        self.assertEqual("HIGH SPEED DIESEL (HSD )",d["cargoes"][1]["product"])
+        self.assertEqual(8000,float(d["cargoes"][1]["volume"]))
+
+        d=data["FRANCESCO CORRADO"]
+        self.assertEqual("discharge",d["cargoes"][0]["movement"])
+        self.assertEqual("STEAM COAL",d["cargoes"][0]["product"])
+        self.assertEqual(71619.540,float(d["cargoes"][0]["volume"]))
+
+        d=data["JAOHAR RANIM"]
+        self.assertEqual("CJ-2",d["berth"])
+        self.assertEqual(2,len(d["cargoes"]))
+        self.assertEqual("load",d["cargoes"][1]["movement"])
+        self.assertEqual("SUGAR",d["cargoes"][1]["product"])
+        self.assertEqual(0,float(d["cargoes"][1]["volume"]))

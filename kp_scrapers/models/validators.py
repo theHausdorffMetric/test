@@ -113,11 +113,13 @@ def is_valid_numeric(candidate):
         ValidationError: ["Volume/Speed is not a numeric: foobar"]
 
     """
-    if not try_apply(candidate, float, int):
+    try:
+        try_apply(candidate, float, int)
+        if float(candidate) < 0:
+            raise ValidationError('Value must be a positive value')
+        return candidate
+    except:
         raise ValidationError('Value is not numeric: {}'.format(candidate))
-    if float(candidate) < 0:
-        raise ValidationError('Value must be an absolute value')
-    return candidate
 
 
 def is_valid_rate(candidate):
