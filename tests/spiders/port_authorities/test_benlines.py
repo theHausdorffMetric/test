@@ -81,3 +81,15 @@ class BenlinesTestCase(TestCase):
         self.assertEqual("load",d["cargoes"][1]["movement"])
         self.assertEqual("SUGAR",d["cargoes"][1]["product"])
         self.assertEqual(0,float(d["cargoes"][1]["volume"]))
+
+        d=data["LPG/C BERLIAN EKUATOR"]
+        self.assertEqual(2,len(d["cargoes"]))
+        self.assertEqual("discharge",d["cargoes"][1]["movement"])
+        self.assertEqual("BUTANE",d["cargoes"][1]["product"])
+        self.assertEqual(9982,float(d["cargoes"][1]["volume"]))
+
+        d=data["STOLT PONDO"]
+        self.assertEqual(1,len(d["cargoes"]))
+        self.assertEqual("discharge",d["cargoes"][0]["movement"])
+        self.assertEqual("PALM FATTY ACID",d["cargoes"][0]["product"])
+        self.assertEqual(29499,float(d["cargoes"][0]["volume"]))
