@@ -57,7 +57,7 @@ def process_cargo_item(data:str) -> Dict[str, str]:
             'movement':normalize_movement(result[0]),
             'product':result[1],
             'volume':str(result[2]),
-            'volume_unit':'meter',
+            'volume_unit':"tons",
         }
     except :
         print(data)

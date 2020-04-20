@@ -26,7 +26,11 @@ class BenlinesSpider(PortAuthoritySpider, PdfSpider):
     version = '0.0.1'
     produces = [DataTypes.PortCall, DataTypes.Vessel, DataTypes.Cargo]
 
-    start_urls = ['https://benline.co.in/VPR/DailyReport/VPR-08-04-2020.PDF']
+    day = dt.datetime.utcnow().day
+    month = dt.datetime.utcnow().month
+    year = dt.datetime.utcnow().year
+
+    start_urls = [f'https://benline.co.in/VPR/DailyReport/VPR-{day:02d}-{month:02d}-{year:4d}.PDF']
 
     def parse(self, response):
         """
