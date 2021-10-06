@@ -33,7 +33,7 @@ scrapy-dotpersistence==0.3.0
 scrapy-history==0.10.7
 scrapy-job-parameters==0.1.10
 scrapy-magicfields==1.1.0
-scrapy-splash==0.7.2
+scrapy-splash==0.8.0
 semver==2.7.9
 sentry-sdk==0.13.0
 slackclient==1.2.1
