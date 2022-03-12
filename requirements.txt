@@ -13,7 +13,7 @@ googletrans==2.4.0
 lxml==4.5.0
 msoffcrypto-tool==4.10.0
 pandas==0.25.2
-pillow==6.2.2
+pillow==9.0.1
 psycopg2==2.7.3.2
 pyarrow==0.15.0  # NOTE doesn't support py3.8 yet, see https://github.com/apache/arrow/issues/5987#issuecomment-574923452
 pysimplesoap==1.10
