@@ -10,7 +10,7 @@ emoji==0.5.1
 furl==1.2.1
 google-api-python-client==1.6.2
 googletrans==2.4.0
-lxml==4.5.0
+lxml==4.9.1
 msoffcrypto-tool==4.10.0
 pandas==0.25.2
 pillow==6.2.2
